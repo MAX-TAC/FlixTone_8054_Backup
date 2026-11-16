@@ -125,4 +125,47 @@ with SUPER.open("rb") as f:
             for name,attr,first,num,nbytes,pext,suff in parts:
                 if not re.fullmatch("[A-Za-z0-9_.-]{1,36}",name):continue
                 print(" ",name,"size MiB",round(nbytes/1048576,2),"attrs",attr,"extents",num,"slot_suffixed",suff)
+
+print("\n=== Exact U-Boot environment triggers: safe, key-restricted inspection ===")
+env=(DEST/"uenv.img").read_bytes()
+boot=(DEST/"mboot_a.img").read_bytes().lower()
+known=("bootcmd","bootdelay","auto_upgrade","upgrade_cmd","verify","devicestate","recoverycmd","boot_targets","bootmenu_0","bootmenu_delay","boot_mode","bootmode")
+for key in known:
+    bkey=key.encode("ascii")+b"="
+    m=re.search(rb"(?:^|\x00)"+re.escape(bkey)+rb"([^\x00]{0,1024})\x00",env,re.I)
+    if not m:
+        print(" env",key,"not found as zero-delimited key=value")
+        continue
+    val=m.group(1).decode("ascii",errors="replace").lower()
+    if key in ("bootdelay","verify","devicestate","auto_upgrade") and re.fullmatch(r"(?:0|1|2|3|4|5|6|7|8|9|10|lock|locked|unlock|unlocked|yes|no|y|n|true|false|on|off)",val):
+        print(" env",key,"=",val)
+    else:
+        print(" env",key,"present, byte-length",len(val),
+              "has_usb_upgrade",("mtkupgrade" in val or "usb upgrade" in val),
+              "has_pkg",("upgrade_image.pkg" in val),
+              "has_recovery",("recovery" in val),
+              "has_fastboot",("fastboot" in val),
+              "has_normal_boot",("bootm" in val or "booti" in val))
+print(" bootloader has exact full 'mtkupgrade usb upgrade_image.pkg' command:",
+      b"mtkupgrade usb upgrade_image.pkg" in boot)
+print(" bootloader has USB reset + upgrade within 256 bytes:",
+      any((b"usb reset" in boot[max(0,p-256):p+256] or b"usb start" in boot[max(0,p-256):p+256])
+          for p in [m.start() for m in re.finditer(b"mtkupgrade",boot)]))
+
+print("\n=== Super partition filesystem signatures ===")
+with SUPER.open("rb") as f:
+    for name,attrs,first,num,nbytes,ex,suff in (md[2] if geo and md else []):
+        if not ex or not nbytes or not re.fullmatch(r"(system|vendor|system_ext|product)_[ab]",name):
+            continue
+        target=ex[0]
+        if target[1]!=0:continue
+        off=target[2]*512
+        f.seek(off); data=f.read(2048)
+        if len(data)<2048:continue
+        fstype=("EROFS" if data[1024:1028]==bytes.fromhex("e2e1f5e0") else
+                "EXT4" if data[1080:1082]==bytes.fromhex("53ef") else
+                "SQUASHFS" if data[:4]==b"hsqs" else
+                "UNKNOWN")
+        print(" ",name,"filesystem",fstype,"start offset bytes",off)
+
 print("DONE read-only; unique factory images were NOT extracted or uploaded.",flush=True)
