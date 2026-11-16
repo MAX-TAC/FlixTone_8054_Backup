@@ -1,0 +1,40 @@
+name: Deep offline D11 8054 stock EROFS and Mboot analysis
+on:
+  push:
+    paths:
+      - 'tools/deep_audit_8054_stock.py'
+      - '.github/workflows/deep-audit-8054-stock.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install read-only EROFS filesystem reader
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq erofs-utils
+          fsck.erofs --help | head -30
+      - name: Download private draft ZIP from same repository
+        run: |
+          set -euo pipefail
+          gh api repos/MAX-TAC/FlixTone_8054_Backup/releases/447166291 --jq '.draft'
+          gh release download FlixTone_8054_Backup \
+            --repo MAX-TAC/FlixTone_8054_Backup \
+            --pattern FlixTone_8054_Backup.zip --dir /tmp
+          test "$(stat -c %s /tmp/FlixTone_8054_Backup.zip)" -eq 2011878129
+          sha256sum /tmp/FlixTone_8054_Backup.zip | grep -i '^4f53f2224c98b4c832a19a591b9dd7f925bde28528b5674a09732c0f0e41d362 '
+      - name: Read-only extract validated Mboot Uenv Super from ZIP
+        run: |
+          set -euo pipefail
+          python3 tools/inspect_8054_draft_safely.py /tmp/FlixTone_8054_Backup.zip
+      - name: Unpack exact Android EROFS partitions and audit updater / U-Boot implementation
+        run: |
+          set -euo pipefail
+          python3 tools/deep_audit_8054_stock.py
