@@ -1,0 +1,29 @@
+name: Audit exact 8054 Mboot fastboot and AVB unlock support (offline)
+on:
+  push:
+    paths:
+      - 'tools/inspect_8054_mboot_avb_unlock.py'
+      - '.github/workflows/inspect-8054-mboot-avb-unlock.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download the owner's unchanged draft ZIP
+        run: |
+          set -euo pipefail
+          gh release download FlixTone_8054_Backup \
+            --repo MAX-TAC/FlixTone_8054_Backup \
+            --pattern FlixTone_8054_Backup.zip --dir /tmp
+          test "$(stat -c %s /tmp/FlixTone_8054_Backup.zip)" -eq 2011878129
+          echo 'ZIP downloaded'
+      - name: Inspect U-Boot fastboot and AVB unlock without writing to hardware
+        run: |
+          set -euo pipefail
+          python3 tools/inspect_8054_mboot_avb_unlock.py /tmp/FlixTone_8054_Backup.zip
