@@ -118,4 +118,43 @@ for key in ("bootcmd","recoverycmd","bootdelay","verify","devicestate","usb_upgr
             s="<redacted for device privacy>"
         print("  ENV",key,"=",s[:270],flush=True)
     else:print("  ENV",key,"=<absent>",flush=True)
+
+print("\n### Compare APK signing certificates against PUBLIC AOSP platform test certificate")
+platform=pathlib.Path("/tmp/aosp-platform.x509.pem")
+baseline=None
+if platform.exists():
+    r=subprocess.run(["openssl","x509","-in",str(platform),"-outform","DER"],capture_output=True)
+    if r.returncode==0:
+        baseline=hashlib.sha256(r.stdout).hexdigest()
+        print("AOSP platform.x509.pem sha256",baseline,flush=True)
+wanted={"KuSettings","KuSourceRJ","RuiAutoFocus","trdservice","trdmiddle",
+        "TvSettingsPlus","RuiYunOta","KeystoneCorrection","zxlauncher",
+        "zxstore","Provision","Factory","LiveTV","TvServices",
+        "TrdFactoryTest","FTAirplayWireless","SystemUI"}
+for part in ("system_a","vendor_a","system_ext_a","product_a"):
+    tree=OUT/(part+"_tree")
+    for apk in sorted(tree.rglob("*.apk")) if tree.exists() else []:
+        if apk.stem not in wanted:continue
+        try:
+            ret=subprocess.run(["apksigner","verify","--print-certs",str(apk)],
+                               capture_output=True,text=True,timeout=60)
+        except Exception as e:
+            print(" APK",apk.stem,"ERROR",repr(e)[:120]);continue
+        match=re.search(r"Signer #1 certificate SHA-256 digest:\s*([0-9a-fA-F]+)",ret.stdout)
+        if not match:
+            print(" APK",apk.stem,"signature error:",(ret.stderr+"\n"+ret.stdout)[-240:],flush=True)
+            continue
+        h=match.group(1).lower()
+        print(" APK",apk.stem,"SHA256",h,
+              "MATCH_AOSP_PLATFORM",h==baseline if baseline else "unknown",
+              "VALID",ret.returncode==0,flush=True)
+
+print("\n### Additional bootloader acceptance strings (presence only)")
+sigterms=["hashset","verify pkg","pkg hash","signature","rsa","signed","rsa_verify",
+          "secure boot","pkg version","older than current","automatic upgrade",
+          "usb_auto_upgrade","check_usb_auto_upgrade","fastboot flashing","fastboot oem"]
+low=(root/"mboot_a.img").read_bytes().lower()
+for term in sigterms:
+    print(" BOOTLOADER",repr(term),"count",low.count(term.encode()),flush=True)
+
 print("\nFinished offline stock build inspection. NO flashing or installation.")

@@ -19,8 +19,10 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update -qq
-          sudo apt-get install -y -qq erofs-utils
+          sudo apt-get install -y -qq erofs-utils apksigner openssl
           fsck.erofs --help | head -30
+          curl -fsSL --retry 3 https://raw.githubusercontent.com/aosp-mirror/platform_build/master/target/product/security/platform.x509.pem -o /tmp/aosp-platform.x509.pem
+          openssl x509 -in /tmp/aosp-platform.x509.pem -noout -subject
       - name: Download private draft ZIP from same repository
         run: |
           set -euo pipefail
