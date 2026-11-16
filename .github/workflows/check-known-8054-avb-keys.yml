@@ -1,0 +1,31 @@
+name: Check live AVB root key vs public known Android test-key corpus
+on:
+  push:
+    paths:
+      - 'tools/check_known_8054_avb_keys.py'
+      - '.github/workflows/check-known-8054-avb-keys.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch only private draft vbmeta IMG and public test key corpus
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/oem
+          gh release download FlixTone_8054_Backup \
+            --repo MAX-TAC/FlixTone_8054_Backup \
+            --pattern vbmeta_a.img --dir /tmp/oem
+          test "$(stat -c %s /tmp/oem/vbmeta_a.img)" -eq 1048576
+          sha256sum /tmp/oem/vbmeta_a.img | grep -i '^0131481e6ac5533de54c3cc6a052d149ba135d2195fd31242f18bbb2a893eb19 '
+          git clone -q --depth 1 https://github.com/nccgroup/test_avb_key.git /tmp/known-avb
+      - name: Compare RSA4096 public moduli without modifying projector
+        run: |
+          set -euo pipefail
+          python3 tools/check_known_8054_avb_keys.py /tmp/oem/vbmeta_a.img /tmp/known-avb
