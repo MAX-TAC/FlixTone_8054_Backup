@@ -136,6 +136,73 @@ for target in targets:
             shown.add(k)
             add(f'  {k+1}: {arr[k].strip()[:350]}')
 
+
+add('')
+add('## Extended security and functional mapping')
+fullmanifest=subprocess.run(['aapt','dump','xmltree',str(factory),'AndroidManifest.xml'],capture_output=True,text=True,timeout=90).stdout
+for row in fullmanifest.splitlines():
+    if re.search(r'android:(sharedUserId|exported|permission|process|authorities|enabled|name|protectionLevel)',row):
+        add('  '+row.strip()[:270])
+add('')
+add('## Every MediaTek Factory UI class and direct platform calls')
+ui_root=src/'mediatek/tvsetting/factory/ui'
+danger=re.compile(r'Runtime\.getRuntime\(\)\.exec|ProcessBuilder|SystemProperties\.(?:set|get)|Settings\.(?:Global|System|Secure)\.|\.sendBroadcast\(|\.startService\(|\.bindService\(|\.startActivity\(|setFactory|restoreToFactory|factoryReset|setWatchDog|setUart|setDolbyDapParam|setPEQEnable|setPeq|updatePq|saveAudioIni|MtkTvFApi|i2c\(|getI2c|setI2c|exec\(|\.setSource|\.setInput|setPicture|setMemc|\.set.*Calibration|\\.erase|\\.delete',re.I)
+ui_files=sorted(ui_root.rglob('*.java'))
+add(f'UI package total Java classes: {len(ui_files)}')
+for javafile in ui_files:
+    rel=javafile.relative_to(src)
+    arr=javafile.read_text(errors='replace').splitlines()
+    if any('/R.java' in str(rel) or '/BuildConfig.java' in str(rel) for _ in [0]):continue
+    calls=[(i+1,line.strip()) for i,line in enumerate(arr) if danger.search(line)]
+    decl=[(i+1,line.strip()) for i,line in enumerate(arr) if re.search(r'^\s*(public|private|protected)\s+(static\s+)?[\w<>, .\[\]?]+\s+\w+\s*\([^;]*\)\s*(?:throws [^{]+)?\s*\{',line)]
+    if not calls and not decl:continue
+    add('### '+str(rel)+f' — {len(arr)} lines, {len(calls)} API/callsite matches')
+    for i,line in decl[:28]:add(f'   method L{i}: {line[:205]}')
+    for i,line in calls[:45]:
+        # Do not log content that may include embedded secrets or certificates
+        if '-----BEGIN' in line or 'PRIVATE KEY' in line:continue
+        add(f'   call L{i}: {line[:315]}')
+add('')
+add('## Entire implementation for small but security-sensitive Factory classes')
+for target in (
+ 'mediatek/tvsetting/factory/ui/ApiService.java',
+ 'mediatek/tvsetting/factory/ui/ProjectorManager.java',
+ 'mediatek/tvsetting/factory/ui/FactoryIntent.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryDolbyActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryDTSActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryUpgradeUrsaFwActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryKeyUpgradeActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryInstallQdaActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryInstallFvpIntermediateKeyActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryMemcActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryPqUpdateActivity.java',
+ 'mediatek/tvsetting/factory/ui/factorymenu/InfoViewHolder.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/PanelInfoViewHolder.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/SSCAdjustViewHolder.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/TestPatternViewHolder.java',
+):
+    ff=src/target
+    if not ff.exists():continue
+    contents=ff.read_text(errors='replace').splitlines()
+    add('### '+target+f' ({len(contents)} lines)')
+    for i,line in enumerate(contents[:270],1):
+        if '-----BEGIN' in line or 'PRIVATE KEY' in line:continue
+        add(f'  {i}: {line[:300]}')
+add('')
+add('## Focused low-level constants and limits')
+for target in ('com/mediatek/twoworlds/factory/common/MtkTvFApiAudioTypes.java',
+               'com/mediatek/twoworlds/factory/MtkTvFApiAudio.java',
+               'com/mediatek/twoworlds/factory/MtkTvFApiSystem.java',
+               'com/mediatek/twoworlds/factory/MtkTvFApiDisplay.java'):
+    ff=src/target
+    if not ff.exists():continue
+    ar=ff.read_text(errors='replace').splitlines()
+    add('### '+target)
+    rr=re.compile(r'PEQ_|PEQ_ADJUST|Dap|DOLBY|EnumSoundMode|FactoryPower|Factory.*Reset|UART|WatchDog|MFC|MEMC|xvYCC|HDMI_EDID|public (?:int|boolean|void|String|static)',re.I)
+    for i,line in enumerate(ar,1):
+        if rr.search(line):add(f'   L{i}: {line.strip()[:260]}')
+        if i>8000:break
+
 out.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print('FACTORY_APK_BYTES',factory.stat().st_size)
 print('FACTORY_SHA256',hashlib.sha256(factory.read_bytes()).hexdigest())
