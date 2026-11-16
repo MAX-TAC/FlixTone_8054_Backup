@@ -1,0 +1,28 @@
+name: Read-only classify all 8054 PRIVATE_FACTORY partition formats
+on:
+  push:
+    paths:
+      - 'tools/audit_8054_factory_structure.py'
+      - '.github/workflows/audit-8054-factory-structure.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch existing owner's draft backup
+        run: |
+          set -euo pipefail
+          gh release download FlixTone_8054_Backup --repo MAX-TAC/FlixTone_8054_Backup \
+            --pattern FlixTone_8054_Backup.zip --dir /tmp
+          test "$(stat -c %s /tmp/FlixTone_8054_Backup.zip)" -eq 2011878129
+          sha256sum /tmp/FlixTone_8054_Backup.zip | grep -i '^4f53f2224c98b4c832a19a591b9dd7f925bde28528b5674a09732c0f0e41d362 '
+      - name: Parse PRIVATE_FACTORY image layouts without disclosing key material
+        run: |
+          set -euo pipefail
+          python3 tools/audit_8054_factory_structure.py /tmp/FlixTone_8054_Backup.zip
