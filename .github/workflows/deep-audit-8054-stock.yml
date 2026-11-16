@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'tools/deep_audit_8054_stock.py'
+      - 'tools/preflight_8054_tvsettings.py'
       - '.github/workflows/deep-audit-8054-stock.yml'
   workflow_dispatch:
 permissions:
@@ -19,10 +20,16 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update -qq
-          sudo apt-get install -y -qq erofs-utils apksigner openssl
+          sudo apt-get install -y -qq erofs-utils apksigner openssl aapt
           fsck.erofs --help | head -30
           curl -fsSL --retry 3 https://raw.githubusercontent.com/aosp-mirror/platform_build/master/target/product/security/platform.x509.pem -o /tmp/aosp-platform.x509.pem
           openssl x509 -in /tmp/aosp-platform.x509.pem -noout -subject
+      - name: Retrieve public Projector-Soft mod tools for compatibility evaluation
+        run: |
+          set -euo pipefail
+          git clone --quiet --depth=1 -b feature/tvsettingsplus-thermal-telemetry             https://github.com/MAX-TAC/Projector-Soft.git /tmp/projector-soft
+          curl -fsSL --retry 3             https://github.com/iBotPeaches/Apktool/releases/download/v2.11.1/apktool_2.11.1.jar -o /tmp/apktool.jar
+          test -s /tmp/apktool.jar
       - name: Download private draft ZIP from same repository
         run: |
           set -euo pipefail
@@ -40,3 +47,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 tools/deep_audit_8054_stock.py
+      - name: Check OEM 8054 exact APK version and existing smali hook compatibility (never install)
+        run: |
+          set -euo pipefail
+          python3 tools/preflight_8054_tvsettings.py
