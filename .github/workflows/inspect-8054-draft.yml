@@ -1,9 +1,5 @@
 name: Analyze D11 8054 draft backup metadata (read-only; no private files)
 on:
-  push:
-    paths:
-      - 'tools/inspect_8054_draft_safely.py'
-      - '.github/workflows/inspect-8054-draft.yml'
   workflow_dispatch:
 permissions:
   contents: write
