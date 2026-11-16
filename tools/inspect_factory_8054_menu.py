@@ -99,6 +99,43 @@ for part in ('system_a','vendor_a','product_a','system_ext_a'):
         if counts:cross.append((part,str(apk.relative_to(tree)),counts))
 for part,fn,counts in sorted(cross):
     add('- '+part+'/'+fn+': '+', '.join(f'{k} x{n}' for k,n in sorted(counts.items())))
+
+add('')
+add('## Targeted UI handlers and concrete operations (JADX output)')
+targets=[
+ 'mediatek/tvsetting/factory/ui/ApiService.java',
+ 'mediatek/tvsetting/factory/ui/ProjectorManager.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/ExecuteShellActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/DesignMenuActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/PEQAdjustViewHolder.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectDapViewHolder.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/OtherOptionAdjustViewHolder.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryPqUpdateActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryMemcActivity.java',
+ 'mediatek/tvsetting/factory/ui/factorymenu/OtherOptionForFactory.java',
+ 'mediatek/tvsetting/factory/ui/factorymenu/FactoryMenuActivity.java',
+ 'mediatek/tvsetting/factory/ui/factorymenu/FactoryCameraActivity.java',
+ 'mediatek/tvsetting/factory/ui/designmenu/FactoryProgramPresetActivity.java',
+]
+interesting=re.compile(r'Runtime\.getRuntime|\.exec\(|\b(sh|cmd|rm\s|dd\s)|getPEQ|setPEQ|setPeq|getPeq|PeqParam|DapParam|DolbyDap|\.getDap|\.setDap|\.setFactory|FactoryPartition|removeFactory|FactoryPq|PQUpdate|load.*File|\.update|updatePq|setUart|setWatchdog|setWatchDog|setPowerOn|setSource|setHdmi|factorymenu|startActivity|startService|bindService|mGain\d+Val|setAudio|sendBroadcast',re.I)
+for target in targets:
+    f=src/target
+    if not f.exists():continue
+    arr=f.read_text(errors='replace').splitlines()
+    add('### '+target+f' ({len(arr)} total source lines)')
+    # method declarations first
+    declarations=[(i,row.strip()) for i,row in enumerate(arr) if re.search(r'^\s*(public|private|protected)\s+(static\s+)?[\w<>.\[\], ?]+\s+\w+\s*\([^;]*\)\s*(?:throws [^{]+)?\s*\{',row)]
+    add('Method declarations:')
+    for i,row in declarations[:75]:add(f'  {i+1}: {row[:250]}')
+    hits=[i for i,row in enumerate(arr) if interesting.search(row)]
+    add('Selected operation evidence:')
+    shown=set()
+    for i in hits[:100]:
+        for k in range(max(0,i-1),min(len(arr),i+3)):
+            if k in shown:continue
+            shown.add(k)
+            add(f'  {k+1}: {arr[k].strip()[:350]}')
+
 out.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print('FACTORY_APK_BYTES',factory.stat().st_size)
 print('FACTORY_SHA256',hashlib.sha256(factory.read_bytes()).hexdigest())
