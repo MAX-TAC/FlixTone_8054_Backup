@@ -1,0 +1,57 @@
+name: Read-only MediaTek Factory menu static audit 8054
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-mediatek-factory-ui.yml'
+      - 'tools/inspect_factory_8054_menu.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install EROFS and Android inspection tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq erofs-utils aapt apksigner
+      - name: Download verified real FlixTone 8054 owner's original archive
+        run: |
+          set -euo pipefail
+          gh release download FlixTone_8054_Backup --repo MAX-TAC/FlixTone_8054_Backup --pattern FlixTone_8054_Backup.zip --dir /tmp
+          echo "4f53f2224c98b4c832a19a591b9dd7f925bde28528b5674a09732c0f0e41d362  /tmp/FlixTone_8054_Backup.zip" | sha256sum -c -
+      - name: Read-only extract super.img and system vendor product system_ext
+        run: |
+          set -euo pipefail
+          python3 tools/inspect_8054_draft_safely.py /tmp/FlixTone_8054_Backup.zip > /tmp/inspect-super.log
+          python3 tools/deep_audit_8054_stock.py > /tmp/inspect-filesystems.log
+          test -s /tmp/flix8054_erofs/system_ext_a_tree/app/Factory/Factory.apk
+          echo "Exact Factory.apk extracted from original EROFS:"
+          ls -lh /tmp/flix8054_erofs/system_ext_a_tree/app/Factory/Factory.apk
+      - name: Decompile Factory.apk with jadx 1.5.6
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 https://github.com/skylot/jadx/releases/download/v1.5.6/jadx-1.5.6.zip -o /tmp/jadx.zip
+          mkdir -p /tmp/jadx
+          unzip -q /tmp/jadx.zip -d /tmp/jadx
+          chmod +x /tmp/jadx/bin/jadx
+          JAVA_OPTS=-Xmx5g /tmp/jadx/bin/jadx -r -j 4 -d /tmp/factory_src /tmp/flix8054_erofs/system_ext_a_tree/app/Factory/Factory.apk >/tmp/jadx.log 2>&1 || {
+            echo "JADX had warnings, inspect partial sources"
+            tail -n 25 /tmp/jadx.log
+          }
+          test -d /tmp/factory_src/sources
+          find /tmp/factory_src/sources -name '*.java' | wc -l
+      - name: Report factory classes components and references without raw binaries
+        run: |
+          set -euo pipefail
+          python3 tools/inspect_factory_8054_menu.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flix8054-factory-static-report-text-only
+          path: /tmp/factory_report/FactoryMenu_8054_Static_Audit.md
+          retention-days: 14
