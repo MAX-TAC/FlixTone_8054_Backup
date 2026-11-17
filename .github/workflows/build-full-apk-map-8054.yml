@@ -1,0 +1,39 @@
+name: Read-only full 8054 APK manifest inventory
+on:
+  push:
+    paths:
+      - '.github/workflows/build-full-apk-map-8054.yml'
+      - 'tools/create_full_apk_manifest_map.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install AAPT and EROFS tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq erofs-utils aapt apksigner
+      - name: Verify and read-only extract exact user backup
+        run: |
+          set -euo pipefail
+          gh release download FlixTone_8054_Backup --repo MAX-TAC/FlixTone_8054_Backup --pattern FlixTone_8054_Backup.zip --dir /tmp
+          echo "4f53f2224c98b4c832a19a591b9dd7f925bde28528b5674a09732c0f0e41d362  /tmp/FlixTone_8054_Backup.zip" | sha256sum -c -
+          python3 tools/inspect_8054_draft_safely.py /tmp/FlixTone_8054_Backup.zip > /tmp/inspect-super.log
+          python3 tools/deep_audit_8054_stock.py > /tmp/inspect-filesystems.log
+      - name: Exhaustive manifest component and DEX literal map
+        run: |
+          set -euo pipefail
+          python3 tools/create_full_apk_manifest_map.py | tee /tmp/map-summary.log
+          test -s /tmp/fullmap8054/STATIC_APK_DEPENDENCIES_8054.md
+          ls -lh /tmp/fullmap8054
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flix8054-full-apk-manifest-map
+          path: /tmp/fullmap8054/
+          retention-days: 28
