@@ -1,0 +1,27 @@
+name: Validate exact 8054 Factory UI Windows PowerShell collector (parse only)
+on:
+  push:
+    paths:
+      - "tools/collect_8054_mtk_factory_ui_windows.ps1"
+      - ".github/workflows/validate-8054-factory-collector.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  syntax:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse PowerShell source without executing ADB
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          $path = (Resolve-Path "tools/collect_8054_mtk_factory_ui_windows.ps1").Path
+          $null = [System.Management.Automation.Language.Parser]::ParseFile($path, [ref]$tokens, [ref]$errors)
+          if (@($errors).Count -gt 0) {
+            $errors | Format-List
+            throw "PowerShell parser errors"
+          }
+          Write-Output "8054 read-only UI collector: syntax PASS (ADB not called)"
