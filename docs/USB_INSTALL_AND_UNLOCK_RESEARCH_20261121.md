@@ -10,6 +10,40 @@
 4. **Реалистичные способы распространения без ПК**: (a) штатный USB updater с правильно собранным и принятым OEM package, если его подпись/политика позволят; (b) приложение-установщик в загруженной Android через stock signed OTA, если поддержка будет доказана; (c) Android-телефон в роли USB Fastboot host по OTG (**без ПК, но с кабелем и экраном подтверждения**); (d) потенциально U-Boot Fastboot по UDP через LAN — бинарная поддержка есть, рабочая точка входа и security не подтверждены.
 5. **Нельзя публиковать** «флешку, которая автоматически на любом locked-проекторе разблокирует и перезапишет загрузчик» без подтверждения подлинности пакета, согласия владельца, защиты от подмены и контролируемого восстановления. При штатной модели Android разблокировка должна сопровождаться подтверждением владельца и может стирать user data.
 
+## Дополнительная проверка точного MBOOT (GitHub Actions) — **найдено настоящее имя TXT-файла**
+
+21.11.2026 выполнена новая read-only офлайн-проверка [GitHub Actions #44944317009](https://github.com/MAX-TAC/FlixTone_8054_Backup/actions/runs/44944317009) с инспектором [`tools/audit_8054_usb_upgrade_script_hints.py`](../tools/audit_8054_usb_upgrade_script_hints.py). Оригинальный `mboot_a.img` предварительно сопоставлен с SHA256 `ebf9a0adef859f568d792d182f4ace08d026a27dc7f322bab735c67b07cd34c1`.
+
+**Новые дословные сообщения из exact MBOOT:**
+
+```text
+Script format default file name is /usb_auto_update.txt
+PKG format default file name is /MTKUpgrade.bin
+- ex: mtkupgrade usb -script
+scriptstar [script_file_name]
+- when power on, this command will check usb_auto_upgrade in env first.
+- if usb_auto_upgrade=disable_once, not need to do usb upgrade next time.
+- if usb_auto_upgrade=disable, not need to do usb upgrade forever.
+- if usb_auto_upgrade=NULL or enable or others, do usb upgrade this time.
+usb start;mtkupgrade usb
+/usb_auto_update.txt
+avb set-devicestate <0/1>  - AVB2.0 set-devicestate, 0=unlock/1=lock.
+avb set-devicestate 0
+avb set-devicestate 1
+```
+
+**Это конкретный ответ на вопрос владельца:** настоящий текстовый **кандидат** для 8054 — **`usb_auto_update.txt`** в корне доступного USB-носителя (строка содержит путь `/usb_auto_update.txt`), а не заимствованный из Allwinner `auto_update.txt`, `MScript.txt` или XGIMI `factory.txt`. В точном MBOOT поиск `factory.txt`, `MScript.txt`, `usb_upgrade.txt`, `auto_upgrade.txt` совпадений не дал; `auto_update.txt` найден как подстрока в `usb_auto_update.txt`, а **не** как самостоятельный default filename.
+
+**Уровень доказательств:**
+- `USB_SCRIPT_DEFAULT_FILENAME_COMPILED` — **подтверждено в точном MBOOT**.
+- `USB_SCRIPT_MODE_COMPILED` — **подтверждено**, `mtkupgrade usb -script` и `scriptstar`.
+- `USB_AUTO_UPDATE_CHECK_ENV_GATING` — **подтверждено сообщениями**, наличие ветвей enable/disable/disable_once.
+- `AUTO_BOOT_CALLS_SCRIPT_MODE` — **НЕ подтверждено**: видимое `usb start;mtkupgrade usb` **без** `-script` может выбирать режим PKG, а не TXT. Нужна трассировка реального call graph / command selection.
+- `EXTERNAL_TXT_ACCEPTED_WITH_LOCKED_AVB` — **НЕ подтверждено**: возможны проверки подписи/шифрования/типов файлов.
+- `TXT_UNLOCKS_WITHOUT_PC` — **НЕ подтверждено**. Наличие `avb set-devicestate 0` как команды U-Boot **не доказывает**, что пользовательский файл сможет её запустить, изменить persist device state и безопасно пройти подтверждение.
+
+**Безопасность:** пока ни на одном проекторе не запускался `usb_auto_update.txt`; этот документ **не содержит выполняемый unlock-файл**. Нельзя создавать или выкладывать сценарий, меняющий `devicestate`, пока не выяснены ветвления `check_usb_auto_upgrade`, доверие к внешнему файлу и аппаратный/пользовательский consent. Даже пустой USB-файл нельзя считать гарантированно безвредным, пока MBOOT может автоматически выбрать неизвестный upgrade handler.
+
 ## 1. Фактический сценарий USB upgrade внутри MBOOT 8054
 
 Исходник: **не generic U-Boot**, а точный образ `mboot_a.img` из owner backup, SHA256
