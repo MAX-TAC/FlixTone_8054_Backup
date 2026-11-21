@@ -95,6 +95,14 @@ def inspect(jadx,res,out):
                 name=e.get("name","")
                 v=" ".join(" ".join(e.itertext()).split())[:200]
                 if sanitize(name) and sanitize(v): labels.append((p.relative_to(res).as_posix(),e.tag,name,v))
+                # Preserve each array enum entry and its exact ordinal. A flattened
+                # string-array loses multiword values such as "Dovi Bright".
+                if e.tag in ("string-array","integer-array","array") and sanitize(name):
+                    for ordinal, child in enumerate(list(e)):
+                        iv = " ".join(" ".join(child.itertext()).split())[:160]
+                        if sanitize(iv):
+                            labels.append((p.relative_to(res).as_posix(),
+                                           "array-item",name+"["+str(ordinal)+"]",iv))
     out.mkdir(parents=True,exist_ok=True)
     csvout(out/"FACTORY_CLASSES_8054.csv",("area","source"),classlist)
     csvout(out/"FACTORY_BACKEND_CALLS_8054.csv",("area","source","line","heuristic","snippet"),events)
