@@ -1,0 +1,4 @@
+source,line,snippet
+com/mediatek/twoworlds/tv/common/MtkTvConfigTypeBase.java,216,public static final int ACFG_MSG_ENTER_DOLBY_VISION = 20;
+com/mediatek/twoworlds/tv/common/MtkTvConfigTypeBase.java,225,public static final int ACFG_MSG_QUITE_DOLBY_VISION = 21;
+com/mediatek/twoworlds/tv/common/MtkTvConfigTypeBase.java,1846,"public static final String CFG_VIDEO_GLOBAL_DIMMING_SWITCH = ""g_video__vid_dolby_vision_global_dimming_switch"";"

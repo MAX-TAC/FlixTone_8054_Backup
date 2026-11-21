@@ -1,0 +1,959 @@
+xml,type,name,display_value
+values/arrays.xml,string-array,str_arr_dap_enable_vals,OFF ON
+values/arrays.xml,string-array,str_arr_dtv_route_type,NONE DVBT DVBC DVBS ATSC ISDB DVBT2 DVBS2 DTMB
+values/arrays.xml,string-array,str_arr_mfc,Off Low Mid High Bypass
+values/arrays.xml,string-array,str_arr_mute_color_blue_onoff,Off On
+values/arrays.xml,string-array,str_arr_mvop_pattern_type,XC_MVOP_PATTERN_NORMAL XC_MVOP_PATTERN_COLORBAR
+values/arrays.xml,string-array,str_arr_nonlinear_volume_inputsrc_vals,DTV ATV HDMI CVBS MM
+values/arrays.xml,string-array,str_arr_nonlinear_volume_outputsrc_vals,ALL LR SPDIF HDMI_TX MAIN_SPEAKER HEADPHONE LINEOUT HDMI_ARC
+values/arrays.xml,string-array,str_arr_pic_mode_vals,User Cinema Sport Vivid Hi Bright Dovi Bright Dovi Dark Standard Natural Movie Game Energy Saving AI PQ Dolby Vision Vivid Dolby Vision_Game User(HDR10) Sport(HDR10) Vivid(HDR10) Standard(HDR10) Movie
+values/arrays.xml,string-array,str_arr_sound_dap_mode_vals,Off Auto Movie Music Game News Night Voip Standard Stadium User
+values/arrays.xml,string-array,str_dvbc_info_array,u16Version: %1$s u16SymbolRate: %1$s eQamMode: %1$s u32IFFreq: %1$s bSpecInv: %1$s bSerialTS: %1$s u8SarValue: %1$s u32ChkScanTimeStart: %1$s eLockStatus: %1$s u16Strength: %1$s u16Quality: %1$s u32In
+values/arrays.xml,string-array,str_dvbt_info_array,u16Version: %1$s u16DemodState: %1$s SfoValue: %1$s TotalCfo: %1$s u16ChannelLength: %1$s u8Fft: %1$s u8Constel: %1$s u8Gi: %1$s u8HpCr: %1$s u8LpCr: %1$s u8Hiearchy: %1$s u8Fd: %1$s u8ChLen: %1$s u8S
+values/arrays.xml,string-array,str_factory_advanced_effect_dap_enable_val,ON OFF
+values/arrays.xml,string-array,xvycc_array,R X R Y G X G Y B X B Y W X W Y
+values/drawables.xml,item,notification_template_icon_bg,#3333b5e5
+values/drawables.xml,item,notification_template_icon_low_bg,#0cffffff
+values/strings.xml,string,app_name,Factory Menu
+values/strings.xml,string,checksum_init,\####
+values/strings.xml,string,empty_default,*****
+values/strings.xml,string,enter,OK键进入 factory menu——>
+values/strings.xml,string,hyphen_init,--
+values/strings.xml,string,no_data,No data
+values/strings.xml,string,no_date,0000/00/00
+values/strings.xml,string,number_init,0
+values/strings.xml,string,result_ng,NG
+values/strings.xml,string,result_none,None
+values/strings.xml,string,result_ok,OK
+values/strings.xml,string,status_bar_notification_info_overflow,999+
+values/strings.xml,string,str_DemodInfo_title,Demod Info
+values/strings.xml,string,str_Info_title,Info
+values/strings.xml,string,str_Non_Linear_Adjust_text,Non-Linear Adjust
+values/strings.xml,string,str_Non_Standard_Adjust_text,Non-Standard Adjust
+values/strings.xml,string,str_adc_EnableADCType,ADC_EnableADCType
+values/strings.xml,string,str_adc_EnableADCType_range,Range: 0 ~ 255
+values/strings.xml,string,str_adc_Ramp,Ramp
+values/strings.xml,string,str_adc_Ramp_range,Range: 0 ~ 1023
+values/strings.xml,string,str_adc_help_info,"""ADC TEST PATTERN ADC_EnableADCType (pattern enable type): ADC_EnableADCType = 0x1; //RADC enable ADC_EnableADCType = 0x2; //GADC enable ADC_EnableADCType = 0x4; //BADC enable ADC_EnableADCType = 0x8;"
+values/strings.xml,string,str_adc_tip_info,Configure adc test pattern parameter
+values/strings.xml,string,str_bassboost,BassBoost
+values/strings.xml,string,str_bassboost_datarange,Range:0~384
+values/strings.xml,string,str_basscutoff,BassCutoff
+values/strings.xml,string,str_basscutoff_datarange,Range:20~20000
+values/strings.xml,string,str_bassenable,BassEnable
+values/strings.xml,string,str_bassenable_datarange,Range:0~1
+values/strings.xml,string,str_basswidth,BassWidth
+values/strings.xml,string,str_basswidth_datarange,Range:2~64
+values/strings.xml,string,str_calibrationboost,CalibrationBoost
+values/strings.xml,string,str_calibrationboost_datarange,Range:0~192
+values/strings.xml,string,str_cancle,Cancle
+values/strings.xml,string,str_channel_arrayrange,Range: 0~5
+values/strings.xml,string,str_deamount,DeAmount
+values/strings.xml,string,str_deamount_datarange,Range:0~16
+values/strings.xml,string,str_deducking,DeDucking
+values/strings.xml,string,str_deducking_datarange,Range:0~16
+values/strings.xml,string,str_deenable,DeEnable
+values/strings.xml,string,str_deenable_datarange,Range:0~1
+values/strings.xml,string,str_design_menu,Design Menu
+values/strings.xml,string,str_excute_shell_tip_info,Please input Shell Command
+values/strings.xml,string,str_execute_fail,IP Mux mode execute fail!
+values/strings.xml,string,str_execute_shell,Shell Command
+values/strings.xml,string,str_factory_adc,ADC Adjust
+values/strings.xml,string,str_factory_adc_autoadjust,"Auto Tune(Please waiting! When finish, it will notify.)"
+values/strings.xml,string,str_factory_adc_autoadjust_failed,failed
+values/strings.xml,string,str_factory_adc_autoadjust_finish,Auto Tune Finish
+values/strings.xml,string,str_factory_adc_autoadjust_ok,OK
+values/strings.xml,string,str_factory_adc_autoadjust_timing_mode_err,timing mode select error
+values/strings.xml,string,str_factory_adc_autoadjust_val,Please Wait!
+values/strings.xml,string,str_factory_adc_bgain,B Gain
+values/strings.xml,string,str_factory_adc_boffset,B Offset
+values/strings.xml,string,str_factory_adc_ggain,G Gain
+values/strings.xml,string,str_factory_adc_goffset,G Offset
+values/strings.xml,string,str_factory_adc_phase,Phase
+values/strings.xml,string,str_factory_adc_rgain,R Gain
+values/strings.xml,string,str_factory_adc_roffset,R Offset
+values/strings.xml,string,str_factory_adc_source,Source
+values/strings.xml,string,str_factory_adc_test_pattern,ADC mode
+values/strings.xml,string,str_factory_advanced_effect,Advanced Effect
+values/strings.xml,string,str_factory_advanced_effect_dap,DAP Setting
+values/strings.xml,string,str_factory_advanced_effect_dap_bass,Bass Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_calibrationboost,CalibrationBoost Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_de,De Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_enable,DAP Setting Enable
+values/strings.xml,string,str_factory_advanced_effect_dap_gain,Gain Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_geq,Geq Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_ieq,Ieq Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_init_failed,"""The current sound mode doesn't support DAP. Please change sound mode to Movie/Music/Game/News/Standard/Stadium/User in \""Non-standard options/AUDIO\"""""
+values/strings.xml,string,str_factory_advanced_effect_dap_leveler,DapLeveLer Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_mi,Mi Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_mode,DAP Mode
+values/strings.xml,string,str_factory_advanced_effect_dap_modeler,Modeler Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_optimizer,Optimizer Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_reg,Reg Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_regulator,Regulator Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_surroundvirtualizer,SurroundVirtualizer Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_virtualbass,VirtualBass Paramter
+values/strings.xml,string,str_factory_advanced_effect_dap_volmaxboost,VolMaxBoost Paramter
+values/strings.xml,string,str_factory_db_file,*cmdb*.bin
+values/strings.xml,string,str_factory_db_path,/tvdatabase/Database/
+values/strings.xml,string,str_factory_excute_shell,Execute Shell
+values/strings.xml,string,str_factory_exit,Remove factory partition(Only apply it before leaving factory)
+values/strings.xml,string,str_factory_ip_mux_test_pattern,IP MUX mode
+values/strings.xml,string,str_factory_ipenablemapping,IP Enable Mapping
+values/strings.xml,string,str_factory_keystone_function_calibration,Factory Keystone Function Calibration
+values/strings.xml,string,str_factory_livetv,goto LiveTv
+values/strings.xml,string,str_factory_menu,Factory Menu
+values/strings.xml,string,str_factory_mic,Mic
+values/strings.xml,string,str_factory_mic0_status,Mic0
+values/strings.xml,string,str_factory_mic1_status,Mic1
+values/strings.xml,string,str_factory_mic_start,Start Mic Recording
+values/strings.xml,string,str_factory_mic_status,Get Mic Status
+values/strings.xml,string,str_factory_mic_stop,Stop Mic Recording
+values/strings.xml,string,str_factory_mvop_test_pattern,MVOP mode
+values/strings.xml,string,str_factory_non_linear,Non_linear
+values/strings.xml,string,str_factory_non_standard,Non-standard options
+values/strings.xml,string,str_factory_nonlinear_curvetype,Curve Type
+values/strings.xml,string,str_factory_nonlinear_curvetype_volume_apply,Apply
+values/strings.xml,string,str_factory_nonlinear_curvetype_volumeinputsrc,Audio Input Source
+values/strings.xml,string,str_factory_nonlinear_curvetype_volumeoutputsrc,Audio Output Source
+values/strings.xml,string,str_factory_nonlinear_curvetype_volumetblpath,Tbl Path
+values/strings.xml,string,str_factory_nonlinear_osd0,OSD_0
+values/strings.xml,string,str_factory_nonlinear_osd100,OSD_100
+values/strings.xml,string,str_factory_nonlinear_osd25,OSD_25
+values/strings.xml,string,str_factory_nonlinear_osd50,OSD_50
+values/strings.xml,string,str_factory_nonlinear_osd75,OSD_75
+values/strings.xml,string,str_factory_nonstandard_aefc43,VD_AUTO_AGC
+values/strings.xml,string,str_factory_nonstandard_aefc44,AFEC_44
+values/strings.xml,string,str_factory_nonstandard_aefc66,AFEC_66[7:6]
+values/strings.xml,string,str_factory_nonstandard_aefc6e,AFEC_6E[7:4]
+values/strings.xml,string,str_factory_nonstandard_aefc6elow,AFEC_6E[3:0]
+values/strings.xml,string,str_factory_nonstandard_aefca0,AFEC_A0
+values/strings.xml,string,str_factory_nonstandard_aefca1,AFEC_A1
+values/strings.xml,string,str_factory_nonstandard_aefccb,AFEC_CB
+values/strings.xml,string,str_factory_nonstandard_aefcd5i2,AFEC_D5[2]
+values/strings.xml,string,str_factory_nonstandard_aefcd5i3,AFEC_D5[3]
+values/strings.xml,string,str_factory_nonstandard_aefcd7,AFEC_D7_LOW_BOUN
+values/strings.xml,string,str_factory_nonstandard_aefcd7high,AFEC_D7_HIGH_BOUN
+values/strings.xml,string,str_factory_nonstandard_aefcd8,AFEC_D8
+values/strings.xml,string,str_factory_nonstandard_aefcd9,AFEC_D9[0]
+values/strings.xml,string,str_factory_nonstandard_afeccf,AFEC_CF[2]
+values/strings.xml,string,str_factory_nonstandard_afecd4,AFEC_D4
+values/strings.xml,string,str_factory_nonstandard_audio,AUDIO (click me)
+values/strings.xml,string,str_factory_nonstandard_audiodelay,Speaker Audio Delay
+values/strings.xml,string,str_factory_nonstandard_audiodsp,AUDIO_DSP_VERSION
+values/strings.xml,string,str_factory_nonstandard_audiohidev,AUDIO_HIDEV_MODE
+values/strings.xml,string,str_factory_nonstandard_audioinputsource,Audio Input Source
+values/strings.xml,string,str_factory_nonstandard_audionr,AUDIO_NR_THR
+values/strings.xml,string,str_factory_nonstandard_audioprescale,Audio Prescale
+values/strings.xml,string,str_factory_nonstandard_audiosif,Audio Sif Threshold
+values/strings.xml,string,str_factory_nonstandard_audiospeakerdelayoffset,Speaker Audio Delay Offset
+values/strings.xml,string,str_factory_nonstandard_build,Build
+values/strings.xml,string,str_factory_nonstandard_changelist,ChangeList
+values/strings.xml,string,str_factory_nonstandard_chinadescrambler,CHINA_DESCRAMBLER_BOX
+values/strings.xml,string,str_factory_nonstandard_chinadescrambler_delay,China_DES_BOX_Delay
+values/strings.xml,string,str_factory_nonstandard_delay,Delay
+values/strings.xml,string,str_factory_nonstandard_gaindistributionthr,GAIN_DISTRIBUTION_THR
+values/strings.xml,string,str_factory_nonstandard_name,Name
+values/strings.xml,string,str_factory_nonstandard_outputtype,Output Type
+values/strings.xml,string,str_factory_nonstandard_soundmode,Sound Mode
+values/strings.xml,string,str_factory_nonstandard_vd,VD (click me)
+values/strings.xml,string,str_factory_nonstandard_vddsp,VD_DSP_VERSION
+values/strings.xml,string,str_factory_nonstandard_version,Version
+values/strings.xml,string,str_factory_nonstandard_vif,VIF (click me)
+values/strings.xml,string,str_factory_nonstandard_vifagcref,VIF_AGC_REF
+values/strings.xml,string,str_factory_nonstandard_vifasiasignaloption,VIF_ASIA_SIGNAL_OPTION
+values/strings.xml,string,str_factory_nonstandard_vifclampgain,VIF_CLAMPGAIN_GAIN_OV_NEGATIVE
+values/strings.xml,string,str_factory_nonstandard_vifcpkpkiadjust,VIF_CR_KP_KI_ADJUST
+values/strings.xml,string,str_factory_nonstandard_vifcrthr,VIF_CR_THR
+values/strings.xml,string,str_factory_nonstandard_vifovermodulation,VIF_OVER_MODULATION
+values/strings.xml,string,str_factory_nonstandard_viftop,VIF_TOP
+values/strings.xml,string,str_factory_nonstandard_vifversion,VIF_VERSION
+values/strings.xml,string,str_factory_nonstandard_vifvgamaximum,VIF_VGA_MAXIMUM
+values/strings.xml,string,str_factory_otheroption,Other Options
+values/strings.xml,string,str_factory_otheroption_backuptodefault,Backup to Default
+values/strings.xml,string,str_factory_otheroption_backuptousb,Backup to USB
+values/strings.xml,string,str_factory_otheroption_board,Board
+values/strings.xml,string,str_factory_otheroption_build,Build
+values/strings.xml,string,str_factory_otheroption_camera_test,Camera Test
+values/strings.xml,string,str_factory_otheroption_checkqdakeystatus,Checkl Key Status
+values/strings.xml,string,str_factory_otheroption_closecaption,Close Caption Setup
+values/strings.xml,string,str_factory_otheroption_closecaption_auto,Auto
+values/strings.xml,string,str_factory_otheroption_closecaption_equal,Equal
+values/strings.xml,string,str_factory_otheroption_closecaption_extern,Extern
+values/strings.xml,string,str_factory_otheroption_closecaption_roll,Roll
+values/strings.xml,string,str_factory_otheroption_closecaption_utf8,UTF8
+values/strings.xml,string,str_factory_otheroption_date,Date
+values/strings.xml,string,str_factory_otheroption_dolby,Dolby
+values/strings.xml,string,str_factory_otheroption_dolby_banner,Banner
+values/strings.xml,string,str_factory_otheroption_dolby_comoression,Compression
+values/strings.xml,string,str_factory_otheroption_dolby_compression_factor,CompressionFactor
+values/strings.xml,string,str_factory_otheroption_dts,DTS
+values/strings.xml,string,str_factory_otheroption_dts_loudness,Loudness
+values/strings.xml,string,str_factory_otheroption_dvbt_dvbc_info,Demod info
+values/strings.xml,string,str_factory_otheroption_factoryclosecaptionsetup_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_factoryinstallfvpintermediatekey,Install FVP intermediate key
+values/strings.xml,string,str_factory_otheroption_factoryinstallfvpintermediatekey_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_factorykeyupgrade_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_factorypqupdate,Factory PQ Update
+values/strings.xml,string,str_factory_otheroption_factorypqupdate_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_factoryprogrampreset_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_factoryprogrampresetfunction,Factory Program Preset Function
+values/strings.xml,string,str_factory_otheroption_factoryqda,Factory Install QDA Key
+values/strings.xml,string,str_factory_otheroption_factoryqda_access_denied,Install QDA keys failed: access denied
+values/strings.xml,string,str_factory_otheroption_factoryqda_check_key_general_error,Check key update failed: general error
+values/strings.xml,string,str_factory_otheroption_factoryqda_check_key_invalid_parameter,Check key update failed: invalid parameter
+values/strings.xml,string,str_factory_otheroption_factoryqda_check_key_not_support,Check key update failed: not support
+values/strings.xml,string,str_factory_otheroption_factoryqda_check_key_update_success,Check key update success
+values/strings.xml,string,str_factory_otheroption_factoryqda_general_error,Install QDA keys failed: general error
+values/strings.xml,string,str_factory_otheroption_factoryqda_invalid_parameter,Install QDA keys failed: invalid parameter
+values/strings.xml,string,str_factory_otheroption_factoryqda_not_support,Install QDA keys failed: not support
+values/strings.xml,string,str_factory_otheroption_factoryqda_out_of_memory,Install QDA keys failed: out of memory
+values/strings.xml,string,str_factory_otheroption_factoryqda_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_factoryqda_success,Install QDA keys success
+values/strings.xml,string,str_factory_otheroption_factoryupgradeursafw,Upgrade Ursa Fw
+values/strings.xml,string,str_factory_otheroption_factoryupgradeursafw_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_flip,Flip
+values/strings.xml,string,str_factory_otheroption_install_fvp_intermediate_key,Install FVP intermediate key
+values/strings.xml,string,str_factory_otheroption_installqdakey,Install QDA Key
+values/strings.xml,string,str_factory_otheroption_keyupgrade,Key Upgrade
+values/strings.xml,string,str_factory_otheroption_keyupgrade_ci_credential,Update CI Credential from USB
+values/strings.xml,string,str_factory_otheroption_keyupgrade_ci_ecp_credential,Update CI ECP Credential from USB
+values/strings.xml,string,str_factory_otheroption_keyupgrade_erase_ci_credential,Erase CI Credential
+values/strings.xml,string,str_factory_otheroption_keyupgrade_erase_failed,Erase failed.
+values/strings.xml,string,str_factory_otheroption_keyupgrade_erase_success,Erase success.
+values/strings.xml,string,str_factory_otheroption_keyupgrade_failed,Update failed.
+values/strings.xml,string,str_factory_otheroption_keyupgrade_key_not_found,Key not found.
+values/strings.xml,string,str_factory_otheroption_keyupgrade_success,Update success.
+values/strings.xml,string,str_factory_otheroption_memc,Netflix Cert
+values/strings.xml,string,str_factory_otheroption_memc_effect,MEMC Effect(SDR/HDR/HDR10...)
+values/strings.xml,string,str_factory_otheroption_memc_restoretodefault,MEMC Restore To Default(SDR/HDR/HDR10...)
+values/strings.xml,string,str_factory_otheroption_memc_restoretodefault_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_mfc,MFC
+values/strings.xml,string,str_factory_otheroption_mirror,Mirror
+values/strings.xml,string,str_factory_otheroption_mstv_tool,Uart debug
+values/strings.xml,string,str_factory_otheroption_name,Name
+values/strings.xml,string,str_factory_otheroption_panel,Panel
+values/strings.xml,string,str_factory_otheroption_panelswing,Panel Swing
+values/strings.xml,string,str_factory_otheroption_poweronmode,Power On Mode
+values/strings.xml,string,str_factory_otheroption_pq_customer_version,PQ Customer Version
+values/strings.xml,string,str_factory_otheroption_pq_hsy_version,PQ HSY Version
+values/strings.xml,string,str_factory_otheroption_pq_standard_version,PQ Standard Version
+values/strings.xml,string,str_factory_otheroption_pq_tmo_version,PQ TMO Version
+values/strings.xml,string,str_factory_otheroption_pq_update,PQ Update
+values/strings.xml,string,str_factory_otheroption_pq_update_state,Please Click!
+values/strings.xml,string,str_factory_otheroption_pq_update_type,PQ Update Type
+values/strings.xml,string,str_factory_otheroption_restorefromdefault,Restore from Default
+values/strings.xml,string,str_factory_otheroption_restorefromusb,Restore from USB
+values/strings.xml,string,str_factory_otheroption_restoretodefault,Restore To Default
+values/strings.xml,string,str_factory_otheroption_streamtime,Use stream-provided time
+values/strings.xml,string,str_factory_otheroption_sw_version,SW Version
+values/strings.xml,string,str_factory_otheroption_testpattern,Test Pattern
+values/strings.xml,string,str_factory_otheroption_testpatternforpanel,Test Pattern For Panel
+values/strings.xml,string,str_factory_otheroption_testpatternforpanel_down,DOWN
+values/strings.xml,string,str_factory_otheroption_testpatternforpanel_next,Next
+values/strings.xml,string,str_factory_otheroption_testpatternforpanel_prev,Prev
+values/strings.xml,string,str_factory_otheroption_testpatternforpanel_up,UP
+values/strings.xml,string,str_factory_otheroption_tkgs,TKGS Availability Condition
+values/strings.xml,string,str_factory_otheroption_uartenable,Uart Enable
+values/strings.xml,string,str_factory_otheroption_uarttohdmi,UART to HDMI
+values/strings.xml,string,str_factory_otheroption_upgrade_ursa_fw,Upgrade Ursa Fw
+values/strings.xml,string,str_factory_otheroption_upgrademboot_cancel,Cancel
+values/strings.xml,string,str_factory_otheroption_upgrademboot_confirm,Confirm
+values/strings.xml,string,str_factory_otheroption_upgrademboot_hint,Are You Sure Upgrade ?
+values/strings.xml,string,str_factory_otheroption_upgrademboot_nousb,Please Plug USB!
+values/strings.xml,string,str_factory_otheroption_version,Version
+values/strings.xml,string,str_factory_otheroption_wake_on_lan_ethernet,Wake On Lan : Ethernet
+values/strings.xml,string,str_factory_otheroption_wake_on_lan_wifi,Wake On Lan : WiFi
+values/strings.xml,string,str_factory_otheroption_watchdog,Watch Dog
+values/strings.xml,string,str_factory_otheroption_xvycc,xvycc
+values/strings.xml,string,str_factory_overscan,OverScan
+values/strings.xml,string,str_factory_overscan_adjust_text,OverScan Adjust
+values/strings.xml,string,str_factory_overscan_bottom,Bottom
+values/strings.xml,string,str_factory_overscan_left,Left
+values/strings.xml,string,str_factory_overscan_right,Right
+values/strings.xml,string,str_factory_overscan_source,Source
+values/strings.xml,string,str_factory_overscan_top,Top
+values/strings.xml,string,str_factory_panel_info,Panel Info
+values/strings.xml,string,str_factory_panel_info_height,Height
+values/strings.xml,string,str_factory_panel_info_type,Type
+values/strings.xml,string,str_factory_panel_info_version,Version
+values/strings.xml,string,str_factory_panel_info_width,Width
+values/strings.xml,string,str_factory_peq,PEQ
+values/strings.xml,string,str_factory_peq_enable,Enable
+values/strings.xml,string,str_factory_peq_freq1,Freq1
+values/strings.xml,string,str_factory_peq_freq10,Freq10
+values/strings.xml,string,str_factory_peq_freq11,Freq11
+values/strings.xml,string,str_factory_peq_freq12,Freq12
+values/strings.xml,string,str_factory_peq_freq13,Freq13
+values/strings.xml,string,str_factory_peq_freq2,Freq2
+values/strings.xml,string,str_factory_peq_freq3,Freq3
+values/strings.xml,string,str_factory_peq_freq4,Freq4
+values/strings.xml,string,str_factory_peq_freq5,Freq5
+values/strings.xml,string,str_factory_peq_freq6,Freq6
+values/strings.xml,string,str_factory_peq_freq7,Freq7
+values/strings.xml,string,str_factory_peq_freq8,Freq8
+values/strings.xml,string,str_factory_peq_freq9,Freq9
+values/strings.xml,string,str_factory_peq_gain1,Gain1
+values/strings.xml,string,str_factory_peq_gain10,Gain10
+values/strings.xml,string,str_factory_peq_gain11,Gain11
+values/strings.xml,string,str_factory_peq_gain12,Gain12
+values/strings.xml,string,str_factory_peq_gain13,Gain13
+values/strings.xml,string,str_factory_peq_gain2,Gain2
+values/strings.xml,string,str_factory_peq_gain3,Gain3
+values/strings.xml,string,str_factory_peq_gain4,Gain4
+values/strings.xml,string,str_factory_peq_gain5,Gain5
+values/strings.xml,string,str_factory_peq_gain6,Gain6
+values/strings.xml,string,str_factory_peq_gain7,Gain7
+values/strings.xml,string,str_factory_peq_gain8,Gain8
+values/strings.xml,string,str_factory_peq_gain9,Gain9
+values/strings.xml,string,str_factory_peq_q1,Q1
+values/strings.xml,string,str_factory_peq_q10,Q10
+values/strings.xml,string,str_factory_peq_q11,Q11
+values/strings.xml,string,str_factory_peq_q12,Q12
+values/strings.xml,string,str_factory_peq_q13,Q13
+values/strings.xml,string,str_factory_peq_q2,Q2
+values/strings.xml,string,str_factory_peq_q3,Q3
+values/strings.xml,string,str_factory_peq_q4,Q4
+values/strings.xml,string,str_factory_peq_q5,Q5
+values/strings.xml,string,str_factory_peq_q6,Q6
+values/strings.xml,string,str_factory_peq_q7,Q7
+values/strings.xml,string,str_factory_peq_q8,Q8
+values/strings.xml,string,str_factory_peq_q9,Q9
+values/strings.xml,string,str_factory_peq_soundmode,Sound Mode
+values/strings.xml,string,str_factory_peq_type1,Type1
+values/strings.xml,string,str_factory_peq_type10,Type10
+values/strings.xml,string,str_factory_peq_type11,Type11
+values/strings.xml,string,str_factory_peq_type12,Type12
+values/strings.xml,string,str_factory_peq_type13,Type13
+values/strings.xml,string,str_factory_peq_type2,Type2
+values/strings.xml,string,str_factory_peq_type3,Type3
+values/strings.xml,string,str_factory_peq_type4,Type4
+values/strings.xml,string,str_factory_peq_type5,Type5
+values/strings.xml,string,str_factory_peq_type6,Type6
+values/strings.xml,string,str_factory_peq_type7,Type7
+values/strings.xml,string,str_factory_peq_type8,Type8
+values/strings.xml,string,str_factory_peq_type9,Type9
+values/strings.xml,string,str_factory_picmode_backlight,Backlight
+values/strings.xml,string,str_factory_picmode_brightness,Brightness
+values/strings.xml,string,str_factory_picmode_contrast,Contrast
+values/strings.xml,string,str_factory_picmode_hue,Hue
+values/strings.xml,string,str_factory_picmode_picmode,Picture Mode
+values/strings.xml,string,str_factory_picmode_saturation,Saturation
+values/strings.xml,string,str_factory_picmode_sharpness,Sharpness
+values/strings.xml,string,str_factory_picturemode,Picture Mode
+values/strings.xml,string,str_factory_ssc,SSC Adjust
+values/strings.xml,string,str_factory_ssc_alert,SSC settings will be invalid after reboot.
+values/strings.xml,string,str_factory_ssc_lvdsenable,LVDS Enable
+values/strings.xml,string,str_factory_ssc_lvdsmodulation,LVDS Modulation
+values/strings.xml,string,str_factory_ssc_lvdspercentage,LVDS Percentage(%)
+values/strings.xml,string,str_factory_ssc_miuenable,MIU Enable
+values/strings.xml,string,str_factory_ssc_miuindex,MIU Index
+values/strings.xml,string,str_factory_ssc_miumodulation,MIU Modulation
+values/strings.xml,string,str_factory_ssc_miupercentage,MIU Percentage(%)
+values/strings.xml,string,str_factory_temperature_control,Temperature Control
+values/strings.xml,string,str_factory_test_pattern,Test Pattern
+values/strings.xml,string,str_factory_testpattern,Test Pattern
+values/strings.xml,string,str_factory_ursa_info,Ursa Info
+values/strings.xml,string,str_factory_ursa_version,Version
+values/strings.xml,string,str_factory_ursa_version_val,0000
+values/strings.xml,string,str_factory_video_mute_color_test_pattern,VIDEO MUTE COLOR mode
+values/strings.xml,string,str_factory_wbadjust_autoadjust,Auto Adjust
+values/strings.xml,string,str_factory_wbadjust_bgain,B Gain
+values/strings.xml,string,str_factory_wbadjust_boffset,B Offset
+values/strings.xml,string,str_factory_wbadjust_colortemp,Color Temperature
+values/strings.xml,string,str_factory_wbadjust_gamma,Gamma
+values/strings.xml,string,str_factory_wbadjust_ggain,G Gain
+values/strings.xml,string,str_factory_wbadjust_goffset,G Offset
+values/strings.xml,string,str_factory_wbadjust_picmode,Picture Mode
+values/strings.xml,string,str_factory_wbadjust_rgain,R Gain
+values/strings.xml,string,str_factory_wbadjust_roffset,R Offset
+values/strings.xml,string,str_factory_wbadjust_source,Source
+values/strings.xml,string,str_factory_wbadjust_video_ui_adjust,Adjust Video/UI
+values/strings.xml,string,str_factory_wbuipictureadjust_bgain,B Gain
+values/strings.xml,string,str_factory_wbuipictureadjust_brightness,Brightness
+values/strings.xml,string,str_factory_wbuipictureadjust_contrast,Contrast
+values/strings.xml,string,str_factory_wbuipictureadjust_ggain,G Gain
+values/strings.xml,string,str_factory_wbuipictureadjust_hue,Hue
+values/strings.xml,string,str_factory_wbuipictureadjust_pattern,Pattern
+values/strings.xml,string,str_factory_wbuipictureadjust_rgain,R Gain
+values/strings.xml,string,str_factory_wbuipictureadjust_saturation,Saturation
+values/strings.xml,string,str_factory_whitebalance,White Balance
+values/strings.xml,string,str_factory_xc_ip_test_pattern,XC IP mode
+values/strings.xml,string,str_factory_xc_mod_test_pattern,XC MOD mode
+values/strings.xml,string,str_factory_xc_op_hvsp_test_pattern,XC OP HVSP mode
+values/strings.xml,string,str_factory_xc_op_linebuff_test_pattern,XC OP LINEBUFF mode
+values/strings.xml,string,str_factory_xc_vop2_test_pattern,XC VOP2 mode
+values/strings.xml,string,str_factory_xc_vop_test_pattern,XC VOP mode
+values/strings.xml,string,str_factory_xc_white_balance_test_pattern,XC WHITE BALANCE mode
+values/strings.xml,string,str_factoryclosecaptionsetup_done,Done
+values/strings.xml,string,str_factorydolby_done,Done
+values/strings.xml,string,str_factorydts_done,Done
+values/strings.xml,string,str_factorykeyupgrade_done,Done
+values/strings.xml,string,str_factoryprogrampreset_cancel,Cancel
+values/strings.xml,string,str_factoryprogrampreset_done,Done
+values/strings.xml,string,str_factoryprogrampreset_menu_settings,Settings
+values/strings.xml,string,str_geqband_arrayrange,Range: 0~19
+values/strings.xml,string,str_geqbandcenter,GeqBandCenter
+values/strings.xml,string,str_geqbandcenter_datarange,Range:20~20000
+values/strings.xml,string,str_geqbandtarget,GeqBandTarget
+values/strings.xml,string,str_geqbandtarget_datarange,Range:20~20000
+values/strings.xml,string,str_geqenable,GeqEnable
+values/strings.xml,string,str_geqenable_datarange,Range:0~1
+values/strings.xml,string,str_geqnbbands,GeqNbBands
+values/strings.xml,string,str_geqnbbands_datarange,Range:1~20
+values/strings.xml,string,str_headphonereverb,HeadphoneReverb
+values/strings.xml,string,str_headphonereverb_datarange,Range:-2080~192
+values/strings.xml,string,str_ieqamount,IeqAmount
+values/strings.xml,string,str_ieqamount_datarange,Range:0~16
+values/strings.xml,string,str_ieqband_arrayrange,Range: 0~19
+values/strings.xml,string,str_ieqbandcenter,IeqBandCenter
+values/strings.xml,string,str_ieqbandcenter_datarange,Range:20~20000
+values/strings.xml,string,str_ieqbandtarget,IeqBandTarget
+values/strings.xml,string,str_ieqbandtarget_datarange,Range:-480~480
+values/strings.xml,string,str_ieqenable,IeqEnable
+values/strings.xml,string,str_ieqenable_datarange,Range:0~1
+values/strings.xml,string,str_ieqnbbands,IeqNbBands
+values/strings.xml,string,str_ieqnbbands_datarange,Range:1~20
+values/strings.xml,string,str_invalid_config,Invalid configuration!
+values/strings.xml,string,str_ip_mux_b_cb_data,B_CB_data
+values/strings.xml,string,str_ip_mux_b_cb_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_ip_mux_enable,IP_MUX enable
+values/strings.xml,string,str_ip_mux_enable_range,Range: 0 ~ 1
+values/strings.xml,string,str_ip_mux_g_y_data,G_Y_data
+values/strings.xml,string,str_ip_mux_g_y_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_ip_mux_r_cr_data,R_CR_data
+values/strings.xml,string,str_ip_mux_r_cr_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_ip_mux_tip_info,Configure ip mux test pattern parameter
+values/strings.xml,string,str_ipenablemapping_text,IP Enable Mapping
+values/strings.xml,string,str_leveleramount,LevelerAmount
+values/strings.xml,string,str_leveleramount_datarange,Range:0~10
+values/strings.xml,string,str_levelerenable,LevelerEnable
+values/strings.xml,string,str_levelerenable_datarange,Range:0~1
+values/strings.xml,string,str_levelerinput,LevelerInput
+values/strings.xml,string,str_levelerinput_datarange,Range:-640~0
+values/strings.xml,string,str_leveleroutput,LevelerOutput
+values/strings.xml,string,str_leveleroutput_datarange,Range:-640~0
+values/strings.xml,string,str_mic_text,Mic
+values/strings.xml,string,str_mideenable,MiDeEnable
+values/strings.xml,string,str_mideenable_datarange,Range:0~1
+values/strings.xml,string,str_midvenable,MiDvEnable
+values/strings.xml,string,str_midvenable_datarange,Range:0~1
+values/strings.xml,string,str_miieqenable,MiIeqEnable
+values/strings.xml,string,str_miieqenable_datarange,Range:0~1
+values/strings.xml,string,str_misurroundenable,MiSurroundEnable
+values/strings.xml,string,str_misurroundenable_datarange,Range:0~1
+values/strings.xml,string,str_modelercalibration,ModelerCalibration
+values/strings.xml,string,str_modelercalibration_datarange,Range:-320~320
+values/strings.xml,string,str_modelerenable,ModelerEnable
+values/strings.xml,string,str_modelerenable_datarange,Range:0~1
+values/strings.xml,string,str_mvop_tip_info,Configure mvop test pattern parameter
+values/strings.xml,string,str_no_empty,Configuration can not be empty!
+values/strings.xml,string,str_not_support,IP Mux mode not support!
+values/strings.xml,string,str_off,OFF
+values/strings.xml,string,str_ok,OK
+values/strings.xml,string,str_on,ON
+values/strings.xml,string,str_optband_arrayrange,Range: 0~19
+values/strings.xml,string,str_optbandcenterfreq,BandCenterFreq
+values/strings.xml,string,str_optbandcenterfreq_datarange,Range:20~20000
+values/strings.xml,string,str_optbandgain,BandGain
+values/strings.xml,string,str_optbandgain_datarange,Range:-480~480
+values/strings.xml,string,str_optimizerenable,OptimizerEnable
+values/strings.xml,string,str_optimizerenable_datarange,Range:0~1
+values/strings.xml,string,str_optimizernbbands,OptimizerNbBands
+values/strings.xml,string,str_optimizernbbands_datarange,Range:1~20
+values/strings.xml,string,str_other_option_text,Other Option Adjust
+values/strings.xml,string,str_peq_adjust_text,PEQ Adjust
+values/strings.xml,string,str_picture_mode_text,Picture Mode
+values/strings.xml,string,str_postgain,PostGain
+values/strings.xml,string,str_postgain_datarange,Range:-2080~480
+values/strings.xml,string,str_pregain,PreGain
+values/strings.xml,string,str_pregain_datarange,Range:-2080~480
+values/strings.xml,string,str_regband_arrayrange,Range: 0~19
+values/strings.xml,string,str_regbandcenter,RegBandCenter
+values/strings.xml,string,str_regbandcenter_datarange,Range:20~20000
+values/strings.xml,string,str_reghighthresholds,RegHighThresholds
+values/strings.xml,string,str_reghighthresholds_datarange,Range:-2080~0
+values/strings.xml,string,str_regisolatedbands,RegIsolatedBands
+values/strings.xml,string,str_regisolatedbands_datarange,Range:0~1
+values/strings.xml,string,str_reglowthresholds,RegLowThresholds
+values/strings.xml,string,str_reglowthresholds_datarange,Range:-2080~0
+values/strings.xml,string,str_regnbbands,RegNbBands
+values/strings.xml,string,str_regnbbands_datarange,Range:1~20
+values/strings.xml,string,str_regulatordistortion,RegulatorDistortion
+values/strings.xml,string,str_regulatordistortion_datarange,Range:0~144
+values/strings.xml,string,str_regulatorenable,RegulatorEnable
+values/strings.xml,string,str_regulatorenable_datarange,Range:0~1
+values/strings.xml,string,str_regulatormode,RegulatorMode
+values/strings.xml,string,str_regulatormode_datarange,Range:0~1
+values/strings.xml,string,str_regulatoroverdrive,RegulatorOverdrive
+values/strings.xml,string,str_regulatoroverdrive_datarange,Range:0~192
+values/strings.xml,string,str_regulatortimbre,RegulatorTimbre
+values/strings.xml,string,str_regulatortimbre_datarange,Range:0~16
+values/strings.xml,string,str_set_mute_color,Mute Color (Blue)
+values/strings.xml,string,str_speakerangle,SpeakerAngle
+values/strings.xml,string,str_speakerangle_datarange,Range:5~30
+values/strings.xml,string,str_speakerstart,SpeakerStart
+values/strings.xml,string,str_speakerstart_datarange,Range:20~20000
+values/strings.xml,string,str_srs_exit,EXIT
+values/strings.xml,string,str_srs_save,SAVE
+values/strings.xml,string,str_srs_save_error,Update SRS Parameter FAIL!
+values/strings.xml,string,str_srs_save_saving,"Saving Data,Please Do Not Shut Down Machine..."
+values/strings.xml,string,str_srs_save_success,Update SRS Parameter Success!
+values/strings.xml,string,str_srs_save_wait,Waiting
+values/strings.xml,string,str_ssc_adjust_text,SSC Adjust
+values/strings.xml,string,str_surroundboost,SurroundBoost
+values/strings.xml,string,str_surroundboost_datarange,Range:0~96
+values/strings.xml,string,str_surrounddecoderenable,SurroundDecoderEnable
+values/strings.xml,string,str_surrounddecoderenable_datarange,Range:0~1
+values/strings.xml,string,str_systemgain,SystemGain
+values/strings.xml,string,str_systemgain_datarange,Range:-2080~480
+values/strings.xml,string,str_text_adc_adjust,ADC Adjust
+values/strings.xml,string,str_textview_factory_adc_bgain_val,50
+values/strings.xml,string,str_textview_factory_adc_boffset_val,50
+values/strings.xml,string,str_textview_factory_adc_ggain_val,50
+values/strings.xml,string,str_textview_factory_adc_goffset_val,50
+values/strings.xml,string,str_textview_factory_adc_phase_val,50
+values/strings.xml,string,str_textview_factory_adc_rgain_val,50
+values/strings.xml,string,str_textview_factory_adc_roffset_val,50
+values/strings.xml,string,str_textview_factory_adc_source_val,VGA
+values/strings.xml,string,str_textview_factory_dialogmenu_cancel,Cancel
+values/strings.xml,string,str_textview_factory_dialogmenu_confirm,Confirm
+values/strings.xml,string,str_textview_factory_dialogmenu_title,Are You Sure Upgrade?
+values/strings.xml,string,str_textview_factory_mic_hz,Hz:
+values/strings.xml,string,str_textview_factory_mic_hz_val,0
+values/strings.xml,string,str_textview_factory_mic_status_db,dB:
+values/strings.xml,string,str_textview_factory_mic_status_db_val,0
+values/strings.xml,string,str_textview_factory_mic_status_result,Result:
+values/strings.xml,string,str_textview_factory_mic_status_result_fail,Fail
+values/strings.xml,string,str_textview_factory_mic_status_result_init,Waiting
+values/strings.xml,string,str_textview_factory_mic_status_result_success,Success
+values/strings.xml,string,str_textview_factory_mic_status_result_testing,Testing
+values/strings.xml,string,str_textview_factory_nonlinear_curvetype_val,VGA
+values/strings.xml,string,str_textview_factory_nonlinear_curvetype_volumeinputsrc_val,DTV
+values/strings.xml,string,str_textview_factory_nonlinear_curvetype_volumeoutputsrc_val,ALL
+values/strings.xml,string,str_textview_factory_nonlinear_curvetype_volumetblpath_val,/vendor/etc/default_volume_tables.xml
+values/strings.xml,string,str_textview_factory_nonlinear_osd_val,50
+values/strings.xml,string,str_textview_factory_nonstandard_audiodelay_val,0
+values/strings.xml,string,str_textview_factory_nonstandard_audioinputsource_default_val,Default
+values/strings.xml,string,str_textview_factory_nonstandard_audiospeakerdelayoffset_default_val,Default
+values/strings.xml,string,str_textview_factory_nonstandard_default_val,128
+values/strings.xml,string,str_textview_factory_nonstandard_outputtype_default_val,Default
+values/strings.xml,string,str_textview_factory_nonstandard_soundmode_default_val,Default
+values/strings.xml,string,str_textview_factory_otheroption_board_val,J2
+values/strings.xml,string,str_textview_factory_otheroption_date_val,2011-10-21 12:00
+values/strings.xml,string,str_textview_factory_otheroption_default_val,0
+values/strings.xml,string,str_textview_factory_otheroption_dvbc_info,DVBC info
+values/strings.xml,string,str_textview_factory_otheroption_dvbc_info_empty,获取DVBT / DVBC info 失败
+values/strings.xml,string,str_textview_factory_otheroption_dvbt_dvbc_val,-->>
+values/strings.xml,string,str_textview_factory_otheroption_dvbt_info,DVBT info
+values/strings.xml,string,str_textview_factory_otheroption_initialfunction_val,DTV
+values/strings.xml,string,str_textview_factory_otheroption_panel_val,Full-HD
+values/strings.xml,string,str_textview_factory_otheroption_text_fail,Fail
+values/strings.xml,string,str_textview_factory_otheroption_text_off,Off
+values/strings.xml,string,str_textview_factory_otheroption_text_on,On
+values/strings.xml,string,str_textview_factory_otheroption_text_pass,Pass
+values/strings.xml,string,str_textview_factory_otheroption_version_val,0.0.1
+values/strings.xml,string,str_textview_factory_otheroption_waiting_val,Please Waiting!
+values/strings.xml,string,str_textview_factory_otheroption_xvycc_val,-->>
+values/strings.xml,string,str_textview_factory_overscan_default_val,50
+values/strings.xml,string,str_textview_factory_overscan_source_val,ATV
+values/strings.xml,string,str_textview_factory_peq_default_val,128
+values/strings.xml,string,str_textview_factory_peq_soundmode_default_val,Default
+values/strings.xml,string,str_textview_factory_picmode_default_val,50
+values/strings.xml,string,str_textview_factory_picmode_picmode_val,User
+values/strings.xml,string,str_textview_factory_ssc_default_val,128
+values/strings.xml,string,str_textview_factory_ssc_miu_device_number_not_found,MIU device number not found!
+values/strings.xml,string,str_textview_factory_ssc_miuindex_val,0
+values/strings.xml,string,str_textview_factory_wbadjust_colortemp_val,VGA
+values/strings.xml,string,str_textview_factory_wbadjust_default_val,50
+values/strings.xml,string,str_textview_factory_wbadjust_picmode_val,User
+values/strings.xml,string,str_textview_factory_wbadjust_source_val,VGA
+values/strings.xml,string,str_textview_factory_wbuipictureadjust_default_val,1024
+values/strings.xml,string,str_textview_factory_wbuipictureadjust_hue_default_val,50
+values/strings.xml,string,str_textview_factory_wbuipictureadjust_pattern_val,Non
+values/strings.xml,string,str_textview_factory_wbuipictureadjust_reset,Reset
+values/strings.xml,string,str_textview_factory_wbuipictureadjust_saturation_default_val,128
+values/strings.xml,string,str_video_mute_color,Video Mute Color
+values/strings.xml,string,str_video_mute_color_range,"Range: 0~5 (0:WHITE,1:RED,2:GREEN,3:BLUE,4:BLACK,5:OFF)"
+values/strings.xml,string,str_video_mute_color_tip_info,Configure Video Mute Color test pattern parameter
+values/strings.xml,string,str_virtualbassenable,VirtualBassEnable
+values/strings.xml,string,str_virtualbassenable_datarange,Range:0~1
+values/strings.xml,string,str_virtualbasshighsrcfreq,VirtualBassHighSrcFreq
+values/strings.xml,string,str_virtualbasshighsrcfreq_datarange,Range:90~270
+values/strings.xml,string,str_virtualbasslowsrcfreq,VirtualBassLowSrcFreq
+values/strings.xml,string,str_virtualbasslowsrcfreq_datarange,Range:30~90
+values/strings.xml,string,str_virtualbassmixhighfreq,VirtualBassMixHighFreq
+values/strings.xml,string,str_virtualbassmixhighfreq_datarange,Range:281~938
+values/strings.xml,string,str_virtualbassmixlowfreq,VirtualBassMixLowFreq
+values/strings.xml,string,str_virtualbassmixlowfreq_datarange,Range:0~375
+values/strings.xml,string,str_virtualbassmode,VirtualBassMode
+values/strings.xml,string,str_virtualbassmode_datarange,Range:0~3
+values/strings.xml,string,str_virtualbassoverallgain,VirtualBassOverallGain
+values/strings.xml,string,str_virtualbassoverallgain_datarange,Range:-480~0
+values/strings.xml,string,str_virtualbassslopegain,VirtualBassSlopeGain
+values/strings.xml,string,str_virtualbassslopegain_datarange,Range:-3~0
+values/strings.xml,string,str_virtualbasssubgain,VirtualBassSubGain
+values/strings.xml,string,str_virtualbasssubgain_arrayindex,Range: 0~2
+values/strings.xml,string,str_virtualbasssubgain_datarange,Range:-480~0
+values/strings.xml,string,str_virtualbasssubgain_end,"""), change it's data"""
+values/strings.xml,string,str_virtualbasssubgain_middle,", please choose gain(0~"
+values/strings.xml,string,str_virtualbasssubgain_start,current gains and their data are
+values/strings.xml,string,str_virtualizerenable,VirtualizerEnable
+values/strings.xml,string,str_virtualizerenable_datarange,Range:0~1
+values/strings.xml,string,str_volmaxboost,VolMaxBoost
+values/strings.xml,string,str_volmaxboost_datarange,Range:0~192
+values/strings.xml,string,str_warning,Warning
+values/strings.xml,string,str_wb_adjust_text,W/B Adjust
+values/strings.xml,string,str_xc_ip_enable,XC_IP enable
+values/strings.xml,string,str_xc_ip_enable_range,Range: 0 ~ 255
+values/strings.xml,string,str_xc_ip_help_info,"""IP TEST PATTERN XC_IP enable (pattern enable type): XC_IP enable = 0x1; //horizontal test pattern XC_IP enable = 0x2; //vertical test pattern XC_IP enable = 0x4; //move test pattern XC_IP enable = 0x"
+values/strings.xml,string,str_xc_ip_pattern_type,XC_IP_pattern_type
+values/strings.xml,string,str_xc_ip_pattern_type_range,Range: 0 ~ 65535
+values/strings.xml,string,str_xc_ip_tip_info,Configure xc ip test pattern parameter
+values/strings.xml,string,str_xc_ip_window,Window
+values/strings.xml,string,str_xc_ip_window_range,Range: 0 ~ 3
+values/strings.xml,string,str_xc_mod_b_data,B_data
+values/strings.xml,string,str_xc_mod_b_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_xc_mod_enable,XC_MOD enable
+values/strings.xml,string,str_xc_mod_enable_range,Range: 0 ~ 1
+values/strings.xml,string,str_xc_mod_g_data,G_data
+values/strings.xml,string,str_xc_mod_g_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_xc_mod_r_data,R_data
+values/strings.xml,string,str_xc_mod_r_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_xc_mod_tip_info,Configure xc mod test pattern parameter
+values/strings.xml,string,str_xc_op_hvsp,HVSP
+values/strings.xml,string,str_xc_op_hvsp_range,Range: 0 ~ 1
+values/strings.xml,string,str_xc_op_hvsp_tip_info,Configure xc op hvsp test pattern parameter
+values/strings.xml,string,str_xc_op_linebuff,LineBuff
+values/strings.xml,string,str_xc_op_linebuff_range,Range: 0 ~ 1
+values/strings.xml,string,str_xc_op_linebuff_tip_info,Configure xc op linebuff test pattern parameter
+values/strings.xml,string,str_xc_vop2_b_data,B_data
+values/strings.xml,string,str_xc_vop2_b_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_xc_vop2_enable,XC_VOP2 enable
+values/strings.xml,string,str_xc_vop2_enable_range,Range: 0 ~ 1
+values/strings.xml,string,str_xc_vop2_g_data,G_data
+values/strings.xml,string,str_xc_vop2_g_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_xc_vop2_r_data,R_data
+values/strings.xml,string,str_xc_vop2_r_data_range,Range: 0 ~ 1023
+values/strings.xml,string,str_xc_vop2_tip_info,Configure xc vop2 test pattern parameter
+values/strings.xml,string,str_xc_vop_enable,XC_VOP enable
+values/strings.xml,string,str_xc_vop_enable_range,Range: 0 ~ 1
+values/strings.xml,string,str_xc_vop_tip_info,Configure xc vop test pattern parameter
+values/strings.xml,string,str_xc_white_balance_enable,XC_WHITE_BALANCE enable
+values/strings.xml,string,str_xc_white_balance_enable_range,Range: 0 ~ 1
+values/strings.xml,string,str_xc_white_balance_radio,White Balance Radio
+values/strings.xml,string,str_xc_white_balance_radio_range,Range: 0 ~ 100
+values/strings.xml,string,str_xc_white_balance_tip_info,Configure xc white balance test pattern parameter
+values/strings.xml,string,tips,“左右”调整，“OK”进入下一级，“退出”/“菜单”退出
+values/styles.xml,item,android:background,@drawable/notification_action_background
+values/styles.xml,item,android:textAppearance,?android:textAppearanceButton
+values/styles.xml,item,android:textSize,@dimen/notification_action_text_size
+values/styles.xml,item,android:textColor,@color/secondary_text_default_material_light
+values/styles.xml,item,statusBarBackground,#ff000000
+values/styles.xml,item,android:textSize,13.0dip
+values/styles.xml,item,android:textColor,#ffffffff
+values/styles.xml,item,android:gravity,center|left
+values/styles.xml,item,android:layout_width,130.0dip
+values/styles.xml,item,android:layout_height,33.0dip
+values/styles.xml,item,android:textSize,13.0dip
+values/styles.xml,item,android:textColor,#ffffffff
+values/styles.xml,item,android:gravity,center|left
+values/styles.xml,item,android:layout_width,wrap_content
+values/styles.xml,item,android:layout_height,fill_parent
+values/styles.xml,item,android:textSize,13.0dip
+values/styles.xml,item,android:focusable,true
+values/styles.xml,item,android:focusableInTouchMode,true
+values/styles.xml,item,android:layout_width,wrap_content
+values/styles.xml,item,android:layout_height,wrap_content
+values/styles.xml,item,android:minWidth,100.0dip
+values/styles.xml,item,android:inputType,numberSigned
+values/styles.xml,item,android:textSize,13.0dip
+values/styles.xml,item,android:textColor,#ffffffff
+values/styles.xml,item,android:gravity,center|left
+values/styles.xml,item,android:layout_width,150.0dip
+values/styles.xml,item,android:layout_height,fill_parent
+values/styles.xml,item,android:textSize,13.0dip
+values/styles.xml,item,android:textColor,#ffffffff
+values/styles.xml,item,android:gravity,center|left
+values/styles.xml,item,android:layout_width,100.0dip
+values/styles.xml,item,android:layout_height,fill_parent
+values/styles.xml,item,android:textSize,13.0dip
+values/styles.xml,item,android:textColor,#ffffffff
+values/styles.xml,item,android:gravity,center|left
+values/styles.xml,item,android:layout_width,fill_parent
+values/styles.xml,item,android:layout_height,33.0dip
+values/styles.xml,item,android:orientation,vertical
+values/styles.xml,item,android:layout_width,400.0dip
+values/styles.xml,item,android:layout_height,540.0dip
+values/styles.xml,item,android:layout_width,400.0dip
+values/styles.xml,item,android:layout_height,475.0dip
+values/styles.xml,item,android:listSelector,@drawable/button_state
+values/styles.xml,item,android:textSize,17.0dip
+values/styles.xml,item,android:textColor,#ffffffff
+values/styles.xml,item,android:gravity,left
+values/styles.xml,item,android:layout_width,wrap_content
+values/styles.xml,item,android:layout_height,30.0dip
+values-ar/strings.xml,string,status_bar_notification_info_overflow,999+
+values-cs/strings.xml,string,status_bar_notification_info_overflow,999+
+values-da/strings.xml,string,status_bar_notification_info_overflow,999+
+values-de/strings.xml,string,status_bar_notification_info_overflow,999+
+values-en-rGB/strings.xml,string,status_bar_notification_info_overflow,999+
+values-es/strings.xml,string,status_bar_notification_info_overflow,+999
+values-es-rUS/strings.xml,string,status_bar_notification_info_overflow,999+
+values-fa/strings.xml,string,status_bar_notification_info_overflow,999+
+values-fi/strings.xml,string,status_bar_notification_info_overflow,999+
+values-fr/strings.xml,string,status_bar_notification_info_overflow,999+
+values-hi/strings.xml,string,status_bar_notification_info_overflow,999+
+values-hu/strings.xml,string,status_bar_notification_info_overflow,999+
+values-in/strings.xml,string,status_bar_notification_info_overflow,999+
+values-it/strings.xml,string,status_bar_notification_info_overflow,999+
+values-iw/strings.xml,string,status_bar_notification_info_overflow,999+
+values-ja/strings.xml,string,status_bar_notification_info_overflow,999+
+values-ko/strings.xml,string,status_bar_notification_info_overflow,999+
+values-nb/strings.xml,string,status_bar_notification_info_overflow,999+
+values-nl/strings.xml,string,status_bar_notification_info_overflow,999+
+values-pl/strings.xml,string,status_bar_notification_info_overflow,999+
+values-pt/strings.xml,string,status_bar_notification_info_overflow,999+
+values-pt-rBR/strings.xml,string,status_bar_notification_info_overflow,999+
+values-pt-rPT/strings.xml,string,status_bar_notification_info_overflow,999+
+values-ro/strings.xml,string,status_bar_notification_info_overflow,999+
+values-ru/strings.xml,string,status_bar_notification_info_overflow,999+
+values-sk/strings.xml,string,status_bar_notification_info_overflow,999+
+values-th/strings.xml,string,status_bar_notification_info_overflow,999+
+values-tr/strings.xml,string,status_bar_notification_info_overflow,999+
+values-vi/strings.xml,string,status_bar_notification_info_overflow,999+
+values-zh-rCN/arrays.xml,string-array,str_arr_dap_enable_vals,OFF ON
+values-zh-rCN/arrays.xml,string-array,str_arr_dtv_route_type,NONE DVBT DVBC DVBS ATSC ISDB DVBT2 DVBS2 DTMB
+values-zh-rCN/arrays.xml,string-array,str_arr_mfc,关 弱 中 强 Bypass
+values-zh-rCN/arrays.xml,string-array,str_arr_mvop_pattern_type,XC_MVOP_PATTERN_NORMAL XC_MVOP_PATTERN_COLORBAR
+values-zh-rCN/arrays.xml,string-array,str_arr_sound_dap_mode_vals,Off Auto Movie Music Game News Night Voip Standard Stadium User
+values-zh-rCN/strings.xml,string,status_bar_notification_info_overflow,999+
+values-zh-rCN/strings.xml,string,str_adc_EnableADCType,ADC使能类型
+values-zh-rCN/strings.xml,string,str_adc_EnableADCType_range,范围: 0 ~ 255
+values-zh-rCN/strings.xml,string,str_adc_Ramp,Ramp
+values-zh-rCN/strings.xml,string,str_adc_Ramp_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_adc_help_info,"""ADC测试图案 ADC_EnableADCType (图案使能类型): ADC_EnableADCType = 0x1; //RADC 使能 ADC_EnableADCType = 0x2; //GADC 使能 ADC_EnableADCType = 0x4; //BADC 使能 ADC_EnableADCType = 0x8; //YADC 使能"""
+values-zh-rCN/strings.xml,string,str_adc_tip_info,配置 adc测试图案参数
+values-zh-rCN/strings.xml,string,str_bassboost,BassBoost
+values-zh-rCN/strings.xml,string,str_bassboost_datarange,Range: 0~384
+values-zh-rCN/strings.xml,string,str_basscutoff,BassCutoff
+values-zh-rCN/strings.xml,string,str_basscutoff_datarange,Range: 20~20000
+values-zh-rCN/strings.xml,string,str_bassenable,BassEnable
+values-zh-rCN/strings.xml,string,str_bassenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_basswidth,BassWidth
+values-zh-rCN/strings.xml,string,str_basswidth_datarange,Range: 2~64
+values-zh-rCN/strings.xml,string,str_calibrationboost,CalibrationBoost
+values-zh-rCN/strings.xml,string,str_calibrationboost_datarange,Range: 0~192
+values-zh-rCN/strings.xml,string,str_cancle,取消
+values-zh-rCN/strings.xml,string,str_channel_arrayrange,Range: 0~5
+values-zh-rCN/strings.xml,string,str_deamount,DeAmount
+values-zh-rCN/strings.xml,string,str_deamount_datarange,Range: 0~16
+values-zh-rCN/strings.xml,string,str_deducking,DeDucking
+values-zh-rCN/strings.xml,string,str_deducking_datarange,Range: 0~16
+values-zh-rCN/strings.xml,string,str_deenable,DeEnable
+values-zh-rCN/strings.xml,string,str_deenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_factory_adc_test_pattern,ADC模式
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect,Advanced Effect
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap,DAP Setting
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_bass,Bass Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_calibrationboost,CalibrationBoost Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_de,De Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_geq,Geq Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_ieq,Ieq Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_leveler,DapLeveLer Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_mi,Mi Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_mode,DAP Mode
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_modeler,Modeler Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_optimizer,Optimizer Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_reg,Reg Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_regulator,Regulator Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_virtualbass,VirtualBass Paramter
+values-zh-rCN/strings.xml,string,str_factory_advanced_effect_dap_volmaxboost,VolMaxBoost Paramter
+values-zh-rCN/strings.xml,string,str_factory_excute_shell,Execute Shell
+values-zh-rCN/strings.xml,string,str_factory_ip_mux_test_pattern,IP MUX模式
+values-zh-rCN/strings.xml,string,str_factory_mic,Mic
+values-zh-rCN/strings.xml,string,str_factory_mvop_test_pattern,MVOP模式
+values-zh-rCN/strings.xml,string,str_factory_otheroption_camera_test,摄像头测试
+values-zh-rCN/strings.xml,string,str_factory_otheroption_factoryprogrampreset_state,请点击！
+values-zh-rCN/strings.xml,string,str_factory_otheroption_factoryprogrampresetfunction,工厂频道预置功能
+values-zh-rCN/strings.xml,string,str_factory_testpattern,测试图案
+values-zh-rCN/strings.xml,string,str_factory_video_mute_color_test_pattern,VIDEO MUTE COLOR模式
+values-zh-rCN/strings.xml,string,str_factory_xc_ip_test_pattern,XC IP模式
+values-zh-rCN/strings.xml,string,str_factory_xc_mod_test_pattern,XC MOD模式
+values-zh-rCN/strings.xml,string,str_factory_xc_vop2_test_pattern,XC VOP2模式
+values-zh-rCN/strings.xml,string,str_factory_xc_vop_test_pattern,XC VOP模式
+values-zh-rCN/strings.xml,string,str_factory_xc_white_balance_test_pattern,XC WHITE BALANCE模式
+values-zh-rCN/strings.xml,string,str_factoryprogrampreset_cancel,关闭
+values-zh-rCN/strings.xml,string,str_factoryprogrampreset_done,完成
+values-zh-rCN/strings.xml,string,str_geqband_arrayrange,Range: 0~19
+values-zh-rCN/strings.xml,string,str_geqbandcenter,GeqBandCenter
+values-zh-rCN/strings.xml,string,str_geqbandcenter_datarange,Range: 20~20000
+values-zh-rCN/strings.xml,string,str_geqbandtarget,GeqBandTarget
+values-zh-rCN/strings.xml,string,str_geqbandtarget_datarange,Range: 20~20000
+values-zh-rCN/strings.xml,string,str_geqenable,GeqEnable
+values-zh-rCN/strings.xml,string,str_geqenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_geqnbbands,GeqNbBands
+values-zh-rCN/strings.xml,string,str_geqnbbands_datarange,Range: 0~20
+values-zh-rCN/strings.xml,string,str_headphonereverb,HeadphoneReverb
+values-zh-rCN/strings.xml,string,str_headphonereverb_datarange,Range: -2080~192
+values-zh-rCN/strings.xml,string,str_ieqamount,IeqAmount
+values-zh-rCN/strings.xml,string,str_ieqamount_datarange,Range: 0~16
+values-zh-rCN/strings.xml,string,str_ieqband_arrayrange,Range: 0~19
+values-zh-rCN/strings.xml,string,str_ieqbandcenter,IeqBandCenter
+values-zh-rCN/strings.xml,string,str_ieqbandcenter_datarange,Range: 20~20000
+values-zh-rCN/strings.xml,string,str_ieqbandtarget,IeqBandTarget
+values-zh-rCN/strings.xml,string,str_ieqbandtarget_datarange,Range: -480~480
+values-zh-rCN/strings.xml,string,str_ieqenable,IeqEnable
+values-zh-rCN/strings.xml,string,str_ieqenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_ieqnbbands,IeqNbBands
+values-zh-rCN/strings.xml,string,str_ieqnbbands_datarange,Range: 1~20
+values-zh-rCN/strings.xml,string,str_invalid_config,无效配置!
+values-zh-rCN/strings.xml,string,str_ip_mux_b_cb_data,B_CB数值
+values-zh-rCN/strings.xml,string,str_ip_mux_b_cb_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_ip_mux_enable,IP_MUX使能
+values-zh-rCN/strings.xml,string,str_ip_mux_enable_range,范围: 0 ~ 1
+values-zh-rCN/strings.xml,string,str_ip_mux_g_y_data,G_Y数值
+values-zh-rCN/strings.xml,string,str_ip_mux_g_y_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_ip_mux_r_cr_data,R_CR数值
+values-zh-rCN/strings.xml,string,str_ip_mux_r_cr_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_ip_mux_tip_info,配置 ip mux测试图案参数
+values-zh-rCN/strings.xml,string,str_leveleramount,LevelerAmount
+values-zh-rCN/strings.xml,string,str_leveleramount_datarange,Range: 0~10
+values-zh-rCN/strings.xml,string,str_levelerenable,LevelerEnable
+values-zh-rCN/strings.xml,string,str_levelerenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_levelerinput,LevelerInput
+values-zh-rCN/strings.xml,string,str_levelerinput_datarange,Range: -640~0
+values-zh-rCN/strings.xml,string,str_leveleroutput,LevelerOutput
+values-zh-rCN/strings.xml,string,str_leveleroutput_datarange,Range: -640~0
+values-zh-rCN/strings.xml,string,str_mideenable,MiDeEnable
+values-zh-rCN/strings.xml,string,str_mideenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_midvenable,MiDvEnable
+values-zh-rCN/strings.xml,string,str_midvenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_miieqenable,MiIeqEnable
+values-zh-rCN/strings.xml,string,str_miieqenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_misurroundenable,MiSurroundEnable
+values-zh-rCN/strings.xml,string,str_misurroundenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_modelercalibration,ModelerCalibration
+values-zh-rCN/strings.xml,string,str_modelercalibration_datarange,Range: -320~320
+values-zh-rCN/strings.xml,string,str_modelerenable,ModelerEnable
+values-zh-rCN/strings.xml,string,str_modelerenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_mvop_tip_info,配置 mvop测试图案参数
+values-zh-rCN/strings.xml,string,str_no_empty,配置不能为空!
+values-zh-rCN/strings.xml,string,str_ok,确定
+values-zh-rCN/strings.xml,string,str_optband_arrayrange,Range: 0~19
+values-zh-rCN/strings.xml,string,str_optbandcenterfreq,BandCenterFreq
+values-zh-rCN/strings.xml,string,str_optbandcenterfreq_datarange,Range:20~20000
+values-zh-rCN/strings.xml,string,str_optbandgain,BandGain
+values-zh-rCN/strings.xml,string,str_optbandgain_datarange,Range: -480~480
+values-zh-rCN/strings.xml,string,str_optimizerenable,OptimizerEnable
+values-zh-rCN/strings.xml,string,str_optimizerenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_optimizernbbands,OptimizerNbBands
+values-zh-rCN/strings.xml,string,str_optimizernbbands_datarange,Range: 0~20
+values-zh-rCN/strings.xml,string,str_postgain,PostGain
+values-zh-rCN/strings.xml,string,str_postgain_datarange,Range: -2080~480
+values-zh-rCN/strings.xml,string,str_pregain,PreGain
+values-zh-rCN/strings.xml,string,str_pregain_datarange,Range: -2080~480
+values-zh-rCN/strings.xml,string,str_regband_arrayrange,Range: 0~19
+values-zh-rCN/strings.xml,string,str_regbandcenter,RegBandCenter
+values-zh-rCN/strings.xml,string,str_regbandcenter_datarange,Range: 0~20000
+values-zh-rCN/strings.xml,string,str_reghighthresholds,RegHighThresholds
+values-zh-rCN/strings.xml,string,str_reghighthresholds_datarange,Range: -2080~0
+values-zh-rCN/strings.xml,string,str_regisolatedbands,RegIsolatedBands
+values-zh-rCN/strings.xml,string,str_regisolatedbands_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_reglowthresholds,RegLowThresholds
+values-zh-rCN/strings.xml,string,str_reglowthresholds_datarange,Range: -2080~0
+values-zh-rCN/strings.xml,string,str_regnbbands,RegNbBands
+values-zh-rCN/strings.xml,string,str_regnbbands_datarange,Range: 0~20
+values-zh-rCN/strings.xml,string,str_regulatordistortion,RegulatorDistortion
+values-zh-rCN/strings.xml,string,str_regulatordistortion_datarange,Range: 0~144
+values-zh-rCN/strings.xml,string,str_regulatorenable,RegulatorEnable
+values-zh-rCN/strings.xml,string,str_regulatorenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_regulatormode,RegulatorMode
+values-zh-rCN/strings.xml,string,str_regulatormode_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_regulatoroverdrive,RegulatorOverdrive
+values-zh-rCN/strings.xml,string,str_regulatoroverdrive_datarange,Range: 0~192
+values-zh-rCN/strings.xml,string,str_regulatortimbre,RegulatorTimbre
+values-zh-rCN/strings.xml,string,str_regulatortimbre_datarange,Range: 0~16
+values-zh-rCN/strings.xml,string,str_speakerangle,SpeakerAngle
+values-zh-rCN/strings.xml,string,str_speakerangle_datarange,Range: 5~30
+values-zh-rCN/strings.xml,string,str_speakerstart,SpeakerStart
+values-zh-rCN/strings.xml,string,str_speakerstart_datarange,Range: 20~20000
+values-zh-rCN/strings.xml,string,str_surroundboost,SurroundBoost
+values-zh-rCN/strings.xml,string,str_surroundboost_datarange,Range: 0~96
+values-zh-rCN/strings.xml,string,str_surrounddecoderenable,SurroundDecoderEnable
+values-zh-rCN/strings.xml,string,str_surrounddecoderenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_systemgain,SystemGain
+values-zh-rCN/strings.xml,string,str_systemgain_datarange,Range: -2080~480
+values-zh-rCN/strings.xml,string,str_textview_factory_otheroption_text_fail,失败
+values-zh-rCN/strings.xml,string,str_textview_factory_otheroption_text_pass,成功
+values-zh-rCN/strings.xml,string,str_video_mute_color,Video Mute Color
+values-zh-rCN/strings.xml,string,str_video_mute_color_range,"范围: 0~5 (0:WHITE,1:RED,2:GREEN,3:BLUE,4:BLACK,5:OFF)"
+values-zh-rCN/strings.xml,string,str_video_mute_color_tip_info,配置 Video Mute Color 测试图案参数
+values-zh-rCN/strings.xml,string,str_virtualbassenable,VirtualBassEnable
+values-zh-rCN/strings.xml,string,str_virtualbassenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_virtualbasshighsrcfreq,VirtualBassHighSrcFreq
+values-zh-rCN/strings.xml,string,str_virtualbasshighsrcfreq_datarange,Range: 90~270
+values-zh-rCN/strings.xml,string,str_virtualbasslowsrcfreq,VirtualBassLowSrcFreq
+values-zh-rCN/strings.xml,string,str_virtualbasslowsrcfreq_datarange,Range: 30~90
+values-zh-rCN/strings.xml,string,str_virtualbassmixhighfreq,VirtualBassMixHighFreq
+values-zh-rCN/strings.xml,string,str_virtualbassmixhighfreq_datarange,Range: 281~938
+values-zh-rCN/strings.xml,string,str_virtualbassmixlowfreq,VirtualBassMixLowFreq
+values-zh-rCN/strings.xml,string,str_virtualbassmixlowfreq_datarange,Range: 0~375
+values-zh-rCN/strings.xml,string,str_virtualbassmode,VirtualBassMode
+values-zh-rCN/strings.xml,string,str_virtualbassmode_datarange,Range: 0~3
+values-zh-rCN/strings.xml,string,str_virtualbassoverallgain,VirtualBassOverallGain
+values-zh-rCN/strings.xml,string,str_virtualbassoverallgain_datarange,Range: -480~0
+values-zh-rCN/strings.xml,string,str_virtualbassslopegain,VirtualBassSlopeGain
+values-zh-rCN/strings.xml,string,str_virtualbassslopegain_datarange,Range: -3~0
+values-zh-rCN/strings.xml,string,str_virtualbasssubgain,VirtualBassSubGain
+values-zh-rCN/strings.xml,string,str_virtualbasssubgain_arrayindex,Range: 0~2
+values-zh-rCN/strings.xml,string,str_virtualbasssubgain_datarange,Range: -480~0
+values-zh-rCN/strings.xml,string,str_virtualbasssubgain_end,"""), change it's data"""
+values-zh-rCN/strings.xml,string,str_virtualbasssubgain_middle,", please choose gain(0~"
+values-zh-rCN/strings.xml,string,str_virtualbasssubgain_start,current gains and their data are
+values-zh-rCN/strings.xml,string,str_virtualizerenable,VirtualizerEnable
+values-zh-rCN/strings.xml,string,str_virtualizerenable_datarange,Range: 0~1
+values-zh-rCN/strings.xml,string,str_volmaxboost,VolMaxBoost
+values-zh-rCN/strings.xml,string,str_volmaxboost_datarange,Range: 0~192
+values-zh-rCN/strings.xml,string,str_warning,警告
+values-zh-rCN/strings.xml,string,str_xc_ip_enable,XC_IP使能
+values-zh-rCN/strings.xml,string,str_xc_ip_enable_range,范围: 0 ~ 255
+values-zh-rCN/strings.xml,string,str_xc_ip_help_info,"""IP测试图案 XC_IP enable (图案使能类型): XC_IP enable = 0x1; //水平测试图案 XC_IP enable = 0x2; //垂直测试图案 XC_IP enable = 0x4; //移动测试图案 XC_IP enable = 0x8; //斜视测试图案"""
+values-zh-rCN/strings.xml,string,str_xc_ip_pattern_type,XC_IP图案类型
+values-zh-rCN/strings.xml,string,str_xc_ip_pattern_type_range,范围: 0 ~ 65535
+values-zh-rCN/strings.xml,string,str_xc_ip_tip_info,配置 xc ip测试图案参数
+values-zh-rCN/strings.xml,string,str_xc_ip_window,Window
+values-zh-rCN/strings.xml,string,str_xc_ip_window_range,范围: 0 ~ 3
+values-zh-rCN/strings.xml,string,str_xc_mod_b_data,B数值
+values-zh-rCN/strings.xml,string,str_xc_mod_b_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_xc_mod_enable,XC_MOD数值
+values-zh-rCN/strings.xml,string,str_xc_mod_enable_range,范围: 0 ~ 1
+values-zh-rCN/strings.xml,string,str_xc_mod_g_data,G数值
+values-zh-rCN/strings.xml,string,str_xc_mod_g_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_xc_mod_r_data,R数值
+values-zh-rCN/strings.xml,string,str_xc_mod_r_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_xc_mod_tip_info,配置 xc mod测试图案参数
+values-zh-rCN/strings.xml,string,str_xc_op_hvsp,HVSP
+values-zh-rCN/strings.xml,string,str_xc_op_hvsp_range,范围: 0 ~ 1
+values-zh-rCN/strings.xml,string,str_xc_op_hvsp_tip_info,配置 xc op hvsp 测试图案参
+values-zh-rCN/strings.xml,string,str_xc_op_linebuff,LineBuff
+values-zh-rCN/strings.xml,string,str_xc_op_linebuff_range,范围: 0 ~ 1
+values-zh-rCN/strings.xml,string,str_xc_op_linebuff_tip_info,配置 xc op linebuff 测试图案参
+values-zh-rCN/strings.xml,string,str_xc_vop2_b_data,B数值
+values-zh-rCN/strings.xml,string,str_xc_vop2_b_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_xc_vop2_enable,XC_VOP2使能
+values-zh-rCN/strings.xml,string,str_xc_vop2_enable_range,范围: 0 ~ 1
+values-zh-rCN/strings.xml,string,str_xc_vop2_g_data,G数值
+values-zh-rCN/strings.xml,string,str_xc_vop2_g_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_xc_vop2_r_data,R数值
+values-zh-rCN/strings.xml,string,str_xc_vop2_r_data_range,范围: 0 ~ 1023
+values-zh-rCN/strings.xml,string,str_xc_vop2_tip_info,配置 xc vop2测试图案参数
+values-zh-rCN/strings.xml,string,str_xc_vop_enable,XC_VOP使能
+values-zh-rCN/strings.xml,string,str_xc_vop_enable_range,范围: 0 ~ 1
+values-zh-rCN/strings.xml,string,str_xc_vop_tip_info,配置 xc vop测试图案参数
+values-zh-rCN/strings.xml,string,str_xc_white_balance_enable,XC_WHITE_BALANCE使能
+values-zh-rCN/strings.xml,string,str_xc_white_balance_enable_range,范围: 0 ~ 1
+values-zh-rCN/strings.xml,string,str_xc_white_balance_radio,White Balance Radio
+values-zh-rCN/strings.xml,string,str_xc_white_balance_radio_range,范围: 0 ~ 100
+values-zh-rCN/strings.xml,string,str_xc_white_balance_tip_info,配置 xc white balance 测试图案参数
+values-zh-rTW/strings.xml,string,status_bar_notification_info_overflow,999+

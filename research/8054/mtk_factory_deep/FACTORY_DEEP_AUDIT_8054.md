@@ -1,0 +1,2958 @@
+# MediaTek Factory Menu 8054 — полный статический обзор декомпилированного UI
+
+Источник: точный OEM Factory.apk из подтверждённого backup FlixTone 8054. Анализ только на CI, без записи на устройство.
+Ограничение: декомпилированный метод и текст меню не доказывают runtime видимость, лицензии или физический эффект на конкретном профиле.
+
+## Охват
+- Всего декомпилировано Java: 1866
+- Собственных Java классов Factory UI: 52
+- Детально обследованы основные UI компоненты: 32
+- Найдено кандидатов UI/API вызовов: 2346
+- XML resource labels: 958
+- Dolby Vision/DOVI references: 3
+- HDR/HLG references: 0
+
+## Полный перечень Factory UI классов по направлениям
+### Other
+
+- mediatek/tvsetting/factory/ui/ApiService.java
+- mediatek/tvsetting/factory/ui/FactoryIntent.java
+- mediatek/tvsetting/factory/ui/ProjectorManager.java
+- mediatek/tvsetting/factory/ui/designmenu/DesignMenuActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/DesignMenuViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/FactoryCloseCaptionSetupActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/FactoryInstallFvpIntermediateKeyActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/FactoryInstallQdaActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/FactoryProgramPresetActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/FileChooser.java
+- mediatek/tvsetting/factory/ui/designmenu/IPEnableMappingViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/IPEnableName.java
+- mediatek/tvsetting/factory/ui/designmenu/InfoTextView.java
+- mediatek/tvsetting/factory/ui/designmenu/Item.java
+- mediatek/tvsetting/factory/ui/designmenu/NonStandardAdjustViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/OtherOptionAdjustViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/TestPatternViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/VD.java
+- mediatek/tvsetting/factory/ui/designmenu/mictest/MicFactory.java
+- mediatek/tvsetting/factory/ui/designmenu/mictest/MicViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/mictest/SimpleFFT.java
+- mediatek/tvsetting/factory/ui/factorymenu/BaseActivity.java
+- mediatek/tvsetting/factory/ui/factorymenu/FactoryMenuActivity.java
+- mediatek/tvsetting/factory/ui/factorymenu/FactoryMenuViewHolder.java
+- mediatek/tvsetting/factory/ui/factorymenu/InfoViewHolder.java
+- mediatek/tvsetting/factory/ui/factorymenu/OtherOptionForFactory.java
+- mediatek/tvsetting/factory/ui/factorymenu/testpatternforpanel/PatternData.java
+- mediatek/tvsetting/factory/ui/factorymenu/testpatternforpanel/TestImagePatternsActivity.java
+
+### Audio/Dolby/DTS/EQ
+
+- mediatek/tvsetting/factory/ui/designmenu/AUDIO_nonStan.java
+- mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectDapViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/FactoryDTSActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/FactoryDolbyActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/FileArrayAdapter.java
+- mediatek/tvsetting/factory/ui/designmenu/PEQAdjustViewHolder.java
+
+### Factory IO/calibration
+
+- mediatek/tvsetting/factory/ui/designmenu/DemodInfo.java
+- mediatek/tvsetting/factory/ui/designmenu/ExecuteShellActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/FactoryKeyUpgradeActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/FactoryUpgradeUrsaFwActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/SSCAdjustViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/UrsaInfoViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/VIF.java
+- mediatek/tvsetting/factory/ui/factorymenu/ADCAdjustViewHolder.java
+- mediatek/tvsetting/factory/ui/factorymenu/FactoryCameraActivity.java
+
+### MEMC
+
+- mediatek/tvsetting/factory/ui/designmenu/FactoryMemcActivity.java
+
+### PQ/HDR/Dolby Vision
+
+- mediatek/tvsetting/factory/ui/designmenu/FactoryPqUpdateActivity.java
+- mediatek/tvsetting/factory/ui/designmenu/NonLinearAdjustViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/PanelInfoViewHolder.java
+- mediatek/tvsetting/factory/ui/designmenu/PictureModeAdjustViewHolder.java
+- mediatek/tvsetting/factory/ui/factorymenu/OverScanAdjustViewHolder.java
+- mediatek/tvsetting/factory/ui/factorymenu/WBAdjustViewHolder.java
+
+## Проверка Dolby Vision/DOVI (ВИДЕО, не Dolby DAP audio)
+
+- com/mediatek/twoworlds/tv/common/MtkTvConfigTypeBase.java:216 — public static final int ACFG_MSG_ENTER_DOLBY_VISION = 20;
+- com/mediatek/twoworlds/tv/common/MtkTvConfigTypeBase.java:225 — public static final int ACFG_MSG_QUITE_DOLBY_VISION = 21;
+- com/mediatek/twoworlds/tv/common/MtkTvConfigTypeBase.java:1846 — public static final String CFG_VIDEO_GLOBAL_DIMMING_SWITCH = "g_video__vid_dolby_vision_global_dimming_switch";
+
+## Подробности главных экранов и обработчиков
+
+### AUDIO_nonStan
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/AUDIO_nonStan.java; строк: 279
+
+**Обнаруженные методы (строка):**
+- onCreate() : 46
+- updateUi() : 53
+- findView() : 75
+- onKeyDown() : 88
+- updatePrescaleUi() : 269
+- updateSpeakerDelayUi() : 275
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- AUDIO_nonStan
+- SPDIF
+- HDMITX
+- SPEAKER
+- HEADPHONE
+- LINEOUT
+- HDMIARC
+- SCART
+- Off
+- Auto
+- Movie
+- Music
+- Game
+- News
+- Night
+- Voip
+- Standard
+- Stadium
+- User
+- OFF
+- LV1
+- LV2
+- LV3
+- DTV
+- ATV
+- HDMI
+- CVBS
+- MAX
+- NONE
+- PCM
+- g_audio__dolby_audio_processing
+- currentDapEnableIndex =
+- g_audio__dolby_sound_mode
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 8: import com.mediatek.twoworlds.factory.MtkTvFApiAudio;
+- 9: import com.mediatek.twoworlds.factory.common.MtkTvFApiAudioTypes;
+- 10: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 11: import com.mediatek.twoworlds.tv.common.MtkTvConfigTypeBase;
+- 46: protected void onCreate(Bundle bundle) {
+- 47: super.onCreate(bundle);
+- 48: setContentView(R.layout.audio_nonstan);
+- 50: updateUi();
+- 53: public void updateUi() {
+- 57: this.layout_nonstandard_audio.getChildAt(i).setEnabled(configValue == 0);
+- 60: this.mAudioPrescale = this.mTvFApiAudio.getPrescaleByAudioSource(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], MtkTvFApiAudioTypes.EnumAudOutputType.values()[this.mOutputType]);
+- 61: this.mAudioHidev = this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_HIGH_DEVIATION_MODE);
+- 62: this.mAudioNr = this.mTvFApiAudio.getAudioIniNrThreshold(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource]);
+- 63: this.mAudioDelay = this.mTvFApiAudio.getSpeakerDelayDefaultOffset(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], MtkTvFApiAudioTypes.EnumSpeakerDelayOffset.values()[this.mAudioSpeakerDelayOffset]);
+- 65: this.text_factory_nonstandard_soundmode_val.setText(this.mSoundModeStrArray[this.mSoundMode]);
+- 66: this.text_factory_nonstandard_outputtype_val.setText(this.mOutputTypeStrArray[this.mOutputType]);
+- 67: this.text_factory_nonstandard_audioinputsource_val.setText(this.mAudioInputSourceStrArray[this.mAudioInputSource]);
+- 68: this.text_factory_nonstandard_audiohidev_val.setText(this.mAudioHiDevModeStrArray[this.mAudioHidev]);
+- 69: this.text_factory_nonstandard_audionr_val.setText(Integer.toString(this.mAudioNr));
+- 70: this.text_factory_nonstandard_audioprescale_val.setText(Double.toString(this.mAudioPrescale));
+- 71: this.text_factory_nonstandard_audiospeakerdelayoffset_val.setText(this.mAudioSpeakerDelayOffsetStrArray[this.mAudioSpeakerDelayOffset]);
+- 72: this.text_factory_nonstandard_audiodelay_val.setText(Integer.toString(this.mAudioDelay) + "ms");
+- 76: this.layout_nonstandard_audio = (LinearLayout) findViewById(R.id.linearlayout_factory_nonstandard_audio);
+- 77: this.text_factory_nonstandard_soundmode_val = (TextView) findViewById(R.id.textview_factory_nonstandard_soundmode_val);
+- 78: this.text_factory_nonstandard_outputtype_val = (TextView) findViewById(R.id.textview_factory_nonstandard_outputtype_val);
+- 79: this.text_factory_nonstandard_audioinputsource_val = (TextView) findViewById(R.id.textview_factory_nonstandard_audioinputsource_val);
+- 80: this.text_factory_nonstandard_audiohidev_val = (TextView) findViewById(R.id.textview_factory_nonstandard_audiohidev_val);
+- 81: this.text_factory_nonstandard_audionr_val = (TextView) findViewById(R.id.textview_factory_nonstandard_audionr_val);
+- 82: this.text_factory_nonstandard_audioprescale_val = (TextView) findViewById(R.id.textview_factory_nonstandard_audioprescale_val);
+- 83: this.text_factory_nonstandard_audiospeakerdelayoffset_val = (TextView) findViewById(R.id.textview_factory_nonstandard_audiospeakerdelayoffset_val);
+- 84: this.text_factory_nonstandard_audiodelay_val = (TextView) findViewById(R.id.textview_factory_nonstandard_audiodelay_val);
+- 102: case R.id.linearlayout_factory_nonstandard_audiodelay /* 2131099878 */:
+- 108: this.text_factory_nonstandard_audiodelay_val.setText(Integer.toString(this.mAudioDelay) + "ms");
+- 109: this.mTvFApiAudio.setSpeakerDelayDefaultOffset(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], MtkTvFApiAudioTypes.EnumSpeakerDelayOffset.values()[this.mAudioSpeakerDelayOffset], this.mAudioDelay);
+- 111: case R.id.linearlayout_factory_nonstandard_audiohidev /* 2131099879 */:
+- 117: this.text_factory_nonstandard_audiohidev_val.setText(this.mAudioHiDevModeStrArray[this.mAudioHidev]);
+- 118: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_HIGH_DEVIATION_MODE, this.mAudioHidev);
+- 120: case R.id.linearlayout_factory_nonstandard_audioinputsource /* 2131099880 */:
+- 126: this.text_factory_nonstandard_audioinputsource_val.setText(this.mAudioInputSourceStrArray[this.mAudioInputSource]);
+- 127: updatePrescaleUi();
+- 128: updateSpeakerDelayUi();
+- 130: case R.id.linearlayout_factory_nonstandard_audionr /* 2131099881 */:
+- 136: this.text_factory_nonstandard_audionr_val.setText(Integer.toString(this.mAudioNr));
+- 137: this.mTvFApiAudio.setNrThreshold(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], this.mAudioNr);
+- 138: this.mTvFApiAudio.saveAudioIni();
+- 140: case R.id.linearlayout_factory_nonstandard_audioprescale /* 2131099882 */:
+- 146: this.text_factory_nonstandard_audioprescale_val.setText(Double.toString(this.mAudioPrescale));
+- 147: this.mTvFApiAudio.setPrescaleByAudioSource(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], MtkTvFApiAudioTypes.EnumAudOutputType.values()[this.mOutputType], this.mAudioPrescale);
+- 148: this.mTvFApiAudio.saveAudioIni();
+- 150: case R.id.linearlayout_factory_nonstandard_audiospeakerdelayoffset /* 2131099883 */:
+- 156: this.text_factory_nonstandard_audiospeakerdelayoffset_val.setText(this.mAudioSpeakerDelayOffsetStrArray[this.mAudioSpeakerDelayOffset]);
+- 157: updateSpeakerDelayUi();
+- 159: case R.id.linearlayout_factory_nonstandard_outputtype /* 2131099888 */:
+- 165: this.text_factory_nonstandard_outputtype_val.setText(this.mOutputTypeStrArray[this.mOutputType]);
+- 166: updatePrescaleUi();
+- 168: case R.id.linearlayout_factory_nonstandard_soundmode /* 2131099889 */:
+- 174: this.text_factory_nonstandard_soundmode_val.setText(this.mSoundModeStrArray[this.mSoundMode]);
+- 175: this.mTvConfig.setConfigValue("g_audio__dolby_sound_mode", this.mSoundMode);
+- 181: case R.id.linearlayout_factory_nonstandard_audiodelay /* 2131099878 */:
+- 187: this.text_factory_nonstandard_audiodelay_val.setText(Integer.toString(this.mAudioDelay) + "ms");
+- 188: this.mTvFApiAudio.setSpeakerDelayDefaultOffset(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], MtkTvFApiAudioTypes.EnumSpeakerDelayOffset.values()[this.mAudioSpeakerDelayOffset], this.mAudioDelay);
+- 190: case R.id.linearlayout_factory_nonstandard_audiohidev /* 2131099879 */:
+- 197: this.text_factory_nonstandard_audiohidev_val.setText(strArr[this.mAudioHidev]);
+- 198: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_HIGH_DEVIATION_MODE, this.mAudioHidev);
+- 200: case R.id.linearlayout_factory_nonstandard_audioinputsource /* 2131099880 */:
+- 207: this.text_factory_nonstandard_audioinputsource_val.setText(strArr2[this.mAudioInputSource]);
+- 208: updatePrescaleUi();
+- 209: updateSpeakerDelayUi();
+- 211: case R.id.linearlayout_factory_nonstandard_audionr /* 2131099881 */:
+- 217: this.text_factory_nonstandard_audionr_val.setText(Integer.toString(this.mAudioNr));
+- 218: this.mTvFApiAudio.setNrThreshold(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], this.mAudioNr);
+- 219: this.mTvFApiAudio.saveAudioIni();
+- 221: case R.id.linearlayout_factory_nonstandard_audioprescale /* 2131099882 */:
+- 227: this.text_factory_nonstandard_audioprescale_val.setText(Double.toString(this.mAudioPrescale));
+- 228: this.mTvFApiAudio.setPrescaleByAudioSource(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], MtkTvFApiAudioTypes.EnumAudOutputType.values()[this.mOutputType], this.mAudioPrescale);
+- 229: this.mTvFApiAudio.saveAudioIni();
+- 231: case R.id.linearlayout_factory_nonstandard_audiospeakerdelayoffset /* 2131099883 */:
+- 238: this.text_factory_nonstandard_audiospeakerdelayoffset_val.setText(strArr3[this.mAudioSpeakerDelayOffset]);
+- 239: updateSpeakerDelayUi();
+- 241: case R.id.linearlayout_factory_nonstandard_outputtype /* 2131099888 */:
+- 248: this.text_factory_nonstandard_outputtype_val.setText(strArr4[this.mOutputType]);
+- 249: updatePrescaleUi();
+- 251: case R.id.linearlayout_factory_nonstandard_soundmode /* 2131099889 */:
+- 258: this.text_factory_nonstandard_soundmode_val.setText(strArr5[this.mSoundMode]);
+- 259: this.mTvConfig.setConfigValue("g_audio__dolby_sound_mode", this.mSoundMode);
+- 270: double prescaleByAudioSource = this.mTvFApiAudio.getPrescaleByAudioSource(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], MtkTvFApiAudioTypes.EnumAudOutputType.values()[this.mOutputType]);
+- 272: this.text_factory_nonstandard_audioprescale_val.setText(Double.toString(prescaleByAudioSource));
+- 276: this.mAudioDelay = this.mTvFApiAudio.getSpeakerDelayDefaultOffset(MtkTvFApiAudioTypes.AudioInputSource.values()[this.mAudioInputSource], MtkTvFApiAudioTypes.EnumSpeakerDelayOffset.values()[this.mAudioSpeakerDelayOffset]);
+- 277: this.text_factory_nonstandard_audiodelay_val.setText(Integer.toString(this.mAudioDelay) + "ms");
+
+### AdvancedEffectActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectActivity.java; строк: 80
+
+**Обнаруженные методы (строка):**
+- onClick() : 24
+- onCreate() : 38
+- registerListeners() : 49
+- onKeyDown() : 54
+- returnRoot() : 72
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- AdvancedEffectActivity
+- advancedEffectFlipper =
+- mstarCurrentPage =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 24: public void onClick(View view) {
+- 26: case R.id.linearlayout_factory_advanced_effect_dap /* 2131099813 */:
+- 28: AdvancedEffectActivity.this.advancedEffectFlipper.setDisplayedChild(1);
+- 38: protected void onCreate(Bundle bundle) {
+- 39: super.onCreate(bundle);
+- 40: setContentView(R.layout.advanced_effect_menu);
+- 41: this.advancedEffectFlipper = (ViewFlipper) findViewById(R.id.advanced_effect_view_flipper);
+- 50: this.advancedEffectViewHolder.dapSettingLinearLayout.setOnClickListener(this.listener);
+- 74: this.advancedEffectFlipper.setDisplayedChild(0);
+- 75: LinearLayout linearLayout = (LinearLayout) ((LinearLayout) findViewById(R.id.linearlayout_factory_advanced_effect)).getChildAt(i);
+- 76: linearLayout.setFocusable(true);
+- 78: linearLayout.setFocusableInTouchMode(true);
+
+### AdvancedEffectDapViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectDapViewHolder.java; строк: 1318
+
+**Обнаруженные методы (строка):**
+- AdvancedEffectDapViewHolder() : 315
+- findView() : 328
+- freshUI() : 353
+- onCreat() : 359
+- onKeyDown() : 371
+- onClick() : 511
+- onClick() : 549
+- onClick() : 584
+- onClick() : 631
+- onClick() : 690
+- onClick() : 758
+- onClick() : 812
+- onClick() : 859
+- onClick() : 900
+- onClick() : 961
+- onClick() : 1045
+- onClick() : 1106
+- onClick() : 1162
+- onClick() : 1237
+- onClick() : 1292
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- AdvancedEffectDapViewHolder
+- g_audio__dolby_sound_mode
+- currentDapModeIndex =
+- g_audio__dolby_audio_processing
+- onKeyDown currentDapModeIndex =
+- bassEnable =
+- bassBoost =
+- bassCutOff =
+- bassWidth =
+- calibrationboost =
+- deenable =
+- deamount =
+- deducking =
+- pregain =
+- postgain =
+- systemgain =
+- textview_pregain_data =
+- + strArr3[i12] +
+- + strArr4[i13] +
+- geqenable =
+- geqnbbands =
+- geqbandcenter_arrayindex =
+- geqbandcenter_inputdata =
+- geqbandtarget_arrayindex =
+- geqbandtarget_inputdata =
+- + strArr5[i14] +
+- + strArr6[i15] +
+- ieqenable =
+- ieqamount =
+- ieqnbbands =
+- ieqbandcenter_arrayindex =
+- ieqbandcenter_inputdata =
+- ieqbandtarget_arrayindex =
+- ieqbandtarget_inputdata =
+- leveleramount =
+- levelerinput =
+- leveleroutput =
+- levelerenable =
+- isIeqEnable =
+- isMiDvEnable =
+- isDeEnable =
+- isSurroundenable =
+- modelerenable =
+- modelercalibration =
+- + strArr7[i16] +
+- + strArr8[i17][i18] +
+- optimizerenable =
+- optimizernbbands =
+- optbandcenterfreq_arrayindex =
+- optbandcenterfreq_inputdata =
+- optbandgain_channel_arrayindex =
+- optbandgain_optband_arrayindex =
+- optbandgain_inputdata =
+- + strArr9[i19] +
+- + strArr10[i20] +
+- + strArr11[i21] +
+- + strArr12[i22] +
+- regnbbands =
+- regbandcenter_arrayindex =
+- regbandcenter_inputdata =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 14: import com.mediatek.twoworlds.factory.MtkTvFApiAudio;
+- 15: import com.mediatek.twoworlds.factory.common.MtkTvFApiAudioTypes;
+- 16: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 139: public static MtkTvFApiAudioTypes.DolbyDapParameter mDolbyDapParamter = new MtkTvFApiAudioTypes.DolbyDapParameter();
+- 323: Toast.makeText(advancedEffectActivity2, advancedEffectActivity2.getResources().getString(R.string.str_factory_advanced_effect_dap_init_failed), 0).show();
+- 329: this.mLinear_advenced_effect_dap_enable = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_enbale);
+- 330: this.mLinear_advenced_effect_dap_settings = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_settings);
+- 331: this.mLinear_advanced_effect_dap_mode = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_mode);
+- 332: this.mLinear_advenced_effect_dap_gain = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_gain);
+- 333: this.mLinear_advenced_effect_dap_surroundvirtualizer = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_surroundvirtualizer);
+- 334: this.mLinear_advenced_effect_dap_mi = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_mi);
+- 335: this.mLinear_advenced_effect_dap_calibrationboost = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_calibrationboost);
+- 336: this.mLinear_advenced_effect_dap_leveler = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_leveler);
+- 337: this.mLinear_advenced_effect_dap_modeler = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_modeler);
+- 338: this.mLinear_advenced_effect_dap_ieq = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_ieq);
+- 339: this.mLinear_advenced_effect_dap_de = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_de);
+- 340: this.mLinear_advenced_effect_dap_volmaxboost = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_volmaxboost);
+- 341: this.mLinear_advenced_effect_dap_geq = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_geq);
+- 342: this.mLinear_advenced_effect_dap_optimizer = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_optimizer);
+- 343: this.mLinear_advenced_effect_dap_bass = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_bass);
+- 344: this.mLinear_advenced_effect_dap_reg = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_reg);
+- 345: this.mLinear_advenced_effect_dap_regulator = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_regulator);
+- 346: this.mLinear_advenced_effect_dap_virtualbass = (LinearLayout) this.advancedEffectActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap_virtualbass);
+- 347: this.mTextView_advanced_effect_dap_enable_val = (TextView) this.advancedEffectActivity.findViewById(R.id.textview_factory_advanced_effect_dap_enable_val);
+- 348: this.mTextView_dvanced_effect_dap_mode_val = (TextView) this.advancedEffectActivity.findViewById(R.id.textview_factory_advanced_effect_dap_mode_val);
+- 349: this.str_dap_enable_vals = this.advancedEffectActivity.getResources().getStringArray(R.array.str_arr_dap_enable_vals);
+- 350: this.str_dap_mode_vals = this.advancedEffectActivity.getResources().getStringArray(R.array.str_arr_sound_dap_mode_vals);
+- 355: this.mLinear_advenced_effect_dap_settings.getChildAt(i).setEnabled(z);
+- 367: this.mTextView_advanced_effect_dap_enable_val.setText(this.str_dap_enable_vals[this.currentDapEnableIndex]);
+- 368: this.mTextView_dvanced_effect_dap_mode_val.setText(this.str_dap_mode_vals[this.currentDapModeIndex]);
+- 389: case R.id.linearlayout_factory_advanced_effect_dap_enbale /* 2131099817 */:
+- 403: this.mTextView_advanced_effect_dap_enable_val.setText(strArr[i3]);
+- 407: this.mTvConfig.setConfigValue("g_audio__dolby_audio_processing", 1);
+- 410: this.mTvConfig.setConfigValue("g_audio__dolby_audio_processing", 0);
+- 413: case R.id.linearlayout_factory_advanced_effect_dap_mode /* 2131099823 */:
+- 429: this.mTextView_dvanced_effect_dap_mode_val.setText(this.str_dap_mode_vals[this.currentDapModeIndex]);
+- 430: this.mTvConfig.setConfigValue("g_audio__dolby_sound_mode", this.currentDapModeIndex);
+- 439: case R.id.linearlayout_factory_advanced_effect_dap_enbale /* 2131099817 */:
+- 453: this.mTextView_advanced_effect_dap_enable_val.setText(strArr2[i8]);
+- 457: this.mTvConfig.setConfigValue("g_audio__dolby_audio_processing", 1);
+- 459: this.mTvConfig.setConfigValue("g_audio__dolby_audio_processing", 0);
+- 463: case R.id.linearlayout_factory_advanced_effect_dap_mode /* 2131099823 */:
+- 479: this.mTextView_dvanced_effect_dap_mode_val.setText(this.str_dap_mode_vals[this.currentDapModeIndex]);
+- 480: this.mTvConfig.setConfigValue("g_audio__dolby_sound_mode", this.currentDapModeIndex);
+- 491: case R.id.linearlayout_factory_advanced_effect_dap_bass /* 2131099814 */:
+- 494: this.textview_bassenable_data = (TextView) viewInflate.findViewById(R.id.textview_bassenable_data);
+- 495: this.edittext_bassenable_inputdata = (EditText) this.layout_bass.findViewById(R.id.edittext_bassenable_inputdata);
+- 496: this.textview_bassboost_data = (TextView) this.layout_bass.findViewById(R.id.textview_bassboost_data);
+- 497: this.edittext_bassboost_inputdata = (EditText) this.layout_bass.findViewById(R.id.edittext_bassboost_inputdata);
+- 498: this.textview_basscutoff_data = (TextView) this.layout_bass.findViewById(R.id.textview_basscutoff_data);
+- 499: this.edittext_basscutoff_inputdata = (EditText) this.layout_bass.findViewById(R.id.edittext_basscutoff_inputdata);
+- 500: this.textview_basswidth_data = (TextView) this.layout_bass.findViewById(R.id.textview_basswidth_data);
+- 501: this.edittext_basswidth_inputdata = (EditText) this.layout_bass.findViewById(R.id.edittext_basswidth_inputdata);
+- 505: this.textview_bassenable_data.setText(Integer.toString(mDolbyDapParamter.bassEnable));
+- 506: this.textview_bassboost_data.setText(Integer.toString(mDolbyDapParamter.bassBoost));
+- 507: this.textview_basscutoff_data.setText(Integer.toString(mDolbyDapParamter.bassCutoff));
+- 508: this.textview_basswidth_data.setText(Integer.toString(mDolbyDapParamter.bassWidth));
+- 511: public void onClick(DialogInterface dialogInterface, int i12) {
+- 526: Customize.setDolbyDapParam(AdvancedEffectDapViewHolder.this.currentDapModeIndex, MtkTvFApiAudioTypes.EnumDolbyDapSubType.E_FAPI_AUD_DOLBY_DAP_BASS_PARAMTER, AdvancedEffectDapViewHolder.mDolbyDapParamter);
+- 527: AdvancedEffectDapViewHolder.this.mTvFApiAudio.saveAudioIni();
+- 530: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_invalid_config).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).sho
+- 533: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_no_empty).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).show();
+- 535: }).setNegativeButton(R.string.str_cancle, (DialogInterface.OnClickListener) null).show();
+- 538: case R.id.linearlayout_factory_advanced_effect_dap_calibrationboost /* 2131099815 */:
+- 541: this.textview_calibrationboost_data = (TextView) viewInflate2.findViewById(R.id.textview_calibrationboost_data);
+- 542: this.edittext_calibrationboost_inputdata = (EditText) this.layout_calibrationboost.findViewById(R.id.edittext_calibrationboost_inputdata);
+- 546: this.textview_calibrationboost_data.setText(Integer.toString(mDolbyDapParamter.calibrationBoost));
+- 549: public void onClick(DialogInterface dialogInterface, int i12) {
+- 555: Customize.setDolbyDapParam(AdvancedEffectDapViewHolder.this.currentDapModeIndex, MtkTvFApiAudioTypes.EnumDolbyDapSubType.E_FAPI_AUD_DOLBY_DAP_CALIBRATION_BOOST, AdvancedEffectDapViewHolder.mDolbyDapParamter);
+- 556: AdvancedEffectDapViewHolder.this.mTvFApiAudio.saveAudioIni();
+- 559: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_invalid_config).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).sho
+- 562: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_no_empty).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).show();
+- 564: }).setNegativeButton(R.string.str_cancle, (DialogInterface.OnClickListener) null).show();
+- 567: case R.id.linearlayout_factory_advanced_effect_dap_de /* 2131099816 */:
+- 570: this.textview_deenable_data = (TextView) viewInflate3.findViewById(R.id.textview_deenable_data);
+- 571: this.edittext_deenable_inputdata = (EditText) this.layout_de.findViewById(R.id.edittext_deenable_inputdata);
+- 572: this.textview_deamount_data = (TextView) this.layout_de.findViewById(R.id.textview_deamount_data);
+- 573: this.edittext_deamount_inputdata = (EditText) this.layout_de.findViewById(R.id.edittext_deamount_inputdata);
+- 574: this.textview_deducking_data = (TextView) this.layout_de.findViewById(R.id.textview_deducking_data);
+- 575: this.edittext_deducking_inputdata = (EditText) this.layout_de.findViewById(R.id.edittext_deducking_inputdata);
+- 579: this.textview_deenable_data.setText(Integer.toString(mDolbyDapParamter.deEnable));
+- 580: this.textview_deamount_data.setText(Integer.toString(mDolbyDapParamter.deAmount));
+- 581: this.textview_deducking_data.setText(Integer.toString(mDolbyDapParamter.deDucking));
+- 584: public void onClick(DialogInterface dialogInterface, int i12) {
+- 596: Customize.setDolbyDapParam(AdvancedEffectDapViewHolder.this.currentDapModeIndex, MtkTvFApiAudioTypes.EnumDolbyDapSubType.E_FAPI_AUD_DOLBY_DAP_DE_PARAMTER, AdvancedEffectDapViewHolder.mDolbyDapParamter);
+- 597: AdvancedEffectDapViewHolder.this.mTvFApiAudio.saveAudioIni();
+- 600: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_invalid_config).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).sho
+- 603: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_no_empty).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).show();
+- 605: }).setNegativeButton(R.string.str_cancle, (DialogInterface.OnClickListener) null).show();
+- 608: case R.id.linearlayout_factory_advanced_effect_dap_enbale /* 2131099817 */:
+- 609: case R.id.linearlayout_factory_advanced_effect_dap_mode /* 2131099823 */:
+- 610: case R.id.linearlayout_factory_advanced_effect_dap_settings /* 2131099828 */:
+- 614: case R.id.linearlayout_factory_advanced_effect_dap_gain /* 2131099818 */:
+- 617: this.textview_pregain_data = (TextView) viewInflate4.findViewById(R.id.textview_pregain_data);
+- 618: this.edittext_pregain_inputdata = (EditText) this.layout_gain.findViewById(R.id.edittext_pregain_inputdata);
+- 619: this.textview_postgain_data = (TextView) this.layout_gain.findViewById(R.id.textview_postgain_data);
+- 620: this.edittext_postgain_inputdata = (EditText) this.layout_gain.findViewById(R.id.edittext_postgain_inputdata);
+- 621: this.textview_systemgain_data = (TextView) this.layout_gain.findViewById(R.id.textview_systemgain_data);
+- 622: this.edittext_systemgain_inputdata = (EditText) this.layout_gain.findViewById(R.id.edittext_systemgain_inputdata);
+- 626: this.textview_pregain_data.setText(Integer.toString(mDolbyDapParamter.preGain));
+- 627: this.textview_postgain_data.setText(Integer.toString(mDolbyDapParamter.postGain));
+- 628: this.textview_systemgain_data.setText(Integer.toString(mDolbyDapParamter.systemGain));
+- 631: public void onClick(DialogInterface dialogInterface, int i12) {
+- 643: Customize.setDolbyDapParam(AdvancedEffectDapViewHolder.this.currentDapModeIndex, MtkTvFApiAudioTypes.EnumDolbyDapSubType.E_FAPI_AUD_DOLBY_DAP_GAIN_PARAMTER, AdvancedEffectDapViewHolder.mDolbyDapParamter);
+- 644: AdvancedEffectDapViewHolder.this.mTvFApiAudio.saveAudioIni();
+- 648: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_invalid_config).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).sho
+- 651: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_no_empty).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).show();
+- 653: }).setNegativeButton(R.string.str_cancle, (DialogInterface.OnClickListener) null).show();
+- 656: case R.id.linearlayout_factory_advanced_effect_dap_geq /* 2131099819 */:
+- 659: this.textview_geqenable_data = (TextView) viewInflate5.findViewById(R.id.textview_geqenable_data);
+- 660: this.edittext_geqenable_inputdata = (EditText) this.layout_geq.findViewById(R.id.edittext_geqenable_inputdata);
+- 661: this.textview_geqnbbands_data = (TextView) this.layout_geq.findViewById(R.id.textview_geqnbbands_data);
+- 662: this.edittext_geqnbbands_inputdata = (EditText) this.layout_geq.findViewById(R.id.edittext_geqnbbands_inputdata);
+- 663: this.textview_geqbandcenter_data = (TextView) this.layout_geq.findViewById(R.id.textview_geqbandcenter_data);
+- 664: this.edittext_geqbandcenter_arrayindex = (EditText) this.layout_geq.findViewById(R.id.edittext_geqbandcenter_arrayindex);
+- 665: this.edittext_geqbandcenter_inputdata = (EditText) this.layout_geq.findViewById(R.id.edittext_geqbandcenter_inputdata);
+- 666: this.textview_geqbandtarget_data = (TextView) this.layout_geq.findViewById(R.id.textview_geqbandtarget_data);
+- 667: this.edittext_geqbandtarget_arrayindex = (EditText) this.layout_geq.findViewById(R.id.edittext_geqbandtarget_arrayindex);
+- 668: this.edittext_geqbandtarget_inputdata = (EditText) this.layout_geq.findViewById(R.id.edittext_geqbandtarget_inputdata);
+- 684: this.textview_geqenable_data.setText(Integer.toString(mDolbyDapParamter.geqEnable));
+- 685: this.textview_geqnbbands_data.setText(Integer.toString(mDolbyDapParamter.geqNbBands));
+- 686: this.textview_geqbandcenter_data.setText(stringBuffer);
+- 687: this.textview_geqbandtarget_data.setText(stringBuffer2);
+- 690: public void onClick(DialogInterface dialogInterface, int i14) {
+- 709: Customize.setDolbyDapParam(AdvancedEffectDapViewHolder.this.currentDapModeIndex, MtkTvFApiAudioTypes.EnumDolbyDapSubType.E_FAPI_AUD_DOLBY_DAP_GEQ_PARAMTER, AdvancedEffectDapViewHolder.mDolbyDapParamter);
+- 710: AdvancedEffectDapViewHolder.this.mTvFApiAudio.saveAudioIni();
+- 713: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_invalid_config).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).sho
+- 716: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_no_empty).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).show();
+- 718: }).setNegativeButton(R.string.str_cancle, (DialogInterface.OnClickListener) null).show();
+- 721: case R.id.linearlayout_factory_advanced_effect_dap_ieq /* 2131099820 */:
+- 724: this.textview_ieqenable_data = (TextView) viewInflate6.findViewById(R.id.textview_ieqenable_data);
+- 725: this.edittext_ieqenable_inputdata = (EditText) this.layout_ieq.findViewById(R.id.edittext_ieqenable_inputdata);
+- 726: this.textview_ieqamount_data = (TextView) this.layout_ieq.findViewById(R.id.textview_ieqamount_data);
+- 727: this.edittext_ieqamount_inputdata = (EditText) this.layout_ieq.findViewById(R.id.edittext_ieqamount_inputdata);
+- 728: this.textview_ieqnbbands_data = (TextView) this.layout_ieq.findViewById(R.id.textview_ieqnbbands_data);
+- 729: this.edittext_ieqnbbands_inputdata = (EditText) this.layout_ieq.findViewById(R.id.edittext_ieqnbbands_inputdata);
+- 730: this.textview_ieqbandcenter_data = (TextView) this.layout_ieq.findViewById(R.id.textview_ieqbandcenter_data);
+- 731: this.edittext_ieqbandcenter_arrayindex = (EditText) this.layout_ieq.findViewById(R.id.edittext_ieqbandcenter_arrayindex);
+- 732: this.edittext_ieqbandcenter_inputdata = (EditText) this.layout_ieq.findViewById(R.id.edittext_ieqbandcenter_inputdata);
+- 733: this.textview_ieqbandtarget_data = (TextView) this.layout_ieq.findViewById(R.id.textview_ieqbandtarget_data);
+- 734: this.edittext_ieqbandtarget_arrayindex = (EditText) this.layout_ieq.findViewById(R.id.edittext_ieqbandtarget_arrayindex);
+- 735: this.edittext_ieqbandtarget_inputdata = (EditText) this.layout_ieq.findViewById(R.id.edittext_ieqbandtarget_inputdata);
+- 751: this.textview_ieqenable_data.setText(Integer.toString(mDolbyDapParamter.ieqEnable));
+- 752: this.textview_ieqamount_data.setText(Integer.toString(mDolbyDapParamter.ieqAmount));
+- 753: this.textview_ieqnbbands_data.setText(Integer.toString(mDolbyDapParamter.ieqNbBands));
+- 754: this.textview_ieqbandcenter_data.setText(stringBuffer3);
+- 755: this.textview_ieqbandtarget_data.setText(stringBuffer4);
+- 758: public void onClick(DialogInterface dialogInterface, int i16) {
+- 780: Customize.setDolbyDapParam(AdvancedEffectDapViewHolder.this.currentDapModeIndex, MtkTvFApiAudioTypes.EnumDolbyDapSubType.E_FAPI_AUD_DOLBY_DAP_IEQ_PARAMTER, AdvancedEffectDapViewHolder.mDolbyDapParamter);
+- 781: AdvancedEffectDapViewHolder.this.mTvFApiAudio.saveAudioIni();
+- 784: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_invalid_config).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).sho
+- 787: new AlertDialog.Builder(AdvancedEffectDapViewHolder.this.advancedEffectActivity).setTitle(R.string.str_warning).setMessage(R.string.str_no_empty).setPositiveButton(R.string.str_ok, (DialogInterface.OnClickListener) null).show();
+- 789: }).setNegativeButton(R.string.str_cancle, (DialogInterface.OnClickListener) null).show();
+- 792: case R.id.linearlayout_factory_advanced_effect_dap_leveler /* 2131099821 */:
+- 795: this.textview_leveleramount_data = (TextView) viewInflate7.findViewById(R.id.textview_leveleramount_data);
+
+### AdvancedEffectViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectViewHolder.java; строк: 18
+
+**Обнаруженные методы (строка):**
+- AdvancedEffectViewHolder() : 11
+- findView() : 15
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 16: this.dapSettingLinearLayout = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_advanced_effect_dap);
+
+### DesignMenuActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/DesignMenuActivity.java; строк: 345
+
+**Обнаруженные методы (строка):**
+- onCreate() : 71
+- onResume() : 83
+- onPause() : 89
+- onStop() : 95
+- onDestroy() : 101
+- onReceive() : 112
+- registerListeners() : 121
+- onClick() : 124
+- onClick() : 160
+- onKeyDown() : 246
+- returnRoot() : 293
+- CheckUsbIsExist() : 302
+- pageToBtnPos() : 309
+- init() : 336
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- com.example.localbroadcast
+- DesignMenuActivity
+- onCreate()
+- onResume()
+- onPause()
+- onStop()
+- onDestroy()
+- pattern
+- mediatek.factorymenu.ui
+- mediatek.tvsetting.factory.ui.factorymenu.FactoryMenuActivity
+- ---listener panel info---
+- usb
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 21: import com.mediatek.twoworlds.factory.MtkTvFApiSystem;
+- 71: public void onCreate(Bundle bundle) {
+- 72: Log.d(TAG, "onCreate()");
+- 78: super.onCreate(bundle);
+- 83: protected void onResume() {
+- 84: Log.d(TAG, "onResume()");
+- 85: super.onResume();
+- 89: protected void onPause() {
+- 90: Log.d(TAG, "onPause()");
+- 91: super.onPause();
+- 95: protected void onStop() {
+- 96: Log.d(TAG, "onStop()");
+- 97: super.onStop();
+- 114: DesignMenuActivity.this.designViewHolder.linear_factory_mainmenu.setVisibility(4);
+- 116: DesignMenuActivity.this.designViewHolder.linear_factory_mainmenu.setVisibility(0);
+- 124: public void onClick(View view) {
+- 127: case R.id.linearlayout_design_otheroption /* 2131099798 */:
+- 129: DesignMenuActivity.this.viewFlipper.setDisplayedChild(7);
+- 133: DesignMenuActivity.this.otheroptionViewHolder.onCreate();
+- 135: case R.id.linearlayout_design_testpattern /* 2131099799 */:
+- 137: DesignMenuActivity.this.viewFlipper.setDisplayedChild(8);
+- 142: DesignMenuActivity.this.testPatternViewHolder.onCreate();
+- 145: case R.id.linearlayout_factory_advanced_effect /* 2131099812 */:
+- 147: intent.setClass(DesignMenuActivity.this, AdvancedEffectActivity.class);
+- 150: case R.id.linearlayout_factory_excute_shell /* 2131099834 */:
+- 154: designMenuActivity4.executeshell_value = (EditText) designMenuActivity4.executeshellLayout.findViewById(R.id.execute_shell_val);
+- 160: public void onClick(DialogInterface dialogInterface, int i) {
+- 167: }).setNegativeButton(DesignMenuActivity.this.getResources().getString(R.string.str_cancle), (DialogInterface.OnClickListener) null).show();
+- 169: case R.id.linearlayout_factory_exit /* 2131099835 */:
+- 173: case R.id.linearlayout_factory_non_linear /* 2131099847 */:
+- 175: DesignMenuActivity.this.viewFlipper.setDisplayedChild(2);
+- 179: DesignMenuActivity.this.nonLinearViewHolder.onCreate();
+- 181: case R.id.linearlayout_factory_nonstandard /* 2131099860 */:
+- 183: DesignMenuActivity.this.viewFlipper.setDisplayedChild(3);
+- 187: case R.id.linearlayout_factory_peq /* 2131099973 */:
+- 189: DesignMenuActivity.this.viewFlipper.setDisplayedChild(5);
+- 193: DesignMenuActivity.this.peqViewHolder.onCreate();
+- 195: case R.id.linearlayout_factory_picturemode /* 2131100036 */:
+- 197: DesignMenuActivity.this.viewFlipper.setDisplayedChild(1);
+- 200: DesignMenuActivity.this.picModeViewHolder.onCreate();
+- 202: case R.id.linearlayout_factory_ssc /* 2131100037 */:
+- 204: DesignMenuActivity.this.viewFlipper.setDisplayedChild(4);
+- 208: DesignMenuActivity.this.sscViewHolder.onCreate();
+- 210: case R.id.linearlayout_factorymenu /* 2131100076 */:
+- 212: intent2.setComponent(new ComponentName("mediatek.factorymenu.ui", "mediatek.tvsetting.factory.ui.factorymenu.FactoryMenuActivity"));
+- 215: case R.id.linearlayout_panel_info /* 2131100078 */:
+- 218: DesignMenuActivity.this.viewFlipper.setDisplayedChild(6);
+- 222: DesignMenuActivity.this.panelViewHolder.onCreate();
+- 230: this.designViewHolder.linear_factory_menu.setOnClickListener(onClickListener);
+- 231: this.designViewHolder.linear_factory_picturemode.setOnClickListener(onClickListener);
+- 232: this.designViewHolder.linear_factory_nonstandard.setOnClickListener(onClickListener);
+- 233: this.designViewHolder.linear_factory_non_linear.setOnClickListener(onClickListener);
+- 234: this.designViewHolder.linear_factory_ssc.setOnClickListener(onClickListener);
+- 235: this.designViewHolder.linear_factory_peq.setOnClickListener(onClickListener);
+- 236: this.designViewHolder.linear_factory_panel_info.setOnClickListener(onClickListener);
+- 237: this.designViewHolder.linear_design_testpattern.setOnClickListener(onClickListener);
+- 238: this.designViewHolder.linear_design_otheroption.setOnClickListener(onClickListener);
+- 239: this.designViewHolder.linear_factory_excute_shell.setOnClickListener(onClickListener);
+- 240: this.designViewHolder.linear_factory_advanced_effect.setOnClickListener(onClickListener);
+- 241: this.designViewHolder.linear_factory_exit.setOnClickListener(onClickListener);
+- 295: this.viewFlipper.setDisplayedChild(0);
+- 296: LinearLayout linearLayout = (LinearLayout) ((LinearLayout) findViewById(R.id.linearlayout_factory_menu)).getChildAt(pageToBtnPos(i));
+- 297: linearLayout.setFocusable(true);
+- 299: linearLayout.setFocusableInTouchMode(true);
+- 337: setContentView(R.layout.mainmenu);
+- 338: this.viewFlipper = (ViewFlipper) findViewById(R.id.factory_view_flipper);
+
+### DesignMenuViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/DesignMenuViewHolder.java; строк: 56
+
+**Обнаруженные методы (строка):**
+- DesignMenuViewHolder() : 26
+- findView() : 30
+- onKeyDown() : 47
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 31: this.linear_factory_mainmenu = (LinearLayout) this.factoryactivity.findViewById(R.id.factory_mainmenu);
+- 32: this.linear_factory_menu = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factorymenu);
+- 33: this.linear_factory_picturemode = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factory_picturemode);
+- 34: this.linear_factory_nonstandard = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factory_nonstandard);
+- 35: this.linear_factory_non_linear = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factory_non_linear);
+- 36: this.linear_factory_ssc = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factory_ssc);
+- 37: this.linear_factory_peq = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factory_peq);
+- 38: this.linear_factory_panel_info = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_panel_info);
+- 39: this.linear_design_testpattern = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_design_testpattern);
+- 40: this.linear_factory_advanced_effect = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factory_advanced_effect);
+- 41: this.linear_design_otheroption = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_design_otheroption);
+- 42: this.linear_factory_excute_shell = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factory_excute_shell);
+- 43: this.linear_factory_exit = (LinearLayout) this.factoryactivity.findViewById(R.id.linearlayout_factory_exit);
+
+### ExecuteShellActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/ExecuteShellActivity.java; строк: 181
+
+**Обнаруженные методы (строка):**
+- run() : 31
+- handleMessage() : 99
+- onCreate() : 113
+- onResume() : 143
+- onPause() : 155
+- onDestroy() : 166
+- onKeyDown() : 171
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- ExecuteShellActivity
+- _MSTFactory
+- /mnt/usb/sda1/_MSTFactory
+- /data/_MSTFactory
+- MScript.sh
+- Thread - Start!
+- Removing /data/_MSTFactory...
+- done\n
+- \nError: No any external stroage exists!\n
+- \nError: Can not find
+- folder
+- Copying files to /data/_MSTFactory...
+- cp -R
+- / /data/_MSTFactory
+- Changing 777 for /data/_MSTFactory...
+- chmod 777 -R /data/_MSTFactory/
+- Executing sh...
+- Executing /data/_MSTFactory/MScript.sh...
+- /data/_MSTFactory/MScript.sh
+- \nError: Can not find /data/_MSTFactory/MScript.sh
+- sh /data/_MSTFactory/MScript.sh
+- Thread - End!
+- \n\nPlease press Exit key to leave this screen\n
+- \nError: Failed to execute shell \
+- \nError: Failed to change folder attributes to 777
+- \nError: Failed to copy
+- / to /data/_MSTFactory
+- \nError: Failed to remove /data/_MSTFactory
+- storage
+- mounted
+- /_MSTFactory
+- onResume()
+- onPause()
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 101: ExecuteShellActivity.this.mInfo.setText(ExecuteShellActivity.this.mStrInfo);
+- 113: protected void onCreate(Bundle bundle) {
+- 114: setContentView(R.layout.executeshell);
+- 115: super.onCreate(bundle);
+- 116: this.mInfo = (TextView) findViewById(R.id.textview_executeshell_info);
+- 143: protected void onResume() {
+- 144: Log.d(TAG, "onResume()");
+- 145: super.onResume();
+- 155: protected void onPause() {
+- 156: Log.d(TAG, "onPause()");
+- 162: super.onPause();
+
+### FactoryDTSActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/FactoryDTSActivity.java; строк: 112
+
+**Обнаруженные методы (строка):**
+- onCancel() : 22
+- onCreate() : 29
+- onDestroy() : 43
+- findView() : 48
+- onKeyDown() : 53
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- FactoryDTSActivity
+- Off
+- onCreate mLoudness =
+- onDestroy
+- onKeyDown setDtsLoundnessEnable ret =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 9: import com.mediatek.twoworlds.factory.MtkTvFApiAudio;
+- 24: Toast.makeText(factoryDTSActivity, factoryDTSActivity.getResources().getString(R.string.str_factorydts_done), 0).show();
+- 29: protected void onCreate(Bundle bundle) {
+- 30: super.onCreate(bundle);
+- 31: setContentView(R.layout.factorydts);
+- 33: if (MtkTvFApiAudio.getInstance().getDtsLoundnessEnable()) {
+- 39: this.mTextview_factory_otheroption_dts_loudness_val.setText(this.mArrayLoudness[this.mLoudness]);
+- 49: this.mTextview_factory_otheroption_dts_loudness_val = (TextView) findViewById(R.id.textview_factory_otheroption_dts_loudness_val);
+- 69: case R.id.linearlayout_factory_otheroption_dts_loudness /* 2131099915 */:
+- 76: this.mTextview_factory_otheroption_dts_loudness_val.setText(this.mArrayLoudness[this.mLoudness]);
+- 78: dtsLoundnessEnable = MtkTvFApiAudio.getInstance().setDtsLoundnessEnable(true);
+- 80: dtsLoundnessEnable = MtkTvFApiAudio.getInstance().setDtsLoundnessEnable(false);
+- 82: MtkTvFApiAudio.getInstance().getDtsLoundnessEnable();
+- 89: case R.id.linearlayout_factory_otheroption_dts_loudness /* 2131099915 */:
+- 96: this.mTextview_factory_otheroption_dts_loudness_val.setText(this.mArrayLoudness[this.mLoudness]);
+- 98: dtsLoundnessEnable2 = MtkTvFApiAudio.getInstance().setDtsLoundnessEnable(true);
+- 100: dtsLoundnessEnable2 = MtkTvFApiAudio.getInstance().setDtsLoundnessEnable(false);
+- 102: MtkTvFApiAudio.getInstance().getDtsLoundnessEnable();
+
+### FactoryDolbyActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/FactoryDolbyActivity.java; строк: 191
+
+**Обнаруженные методы (строка):**
+- onCancel() : 32
+- onCreate() : 39
+- onDestroy() : 69
+- findView() : 74
+- onKeyDown() : 81
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- FactoryDolbyActivity
+- Off
+- Line
+- 100
+- onCreate mBanner =
+- onCreate mCompression =
+- onCreate mCompressionFactor =
+- onDestroy
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 9: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 10: import com.mediatek.twoworlds.tv.common.MtkTvConfigTypeBase;
+- 11: import com.mediatek.twoworlds.tv.model.MtkTvRatingConvert2Goo;
+- 34: Toast.makeText(factoryDolbyActivity, factoryDolbyActivity.getResources().getString(R.string.str_factorydolby_done), 0).show();
+- 39: protected void onCreate(Bundle bundle) {
+- 40: super.onCreate(bundle);
+- 41: setContentView(R.layout.factorydolby);
+- 43: this.mBanner = this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_CERT_MODE);
+- 44: this.mCompression = this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_CMPSS);
+- 45: this.mCompressionFactor = this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_DRC);
+- 49: this.mTextview_factory_otheroption_dolby_banner_val.setText(this.mArrayBanner[this.mBanner]);
+- 64: this.mTextview_factory_otheroption_dolby_compression_val.setText(this.mArrayCompression[this.mCompression]);
+- 65: this.mTextview_factory_otheroption_dolby_compression_factor_val.setText(this.mArrayCompressionFactor[this.mCompressionFactor]);
+- 75: this.mTextview_factory_otheroption_dolby_banner_val = (TextView) findViewById(R.id.textview_factory_otheroption_dolby_banner_val);
+- 76: this.mTextview_factory_otheroption_dolby_compression_val = (TextView) findViewById(R.id.textview_factory_otheroption_dolby_compression_val);
+- 77: this.mTextview_factory_otheroption_dolby_compression_factor_val = (TextView) findViewById(R.id.textview_factory_otheroption_dolby_compression_factor_val);
+- 96: case R.id.linearlayout_factory_otheroption_dolby_banner /* 2131099911 */:
+- 103: this.mTextview_factory_otheroption_dolby_banner_val.setText(this.mArrayBanner[this.mBanner]);
+- 104: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_CERT_MODE, this.mBanner);
+- 106: case R.id.linearlayout_factory_otheroption_dolby_compression /* 2131099912 */:
+- 113: this.mTextview_factory_otheroption_dolby_compression_val.setText(this.mArrayCompression[this.mCompression]);
+- 126: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_CMPSS, i2);
+- 128: case R.id.linearlayout_factory_otheroption_dolby_compression_factor /* 2131099913 */:
+- 135: this.mTextview_factory_otheroption_dolby_compression_factor_val.setText(this.mArrayCompressionFactor[this.mCompressionFactor]);
+- 136: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_DRC, this.mCompressionFactor);
+- 142: case R.id.linearlayout_factory_otheroption_dolby_banner /* 2131099911 */:
+- 149: this.mTextview_factory_otheroption_dolby_banner_val.setText(this.mArrayBanner[this.mBanner]);
+- 150: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_CERT_MODE, this.mBanner);
+- 152: case R.id.linearlayout_factory_otheroption_dolby_compression /* 2131099912 */:
+- 159: this.mTextview_factory_otheroption_dolby_compression_val.setText(this.mArrayCompression[this.mCompression]);
+- 172: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_CMPSS, i2);
+- 174: case R.id.linearlayout_factory_otheroption_dolby_compression_factor /* 2131099913 */:
+- 181: this.mTextview_factory_otheroption_dolby_compression_factor_val.setText(this.mArrayCompressionFactor[this.mCompressionFactor]);
+- 182: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_AUD_DOLBY_DRC, this.mCompressionFactor);
+
+### FactoryKeyUpgradeActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/FactoryKeyUpgradeActivity.java; строк: 118
+
+**Обнаруженные методы (строка):**
+- onCancel() : 24
+- onCreate() : 31
+- onDestroy() : 38
+- findView() : 43
+- onKeyDown() : 47
+- showdialog() : 115
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- FactoryKeyUpgradeActivity
+- onDestroy
+- ret =
+- bRet =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 9: import com.mediatek.twoworlds.tv.MtkTvCI;
+- 26: Toast.makeText(factoryKeyUpgradeActivity, factoryKeyUpgradeActivity.getResources().getString(R.string.str_factorykeyupgrade_done), 0).show();
+- 31: protected void onCreate(Bundle bundle) {
+- 32: super.onCreate(bundle);
+- 33: setContentView(R.layout.factorykeyupgrade);
+- 63: case R.id.linearlayout_factory_otheroption_ci_credential /* 2131099901 */:
+- 64: int iUpdateCIKey = this.mTvCI.updateCIKey();
+- 66: this.mTitle = getResources().getString(R.string.str_factory_otheroption_keyupgrade);
+- 67: this.mMessage = getResources().getString(R.string.str_factory_otheroption_keyupgrade_success);
+- 69: this.mTitle = getResources().getString(R.string.str_warning);
+- 70: this.mMessage = getResources().getString(R.string.str_factory_otheroption_keyupgrade_key_not_found);
+- 72: this.mTitle = getResources().getString(R.string.str_warning);
+- 73: this.mMessage = getResources().getString(R.string.str_factory_otheroption_keyupgrade_failed);
+- 78: case R.id.linearlayout_factory_otheroption_ci_ecp_credential /* 2131099902 */:
+- 79: int iUpdateCIKeyEx = this.mTvCI.updateCIKeyEx(1);
+- 81: this.mTitle = getResources().getString(R.string.str_factory_otheroption_keyupgrade);
+- 82: this.mMessage = getResources().getString(R.string.str_factory_otheroption_keyupgrade_success);
+- 84: this.mTitle = getResources().getString(R.string.str_warning);
+- 85: this.mMessage = getResources().getString(R.string.str_factory_otheroption_keyupgrade_key_not_found);
+- 87: this.mTitle = getResources().getString(R.string.str_warning);
+- 88: this.mMessage = getResources().getString(R.string.str_factory_otheroption_keyupgrade_failed);
+- 93: case R.id.linearlayout_factory_otheroption_erase_ci_credential /* 2131099917 */:
+- 96: this.mTitle = getResources().getString(R.string.str_factory_otheroption_keyupgrade);
+- 97: this.mMessage = getResources().getString(R.string.str_factory_otheroption_keyupgrade_erase_success);
+- 99: this.mTitle = getResources().getString(R.string.str_warning);
+- 100: this.mMessage = getResources().getString(R.string.str_factory_otheroption_keyupgrade_erase_failed);
+- 116: new AlertDialog.Builder(this).setTitle(str).setMessage(str2).setPositiveButton(getResources().getString(R.string.str_ok), (DialogInterface.OnClickListener) null).show();
+
+### FactoryMemcActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/FactoryMemcActivity.java; строк: 104
+
+**Обнаруженные методы (строка):**
+- onCreate() : 21
+- onDestroy() : 31
+- onPause() : 37
+- findView() : 42
+- onKeyDown() : 47
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- FactoryMemcActivity
+- Off
+- Low
+- Middle
+- High
+- g_video__vid_mjc_effect
+- onDestroy
+- onPause
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 7: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 21: protected void onCreate(Bundle bundle) {
+- 22: super.onCreate(bundle);
+- 23: setContentView(R.layout.factorymemc);
+- 27: this.mTextMemcEffect.setText(this.mMemcEffectArray[configValue]);
+- 37: protected void onPause() {
+- 39: super.onPause();
+- 43: this.mTextMemcEffect = (TextView) findViewById(R.id.textview_factory_otheroption_memc_effect_val);
+- 61: case R.id.linearlayout_factory_otheroption_memc_effect /* 2131099927 */:
+- 68: this.mTextMemcEffect.setText(this.mMemcEffectArray[this.mMemcEffectindex]);
+- 69: this.mTvConfig.setConfigValueForAllElements("g_video__vid_mjc_effect", this.mMemcEffectindex);
+- 75: case R.id.linearlayout_factory_otheroption_memc_effect /* 2131099927 */:
+- 83: this.mTextMemcEffect.setText(strArr[this.mMemcEffectindex]);
+- 84: this.mTvConfig.setConfigValueForAllElements("g_video__vid_mjc_effect", this.mMemcEffectindex);
+- 91: case R.id.linearlayout_factory_otheroption_memc_restoretodefault /* 2131099928 */:
+- 92: this.mTvConfig.setConfigValue("g_video__vid_mjc_effect", 0, 6);
+- 95: this.mTextMemcEffect.setText(this.mMemcEffectArray[configValue]);
+
+### FactoryPqUpdateActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/FactoryPqUpdateActivity.java; строк: 115
+
+**Обнаруженные методы (строка):**
+- onCreate() : 26
+- onDestroy() : 34
+- onPause() : 40
+- findView() : 45
+- onKeyDown() : 51
+- onActivityResult() : 105
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- FactoryPqUpdateActivity
+- Bin
+- Ini
+- All
+- onDestroy
+- onPause
+- GetFileName
+- GetPath
+- curFilePath =
+- , curFileName =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 9: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 10: import com.mediatek.twoworlds.factory.common.MtkTvFApiDisplayTypes;
+- 26: protected void onCreate(Bundle bundle) {
+- 27: super.onCreate(bundle);
+- 28: setContentView(R.layout.factorypqupdate);
+- 30: this.mTextPqUpdateType.setText(this.mPqUpdateTypeArray[this.mPqUpdateTypelindex]);
+- 40: protected void onPause() {
+- 42: super.onPause();
+- 46: this.mLayoutPqUpdate = (LinearLayout) findViewById(R.id.linearlayout_factory_otheroption_pq_update);
+- 47: this.mTextPqUpdateType = (TextView) findViewById(R.id.textview_factory_otheroption_pq_update_type_val);
+- 65: case R.id.linearlayout_factory_otheroption_pq_update_type /* 2131099941 */:
+- 72: this.mTextPqUpdateType.setText(this.mPqUpdateTypeArray[this.mPqUpdateTypelindex]);
+- 78: case R.id.linearlayout_factory_otheroption_pq_update_type /* 2131099941 */:
+- 86: this.mTextPqUpdateType.setText(strArr[this.mPqUpdateTypelindex]);
+- 93: case R.id.linearlayout_factory_otheroption_pq_update /* 2131099940 */:
+- 111: this.mTvFApiDisplay.updatePqIniFiles(stringExtra2, MtkTvFApiDisplayTypes.EnumPqFilesUpdateType.values()[this.mPqUpdateTypelindex]);
+
+### FactoryProgramPresetActivity
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/FactoryProgramPresetActivity.java; строк: 132
+
+**Обнаруженные методы (строка):**
+- onCancel() : 41
+- onCreate() : 48
+- onDestroy() : 55
+- findView() : 60
+- onKeyDown() : 72
+- onActivityResult() : 113
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- FactoryProgramPresetActivity
+- onDestroy
+- GetFileName
+- GetPath
+- curFilePath =
+- , curFileName =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 12: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 13: import com.mediatek.twoworlds.tv.common.MtkTvIntentBase;
+- 43: Toast.makeText(factoryProgramPresetActivity, factoryProgramPresetActivity.getResources().getString(R.string.str_factoryprogrampreset_done), 0).show();
+- 48: protected void onCreate(Bundle bundle) {
+- 49: super.onCreate(bundle);
+- 50: setContentView(R.layout.factoryprogrampreset);
+- 61: this.mLayoutBackuptoUsb = (LinearLayout) findViewById(R.id.linearlayout_factory_otheroption_backuptousb);
+- 62: this.mLayoutBackuptoDefault = (LinearLayout) findViewById(R.id.linearlayout_factory_otheroption_backuptodefault);
+- 63: this.mLayoutRestorefromUsb = (LinearLayout) findViewById(R.id.linearlayout_factory_otheroption_restorefromusb);
+- 64: this.mLayoutRestorefromDefault = (LinearLayout) findViewById(R.id.linearlayout_factory_otheroption_restorefromdefault);
+- 65: this.mTextBackuptoUsbState = (TextView) findViewById(R.id.textview_factory_otheroption_backuptousb_val);
+- 66: this.mTextBackuptoDefaultState = (TextView) findViewById(R.id.textview_factory_otheroption_backuptodefault_val);
+- 67: this.mTextRestorefromUsbState = (TextView) findViewById(R.id.textview_factory_otheroption_restorefromusb_val);
+- 68: this.mTextRestorefromDefaultState = (TextView) findViewById(R.id.textview_factory_otheroption_restorefromdefault_val);
+- 87: case R.id.linearlayout_factory_otheroption_backuptodefault /* 2131099896 */:
+- 90: case R.id.linearlayout_factory_otheroption_backuptousb /* 2131099897 */:
+- 93: case R.id.linearlayout_factory_otheroption_restorefromdefault /* 2131099943 */:
+- 95: intent.setAction(MtkTvIntentBase.MTK_INTENT_EVENT_PRESET_CHANNEL_LOAD_START);
+- 98: intent.setAction(MtkTvIntentBase.MTK_INTENT_EVENT_PRESET_CHANNEL_LOAD_END);
+- 101: case R.id.linearlayout_factory_otheroption_restorefromusb /* 2131099944 */:
+- 119: this.mTextBackuptoUsbState.setText(this.curFilePath + "/");
+- 122: this.mTextRestorefromUsbState.setText(this.curFilePath + "/");
+- 124: intent2.setAction(MtkTvIntentBase.MTK_INTENT_EVENT_PRESET_CHANNEL_LOAD_START);
+- 127: intent2.setAction(MtkTvIntentBase.MTK_INTENT_EVENT_PRESET_CHANNEL_LOAD_END);
+
+### IPEnableMappingViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/IPEnableMappingViewHolder.java; строк: 103
+
+**Обнаруженные методы (строка):**
+- IPEnableMappingViewHolder() : 25
+- onCreate() : 29
+- IPEnableMappingAdapter() : 69
+- getCount() : 77
+- getItem() : 82
+- getItemId() : 87
+- getView() : 92
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- MPEG_HD
+- IWEDIA_ENGN
+- IWEDIA_HBBTV
+- IWEDIA_OPN_BRWSR
+- VEWD_HBBTV
+- VEWD_OPN_BRWSR
+- GINGA_NCL
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 11: import com.mediatek.twoworlds.factory.MtkTvFApiInformation;
+- 29: public void onCreate() {
+- 30: this.IPEnableMappingList = (ListView) this.ipenableActivity.findViewById(R.id.list);
+- 62: this.IPEnableMappingList.setAdapter((ListAdapter) iPEnableMappingAdapter);
+- 96: TextView textView = (TextView) view.findViewById(R.id.list_ip_num);
+- 97: TextView textView2 = (TextView) view.findViewById(R.id.list_ip_enable_mapping);
+- 98: textView.setText(this.mData.get(i).getIpNum());
+- 99: textView2.setText(this.mData.get(i).getIpName());
+
+### NonLinearAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/NonLinearAdjustViewHolder.java; строк: 449
+
+**Обнаруженные методы (строка):**
+- NonLinearAdjustViewHolder() : 65
+- findView() : 69
+- onCreate() : 93
+- updateUI() : 98
+- onKeyDown() : 186
+- getCurrentInputSourceType() : 365
+- getNonLinearPqType() : 427
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- NonLinearAdjustViewHolder
+- /vendor/etc/default_volume_tables.xml
+- Brightness
+- Contrast
+- Saturation
+- Sharpness
+- Hue
+- BackLight
+- Volume
+- curvetypeindex =
+- inputSourceType =
+- curve.v0 =
+- , curve.v25 =
+- , curve.v50 =
+- , curve.v75 =
+- , curve.v100 =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 9: import com.mediatek.twoworlds.factory.MtkTvFApiAudio;
+- 10: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 11: import com.mediatek.twoworlds.factory.MtkTvFApiInputSource;
+- 12: import com.mediatek.twoworlds.factory.common.MtkTvFApiAudioTypes;
+- 13: import com.mediatek.twoworlds.factory.common.MtkTvFApiDisplayTypes;
+- 42: MtkTvFApiDisplayTypes.NonLinearPqCurve curve = null;
+- 70: this.mlinear_factory_nonlinear_nonvolume = (LinearLayout) this.nonLinearActivity.findViewById(R.id.linearlayout_factory_nonlinear_nonvolume);
+- 71: this.mlinear_factory_nonlinear_volume = (LinearLayout) this.nonLinearActivity.findViewById(R.id.linearlayout_factory_nonlinear_volume);
+- 72: this.mLinear_factory_nonlinear_osd0 = (LinearLayout) this.nonLinearActivity.findViewById(R.id.linearlayout_factory_nonlinear_osd0);
+- 73: this.mLinear_factory_nonlinear_osd100 = (LinearLayout) this.nonLinearActivity.findViewById(R.id.linearlayout_factory_nonlinear_osd100);
+- 74: this.mLinear_factory_nonlinear_osd0.setEnabled(false);
+- 75: this.mLinear_factory_nonlinear_osd100.setEnabled(false);
+- 76: this.text_factory_nonlinear_curvetype_val = (TextView) this.nonLinearActivity.findViewById(R.id.textview_factory_nonlinear_curvetype_val);
+- 77: this.text_factory_nonlinear_osd0_val = (TextView) this.nonLinearActivity.findViewById(R.id.textview_factory_nonlinear_osd0_val);
+- 78: this.text_factory_nonlinear_osd25_val = (TextView) this.nonLinearActivity.findViewById(R.id.textview_factory_nonlinear_osd25_val);
+- 79: this.text_factory_nonlinear_osd50_val = (TextView) this.nonLinearActivity.findViewById(R.id.textview_factory_nonlinear_osd50_val);
+- 80: this.text_factory_nonlinear_osd75_val = (TextView) this.nonLinearActivity.findViewById(R.id.textview_factory_nonlinear_osd75_val);
+- 81: this.text_factory_nonlinear_osd100_val = (TextView) this.nonLinearActivity.findViewById(R.id.textview_factory_nonlinear_osd100_val);
+- 82: this.progress_factory_nonlinear_osd0 = (ProgressBar) this.nonLinearActivity.findViewById(R.id.progressbar_facroty_nonlinear_osd0);
+- 83: this.progress_factory_nonlinear_osd25 = (ProgressBar) this.nonLinearActivity.findViewById(R.id.progressbar_facroty_nonlinear_osd25);
+- 84: this.progress_factory_nonlinear_osd50 = (ProgressBar) this.nonLinearActivity.findViewById(R.id.progressbar_facroty_nonlinear_osd50);
+- 85: this.progress_factory_nonlinear_osd75 = (ProgressBar) this.nonLinearActivity.findViewById(R.id.progressbar_facroty_nonlinear_osd75);
+- 86: this.progress_factory_nonlinear_osd100 = (ProgressBar) this.nonLinearActivity.findViewById(R.id.progressbar_facroty_nonlinear_osd100);
+- 87: this.text_factory_nonlinear_curvetype_volumeinputsrc_val = (TextView) this.nonLinearActivity.findViewById(R.id.textview_factory_nonlinear_curvetype_volumeinputsrc_val);
+- 88: this.text_factory_nonlinear_curvetype_volumeoutputsrc_val = (TextView) this.nonLinearActivity.findViewById(R.id.textview_factory_nonlinear_curvetype_volumeoutputsrc_val);
+- 89: this.str_volume_inputsrc_vals = this.nonLinearActivity.getResources().getStringArray(R.array.str_arr_nonlinear_volume_inputsrc_vals);
+- 90: this.str_volume_outputsrc_vals = this.nonLinearActivity.getResources().getStringArray(R.array.str_arr_nonlinear_volume_outputsrc_vals);
+- 93: public boolean onCreate() {
+- 94: updateUI();
+- 99: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve;
+- 102: MtkTvFApiDisplayTypes.EnumInputSourceType currentInputSourceType = getCurrentInputSourceType();
+- 104: this.curve = new MtkTvFApiDisplayTypes.NonLinearPqCurve();
+- 105: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.BRIGHTNESS.ordinal()) {
+- 106: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve2 = MtkTvFApiDisplay.getInstance().getNonLinearPqCurve(currentInputSourceType, MtkTvFApiDisplayTypes.NonLinearPqType.BRIGHTNESS);
+- 114: } else if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.CONTRAST.ordinal()) {
+- 115: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve3 = MtkTvFApiDisplay.getInstance().getNonLinearPqCurve(currentInputSourceType, MtkTvFApiDisplayTypes.NonLinearPqType.CONTRAST);
+- 123: } else if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SATURATION.ordinal()) {
+- 124: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve4 = MtkTvFApiDisplay.getInstance().getNonLinearPqCurve(currentInputSourceType, MtkTvFApiDisplayTypes.NonLinearPqType.SATURATION);
+- 132: } else if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS.ordinal()) {
+- 133: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve5 = MtkTvFApiDisplay.getInstance().getNonLinearPqCurve(currentInputSourceType, MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS);
+- 141: } else if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.HUE.ordinal()) {
+- 142: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve6 = MtkTvFApiDisplay.getInstance().getNonLinearPqCurve(currentInputSourceType, MtkTvFApiDisplayTypes.NonLinearPqType.HUE);
+- 150: } else if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.BACKLIGHT.ordinal() && (nonLinearPqCurve = MtkTvFApiDisplay.getInstance().getNonLinearPqCurve(currentInputSourceType, MtkTvFApiDisplayTypes.NonLinearPqType.BA
+- 159: this.text_factory_nonlinear_osd0_val.setText(Integer.toString(this.curve.v0));
+- 160: this.text_factory_nonlinear_osd25_val.setText(Integer.toString(this.curve.v25));
+- 161: this.text_factory_nonlinear_osd50_val.setText(Integer.toString(this.curve.v50));
+- 162: this.text_factory_nonlinear_osd75_val.setText(Integer.toString(this.curve.v75));
+- 163: this.text_factory_nonlinear_osd100_val.setText(Integer.toString(this.curve.v100));
+- 164: this.progress_factory_nonlinear_osd0.setProgress((this.curve.v0 * 255) / this.curve.v100);
+- 165: this.progress_factory_nonlinear_osd25.setProgress((this.curve.v25 * 255) / this.curve.v100);
+- 166: this.progress_factory_nonlinear_osd50.setProgress((this.curve.v50 * 255) / this.curve.v100);
+- 167: this.progress_factory_nonlinear_osd75.setProgress((this.curve.v75 * 255) / this.curve.v100);
+- 168: this.progress_factory_nonlinear_osd100.setProgress((this.curve.v100 * 255) / this.curve.v100);
+- 170: this.mlinear_factory_nonlinear_nonvolume.getChildAt(i).setVisibility(0);
+- 173: this.mlinear_factory_nonlinear_volume.getChildAt(i2).setVisibility(8);
+- 177: this.mlinear_factory_nonlinear_nonvolume.getChildAt(i3).setVisibility(8);
+- 180: this.mlinear_factory_nonlinear_volume.getChildAt(i4).setVisibility(0);
+- 183: this.text_factory_nonlinear_curvetype_val.setText(this.curvetypearray[this.curvetypeindex]);
+- 197: case R.id.linearlayout_factory_nonlinear_curvetype /* 2131099848 */:
+- 206: this.text_factory_nonlinear_curvetype_val.setText(strArr[this.curvetypeindex]);
+- 207: updateUI();
+- 209: case R.id.linearlayout_factory_nonlinear_curvetype_volumeinputsrc /* 2131099850 */:
+- 210: int iOrdinal = MtkTvFApiAudioTypes.AudioInputSource.MAX.ordinal();
+- 217: this.text_factory_nonlinear_curvetype_volumeinputsrc_val.setText(this.str_volume_inputsrc_vals[this.curvevolumeinputindex]);
+- 219: case R.id.linearlayout_factory_nonlinear_curvetype_volumeoutputsrc /* 2131099851 */:
+- 220: int iOrdinal2 = MtkTvFApiAudioTypes.EnumAoutPath.E_FAPI_AUD_PATH_SCART.ordinal();
+- 227: this.text_factory_nonlinear_curvetype_volumeoutputsrc_val.setText(this.str_volume_outputsrc_vals[this.curvevolumeoutputindex]);
+- 229: case R.id.linearlayout_factory_nonlinear_osd25 /* 2131099856 */:
+- 232: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve = this.curve;
+- 235: this.text_factory_nonlinear_osd25_val.setText(Integer.toString(this.curve.v25));
+- 236: this.progress_factory_nonlinear_osd25.setProgress((this.curve.v25 * 255) / this.curve.v100);
+- 237: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS.ordinal()) {
+- 238: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 5);
+- 240: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 25);
+- 243: case R.id.linearlayout_factory_nonlinear_osd50 /* 2131099857 */:
+- 246: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve2 = this.curve;
+- 249: this.text_factory_nonlinear_osd50_val.setText(Integer.toString(this.curve.v50));
+- 250: this.progress_factory_nonlinear_osd50.setProgress((this.curve.v50 * 255) / this.curve.v100);
+- 251: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS.ordinal()) {
+- 252: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 10);
+- 254: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 50);
+- 257: case R.id.linearlayout_factory_nonlinear_osd75 /* 2131099858 */:
+- 260: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve3 = this.curve;
+- 263: this.text_factory_nonlinear_osd75_val.setText(Integer.toString(this.curve.v75));
+- 264: this.progress_factory_nonlinear_osd75.setProgress((this.curve.v75 * 255) / this.curve.v100);
+- 265: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS.ordinal()) {
+- 266: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 15);
+- 268: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 75);
+- 275: case R.id.linearlayout_factory_nonlinear_curvetype /* 2131099848 */:
+- 284: this.text_factory_nonlinear_curvetype_val.setText(strArr2[this.curvetypeindex]);
+- 285: updateUI();
+- 287: case R.id.linearlayout_factory_nonlinear_curvetype_volumeinputsrc /* 2131099850 */:
+- 288: int iOrdinal3 = MtkTvFApiAudioTypes.AudioInputSource.MAX.ordinal();
+- 295: this.text_factory_nonlinear_curvetype_volumeinputsrc_val.setText(this.str_volume_inputsrc_vals[this.curvevolumeinputindex]);
+- 297: case R.id.linearlayout_factory_nonlinear_curvetype_volumeoutputsrc /* 2131099851 */:
+- 298: int iOrdinal4 = MtkTvFApiAudioTypes.EnumAoutPath.E_FAPI_AUD_PATH_SCART.ordinal();
+- 305: this.text_factory_nonlinear_curvetype_volumeoutputsrc_val.setText(this.str_volume_outputsrc_vals[this.curvevolumeoutputindex]);
+- 307: case R.id.linearlayout_factory_nonlinear_osd25 /* 2131099856 */:
+- 310: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve4 = this.curve;
+- 313: this.text_factory_nonlinear_osd25_val.setText(Integer.toString(this.curve.v25));
+- 314: this.progress_factory_nonlinear_osd25.setProgress((this.curve.v25 * 255) / this.curve.v100);
+- 315: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS.ordinal()) {
+- 316: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 5);
+- 318: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 25);
+- 321: case R.id.linearlayout_factory_nonlinear_osd50 /* 2131099857 */:
+- 324: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve5 = this.curve;
+- 327: this.text_factory_nonlinear_osd50_val.setText(Integer.toString(this.curve.v50));
+- 328: this.progress_factory_nonlinear_osd50.setProgress((this.curve.v50 * 255) / this.curve.v100);
+- 329: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS.ordinal()) {
+- 330: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 10);
+- 332: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 50);
+- 335: case R.id.linearlayout_factory_nonlinear_osd75 /* 2131099858 */:
+- 338: MtkTvFApiDisplayTypes.NonLinearPqCurve nonLinearPqCurve6 = this.curve;
+- 341: this.text_factory_nonlinear_osd75_val.setText(Integer.toString(this.curve.v75));
+- 342: this.progress_factory_nonlinear_osd75.setProgress((this.curve.v75 * 255) / this.curve.v100);
+- 343: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS.ordinal()) {
+- 344: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 15);
+- 346: this.mTvFApiDisplay.setNonLinearPqCurve(getCurrentInputSourceType(), getNonLinearPqType(), this.curve, 75);
+- 354: case R.id.linearlayout_factory_nonlinear_curvetype_volume_apply /* 2131099849 */:
+- 355: this.mTvFApiAudio.setVolumeCurve("/vendor/etc/default_volume_tables.xml", MtkTvFApiAudioTypes.AudioInputSource.values()[this.curvevolumeinputindex], MtkTvFApiAudioTypes.EnumAoutPath.values()[this.curvevolumeoutputindex]);
+- 366: int currentInputSource = MtkTvFApiInputSource.getInstance().getCurrentInputSource();
+- 367: MtkTvFApiDisplayTypes.EnumInputSourceType enumInputSourceType = MtkTvFApiDisplayTypes.EnumInputSourceType.E_OTHERS;
+- 370: return MtkTvFApiDisplayTypes.EnumInputSourceType.E_VGA;
+- 372: return MtkTvFApiDisplayTypes.EnumInputSourceType.E_ATV;
+- 382: return MtkTvFApiDisplayTypes.EnumInputSourceType.E_CVBS;
+- 401: return MtkTvFApiDisplayTypes.EnumInputSourceType.E_YPBPR;
+- 412: return MtkTvFApiDisplayTypes.EnumInputSourceType.E_HDMI;
+- 416: return MtkTvFApiDisplayTypes.EnumInputSourceType.E_DTV;
+- 423: return MtkTvFApiDisplayTypes.EnumInputSourceType.E_OTHERS;
+- 428: MtkTvFApiDisplayTypes.NonLinearPqType nonLinearPqType = MtkTvFApiDisplayTypes.NonLinearPqType.BRIGHTNESS;
+- 429: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.BRIGHTNESS.ordinal()) {
+- 430: return MtkTvFApiDisplayTypes.NonLinearPqType.BRIGHTNESS;
+- 432: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.CONTRAST.ordinal()) {
+- 433: return MtkTvFApiDisplayTypes.NonLinearPqType.CONTRAST;
+- 435: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SATURATION.ordinal()) {
+- 436: return MtkTvFApiDisplayTypes.NonLinearPqType.SATURATION;
+- 438: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS.ordinal()) {
+- 439: return MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS;
+- 441: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.HUE.ordinal()) {
+- 442: return MtkTvFApiDisplayTypes.NonLinearPqType.HUE;
+- 444: if (this.curvetypeindex == MtkTvFApiDisplayTypes.NonLinearPqType.BACKLIGHT.ordinal()) {
+- 445: return MtkTvFApiDisplayTypes.NonLinearPqType.BACKLIGHT;
+
+### NonStandardAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/NonStandardAdjustViewHolder.java; строк: 43
+
+**Обнаруженные методы (строка):**
+- NonStandardAdjustViewHolder() : 13
+- onClick() : 21
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 15: this.linearlayout_factory_otheroption_dvbt_dvbc_info = (LinearLayout) designMenuActivity.findViewById(R.id.linearlayout_factory_otheroption_dvbt_dvbc_info);
+- 16: LinearLayout linearLayout = (LinearLayout) this.nonStandardActivity.findViewById(R.id.linearlayout_vif);
+- 17: LinearLayout linearLayout2 = (LinearLayout) this.nonStandardActivity.findViewById(R.id.linearlayout_vd);
+- 18: LinearLayout linearLayout3 = (LinearLayout) this.nonStandardActivity.findViewById(R.id.linearlayout_audio_nonstan);
+- 21: public void onClick(View view) {
+- 23: case R.id.linearlayout_audio_nonstan /* 2131099797 */:
+- 26: case R.id.linearlayout_factory_otheroption_dvbt_dvbc_info /* 2131099916 */:
+- 29: case R.id.linearlayout_vd /* 2131100085 */:
+- 32: case R.id.linearlayout_vif /* 2131100086 */:
+- 38: this.linearlayout_factory_otheroption_dvbt_dvbc_info.setOnClickListener(onClickListener);
+- 39: linearLayout.setOnClickListener(onClickListener);
+- 40: linearLayout2.setOnClickListener(onClickListener);
+- 41: linearLayout3.setOnClickListener(onClickListener);
+
+### OtherOptionAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/OtherOptionAdjustViewHolder.java; строк: 559
+
+**Обнаруженные методы (строка):**
+- OtherOptionAdjustViewHolder() : 107
+- findView() : 111
+- onCreate() : 144
+- onKeyDown() : 182
+- restoreToFactoryDefault() : 541
+- getContentResolver() : 553
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- shutdown
+- KEY_STREAM_TIME
+- OtherOptionAdjustViewHolder
+- Off
+- Error!
+- Sucess!
+- Fail!
+- File Not Found!
+- Please Plug USB!
+- Secondary
+- Memory
+- Direct
+- Invalid
+- dtmb
+- dvbc
+- Normal
+- Certification
+- streamtime
+- auto_time
+- android.intent.action.FACTORY_RESET
+- android
+- android.intent.extra.REASON
+- ResetConfirmFragment
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 13: import com.mediatek.twoworlds.factory.MtkTvFApiAudio;
+- 14: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 15: import com.mediatek.twoworlds.factory.MtkTvFApiPeripheral;
+- 16: import com.mediatek.twoworlds.factory.MtkTvFApiSystem;
+- 17: import com.mediatek.twoworlds.factory.common.MtkTvFApiSystemTypes;
+- 18: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 19: import com.mediatek.twoworlds.tv.MtkTvNetwork;
+- 20: import com.mediatek.twoworlds.tv.MtkTvTime;
+- 21: import com.mediatek.twoworlds.tv.MtkTvTslBase;
+- 22: import com.mediatek.twoworlds.tv.MtkTvUtil;
+- 23: import com.mediatek.twoworlds.tv.common.MtkTvConfigTypeBase;
+- 112: this.text_factory_otheroption_streamtime_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_streamtime_val);
+- 113: this.text_factory_otheroption_watchdog_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_watchdog_val);
+- 114: this.text_factory_otheroption_restoretodefault_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_restoretodefault_val);
+- 115: this.text_factory_otheroption_poweronmode_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_poweronmode_val);
+- 116: this.text_factory_otheroption_uartenable_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_uartenable_val);
+- 117: this.text_factory_otheroption_mstv_tool_state = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_mstv_tool_state);
+- 118: this.text_factory_otheroption_xvycc = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_xvycc);
+- 119: this.text_factory_otheroption_xvycc_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_xvycc_val);
+- 120: this.text_factory_otheroption_mfc_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_mfc_val);
+- 121: this.linear_factory_otheroption_mstv_tool = (LinearLayout) this.otheroptionActivity.findViewById(R.id.linearlayout_factory_otheroption_mstv_tool);
+- 122: this.text_factory_otheroption_wake_on_lan_wifi_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_wake_on_lan_wifi_val);
+- 123: this.text_factory_otheroption_wake_on_lan_ethernet_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_wake_on_lan_ethernet_val);
+- 124: this.rgbwxyStrings = this.otheroptionActivity.getResources().getStringArray(R.array.xvycc_array);
+- 125: this.mfclevel = this.otheroptionActivity.getResources().getStringArray(R.array.str_arr_mfc);
+- 127: this.text_factory_otheroption_mfc_val.setVisibility(8);
+- 129: this.mText_factory_otheroption_flip_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_flip_val);
+- 130: this.mText_factory_otheroption_mirror_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_mirror_val);
+- 131: this.mText_factory_otheroption_tkgs_val = (TextView) this.otheroptionActivity.findViewById(R.id.textview_factory_otheroption_tkgs_val);
+- 132: this.mLinearlayout_factory_otheroption_keyupgrade = (LinearLayout) this.otheroptionActivity.findViewById(R.id.linearlayout_factory_otheroption_keyupgrade);
+- 133: this.mLinearlayout_factory_otheroption_tkgs = (LinearLayout) this.otheroptionActivity.findViewById(R.id.linearlayout_factory_otheroption_tkgs);
+- 134: this.mLinearlayout_factory_otheroption_closecaption = (LinearLayout) this.otheroptionActivity.findViewById(R.id.linearlayout_factory_otheroption_closecaption);
+- 136: this.mLinearlayout_factory_otheroption_keyupgrade.setVisibility(8);
+- 137: this.mLinearlayout_factory_otheroption_tkgs.setVisibility(8);
+- 140: this.mLinearlayout_factory_otheroption_closecaption.setVisibility(8);
+- 144: public boolean onCreate() {
+- 150: this.spref.edit().putInt(STREAM_TIME, 0).apply();
+- 159: this.text_factory_otheroption_streamtime_val.setText(this.streamtimeenable[this.streamtimeindex]);
+- 160: this.text_factory_otheroption_watchdog_val.setText(this.watchdogenable[this.watchdogindex]);
+- 161: int configValue = this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_VIDEO_VID_XVYCC);
+- 163: this.text_factory_otheroption_xvycc_val.setText(this.xvyccenable[configValue]);
+- 166: this.text_factory_otheroption_mfc_val.setText(this.mfclevel[mfcLevel]);
+- 167: this.text_factory_otheroption_poweronmode_val.setText(this.powerOnMode[this.poweronmodeindex]);
+- 168: this.text_factory_otheroption_uartenable_val.setText(this.uartenable[this.uartenableindex]);
+- 169: this.text_factory_otheroption_mstv_tool_state.setText(this.mUartDebug[this.mUartDebugindex]);
+- 170: this.text_factory_otheroption_restoretodefault_val.setText(this.restoretodefenable[this.restoretodefaultindex]);
+- 171: this.text_factory_otheroption_wake_on_lan_wifi_val.setText(this.wakeonlanwifi[this.wakeonlanwifiindex]);
+- 172: this.text_factory_otheroption_wake_on_lan_ethernet_val.setText(this.wakeonlanethernet[this.wakeonlanethernetindex]);
+- 173: this.mFlip = this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_FLIP);
+- 174: this.mMirror = this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_MIRROR);
+- 175: this.mTkgs = this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_MISC_TKGS_AVAILABILITY_COND);
+- 176: this.mText_factory_otheroption_flip_val.setText(this.mArrayFlip[this.mFlip]);
+- 177: this.mText_factory_otheroption_mirror_val.setText(this.mArrayMirror[this.mMirror]);
+- 178: this.mText_factory_otheroption_tkgs_val.setText(this.mArrayTkgs[this.mTkgs]);
+- 196: case R.id.linearlayout_factory_otheroption_flip /* 2131099923 */:
+- 203: this.mText_factory_otheroption_flip_val.setText(this.mArrayFlip[this.mFlip]);
+- 204: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_FLIP, this.mFlip);
+- 206: case R.id.linearlayout_factory_otheroption_mfc /* 2131099929 */:
+- 212: this.text_factory_otheroption_mfc_val.setText(this.mfclevel[this.mfclevelindex]);
+- 213: this.mTvFApiDisplay.setMfcLevel(this.mfclevelindex);
+- 214: this.mTvFApiDisplay.saveDisplayIni();
+- 216: case R.id.linearlayout_factory_otheroption_mirror /* 2131099930 */:
+- 223: this.mText_factory_otheroption_mirror_val.setText(this.mArrayMirror[this.mMirror]);
+- 224: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_MIRROR, this.mMirror);
+- 226: case R.id.linearlayout_factory_otheroption_mstv_tool /* 2131099931 */:
+- 229: MtkTvFApiPeripheral.getInstance().switch2Ttys1(true);
+- 230: MtkTvFApiPeripheral.getInstance().setStdFactoryUartCallback(true, (byte) 4, (byte) 1);
+- 233: MtkTvFApiPeripheral.getInstance().switch2Ttys1(false);
+- 234: MtkTvFApiPeripheral.getInstance().setStdFactoryUartCallback(false, (byte) 4, (byte) 1);
+- 236: this.text_factory_otheroption_mstv_tool_state.setText(this.mUartDebug[this.mUartDebugindex]);
+- 238: case R.id.linearlayout_factory_otheroption_poweronmode /* 2131099935 */:
+- 241: if (i5 < MtkTvFApiSystemTypes.EnumSystemFactoryPowerMode.E_MTK_FAPI_SYSTEM_FACTORY_POWER_MODE_SECONDARY.ordinal()) {
+- 242: this.poweronmodeindex = MtkTvFApiSystemTypes.EnumSystemFactoryPowerMode.E_MTK_FAPI_SYSTEM_FACTORY_POWER_MODE_SECONDARY.ordinal();
+- 244: this.text_factory_otheroption_poweronmode_val.setText(this.powerOnMode[this.poweronmodeindex]);
+- 245: this.mTvFApiSystem.setFactoryPowerMode(MtkTvFApiSystemTypes.EnumSystemFactoryPowerMode.values()[this.poweronmodeindex]);
+- 247: case R.id.linearlayout_factory_otheroption_restoretodefault /* 2131099945 */:
+- 255: this.text_factory_otheroption_restoretodefault_val.setText(this.restoretodefenable[this.restoretodefaultindex]);
+- 257: case R.id.linearlayout_factory_otheroption_streamtime /* 2131099949 */:
+- 264: this.text_factory_otheroption_streamtime_val.setText(this.streamtimeenable[this.streamtimeindex]);
+- 266: Settings.Global.putInt(getContentResolver(), "auto_time", 0);
+- 267: this.mTvTime.setTimeSyncSource(1);
+- 268: this.spref.edit().putInt(STREAM_TIME, 1).apply();
+- 270: this.mTvTime.setTimeSyncSource(0);
+- 271: this.spref.edit().putInt(STREAM_TIME, 0).apply();
+- 274: case R.id.linearlayout_factory_otheroption_tkgs /* 2131099951 */:
+- 281: this.mText_factory_otheroption_tkgs_val.setText(this.mArrayTkgs[this.mTkgs]);
+- 282: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_MISC_TKGS_AVAILABILITY_COND, this.mTkgs);
+- 284: case R.id.linearlayout_factory_otheroption_uartenable /* 2131099952 */:
+- 287: this.mTvFApiSystem.setUartEnvironment(false);
+- 290: this.mTvFApiSystem.setUartEnvironment(true);
+- 292: this.text_factory_otheroption_uartenable_val.setText(this.uartenable[this.uartenableindex]);
+- 294: case R.id.linearlayout_factory_otheroption_wake_on_lan_ethernet /* 2131099954 */:
+- 301: this.text_factory_otheroption_wake_on_lan_ethernet_val.setText(this.wakeonlanethernet[this.wakeonlanethernetindex]);
+- 302: this.mTvNetwork.setEthernetWolCtl(this.wakeonlanethernetindex == 1);
+- 304: case R.id.linearlayout_factory_otheroption_wake_on_lan_wifi /* 2131099955 */:
+- 311: this.text_factory_otheroption_wake_on_lan_wifi_val.setText(this.wakeonlanwifi[this.wakeonlanwifiindex]);
+- 312: this.mTvNetwork.setWifiWolCtl(this.wakeonlanwifiindex == 1);
+- 314: case R.id.linearlayout_factory_otheroption_watchdog /* 2131099956 */:
+- 321: this.text_factory_otheroption_watchdog_val.setText(this.watchdogenable[this.watchdogindex]);
+- 322: this.mTvFApiSystem.setWatchDog(this.watchdogindex != 0);
+- 324: case R.id.linearlayout_factory_otheroption_xvycc /* 2131099957 */:
+- 331: this.text_factory_otheroption_xvycc_val.setText(this.xvyccenable[this.xvyccVal]);
+- 332: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_VIDEO_VID_XVYCC, this.xvyccVal);
+- 338: case R.id.linearlayout_factory_otheroption_flip /* 2131099923 */:
+- 345: this.mText_factory_otheroption_flip_val.setText(this.mArrayFlip[this.mFlip]);
+- 346: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_FLIP, this.mFlip);
+- 348: case R.id.linearlayout_factory_otheroption_mfc /* 2131099929 */:
+- 355: this.text_factory_otheroption_mfc_val.setText(strArr[this.mfclevelindex]);
+- 356: this.mTvFApiDisplay.setMfcLevel(this.mfclevelindex);
+- 357: this.mTvFApiDisplay.saveDisplayIni();
+- 359: case R.id.linearlayout_factory_otheroption_mirror /* 2131099930 */:
+- 366: this.mText_factory_otheroption_mirror_val.setText(this.mArrayMirror[this.mMirror]);
+- 367: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_MISC_EX_MIRROR, this.mMirror);
+- 369: case R.id.linearlayout_factory_otheroption_mstv_tool /* 2131099931 */:
+- 372: MtkTvFApiPeripheral.getInstance().switch2Ttys1(true);
+- 373: MtkTvFApiPeripheral.getInstance().setStdFactoryUartCallback(true, (byte) 4, (byte) 1);
+- 376: MtkTvFApiPeripheral.getInstance().switch2Ttys1(false);
+- 377: MtkTvFApiPeripheral.getInstance().setStdFactoryUartCallback(false, (byte) 4, (byte) 1);
+- 379: this.text_factory_otheroption_mstv_tool_state.setText(this.mUartDebug[this.mUartDebugindex]);
+- 381: case R.id.linearlayout_factory_otheroption_poweronmode /* 2131099935 */:
+- 384: if (i16 > MtkTvFApiSystemTypes.EnumSystemFactoryPowerMode.E_MTK_FAPI_SYSTEM_FACTORY_POWER_MODE_DIRECT.ordinal()) {
+- 385: this.poweronmodeindex = MtkTvFApiSystemTypes.EnumSystemFactoryPowerMode.E_MTK_FAPI_SYSTEM_FACTORY_POWER_MODE_DIRECT.ordinal();
+- 387: this.text_factory_otheroption_poweronmode_val.setText(this.powerOnMode[this.poweronmodeindex]);
+- 388: this.mTvFApiSystem.setFactoryPowerMode(MtkTvFApiSystemTypes.EnumSystemFactoryPowerMode.values()[this.poweronmodeindex]);
+- 390: case R.id.linearlayout_factory_otheroption_restoretodefault /* 2131099945 */:
+- 398: this.text_factory_otheroption_restoretodefault_val.setText(this.restoretodefenable[this.restoretodefaultindex]);
+- 400: case R.id.linearlayout_factory_otheroption_streamtime /* 2131099949 */:
+- 407: this.text_factory_otheroption_streamtime_val.setText(this.streamtimeenable[this.streamtimeindex]);
+- 409: Settings.Global.putInt(getContentResolver(), "auto_time", 0);
+- 410: this.mTvTime.setTimeSyncSource(1);
+- 411: this.spref.edit().putInt(STREAM_TIME, 1).apply();
+- 413: this.mTvTime.setTimeSyncSource(0);
+- 414: this.spref.edit().putInt(STREAM_TIME, 0).apply();
+- 417: case R.id.linearlayout_factory_otheroption_tkgs /* 2131099951 */:
+- 424: this.mText_factory_otheroption_tkgs_val.setText(this.mArrayTkgs[this.mTkgs]);
+- 425: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_MISC_TKGS_AVAILABILITY_COND, this.mTkgs);
+- 427: case R.id.linearlayout_factory_otheroption_uartenable /* 2131099952 */:
+- 430: this.mTvFApiSystem.setUartEnvironment(true);
+- 433: this.mTvFApiSystem.setUartEnvironment(false);
+- 435: this.text_factory_otheroption_uartenable_val.setText(this.uartenable[this.uartenableindex]);
+- 437: case R.id.linearlayout_factory_otheroption_wake_on_lan_ethernet /* 2131099954 */:
+- 444: this.text_factory_otheroption_wake_on_lan_ethernet_val.setText(this.wakeonlanethernet[this.wakeonlanethernetindex]);
+- 445: this.mTvNetwork.setEthernetWolCtl(this.wakeonlanethernetindex == 1);
+- 447: case R.id.linearlayout_factory_otheroption_wake_on_lan_wifi /* 2131099955 */:
+- 454: this.text_factory_otheroption_wake_on_lan_wifi_val.setText(this.wakeonlanwifi[this.wakeonlanwifiindex]);
+- 455: this.mTvNetwork.setWifiWolCtl(this.wakeonlanwifiindex == 1);
+- 457: case R.id.linearlayout_factory_otheroption_watchdog /* 2131099956 */:
+- 464: this.text_factory_otheroption_watchdog_val.setText(this.watchdogenable[this.watchdogindex]);
+- 465: this.mTvFApiSystem.setWatchDog(this.watchdogindex != 0);
+- 467: case R.id.linearlayout_factory_otheroption_xvycc /* 2131099957 */:
+- 474: this.text_factory_otheroption_xvycc_val.setText(this.xvyccenable[this.xvyccVal]);
+- 475: this.mTvConfig.setConfigValue(MtkTvConfigTypeBase.CFG_VIDEO_VID_XVYCC, this.xvyccVal);
+- 483: case R.id.linearlayout_factory_otheroption_closecaption /* 2131099903 */:
+- 484: intent.setAction(FactoryIntent.ACTION_FACTORY_CLOSE_CAPTION_SETUP);
+- 485: intent.setClass(this.otheroptionActivity.getApplicationContext(), FactoryCloseCaptionSetupActivity.class);
+
+### PEQAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/PEQAdjustViewHolder.java; строк: 1343
+
+**Обнаруженные методы (строка):**
+- PEQAdjustViewHolder() : 135
+- findView() : 139
+- onCreate() : 197
+- updateUi() : 201
+- onKeyDown() : 328
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- PEQAdjustViewHolder
+- User
+- Standard
+- VIVID
+- Sport
+- Movie
+- Music
+- News
+- Off
+- peak
+- g_audio__dolby_audio_processing
+- currentDapEnableIndex =
+- g_audio__sound_mode
+- i =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 8: import com.mediatek.twoworlds.factory.MtkTvFApiAudio;
+- 9: import com.mediatek.twoworlds.factory.common.MtkTvFApiAudioTypes;
+- 10: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 140: this.layout_peq = (LinearLayout) this.peqActivity.findViewById(R.id.linearlayout_factory_peqjust);
+- 141: this.text_factory_peq_soundmode_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_soundmode_val);
+- 142: this.text_factory_peq_enable_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_enable_val);
+- 143: this.text_factory_peq_freq1_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq1_val);
+- 144: this.text_factory_peq_freq2_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq2_val);
+- 145: this.text_factory_peq_freq3_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq3_val);
+- 146: this.text_factory_peq_freq4_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq4_val);
+- 147: this.text_factory_peq_freq5_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq5_val);
+- 148: this.text_factory_peq_freq6_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq6_val);
+- 149: this.text_factory_peq_freq7_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq7_val);
+- 150: this.text_factory_peq_freq8_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq8_val);
+- 151: this.text_factory_peq_freq9_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq9_val);
+- 152: this.text_factory_peq_freq10_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq10_val);
+- 153: this.text_factory_peq_freq11_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq11_val);
+- 154: this.text_factory_peq_freq12_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq12_val);
+- 155: this.text_factory_peq_freq13_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_freq13_val);
+- 156: this.text_factory_peq_gain1_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain1_val);
+- 157: this.text_factory_peq_gain2_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain2_val);
+- 158: this.text_factory_peq_gain3_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain3_val);
+- 159: this.text_factory_peq_gain4_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain4_val);
+- 160: this.text_factory_peq_gain5_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain5_val);
+- 161: this.text_factory_peq_gain6_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain6_val);
+- 162: this.text_factory_peq_gain7_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain7_val);
+- 163: this.text_factory_peq_gain8_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain8_val);
+- 164: this.text_factory_peq_gain9_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain9_val);
+- 165: this.text_factory_peq_gain10_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain10_val);
+- 166: this.text_factory_peq_gain11_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain11_val);
+- 167: this.text_factory_peq_gain12_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain12_val);
+- 168: this.text_factory_peq_gain13_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_gain13_val);
+- 169: this.text_factory_peq_q1_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q1_val);
+- 170: this.text_factory_peq_q2_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q2_val);
+- 171: this.text_factory_peq_q3_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q3_val);
+- 172: this.text_factory_peq_q4_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q4_val);
+- 173: this.text_factory_peq_q5_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q5_val);
+- 174: this.text_factory_peq_q6_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q6_val);
+- 175: this.text_factory_peq_q7_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q7_val);
+- 176: this.text_factory_peq_q8_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q8_val);
+- 177: this.text_factory_peq_q9_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q9_val);
+- 178: this.text_factory_peq_q10_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q10_val);
+- 179: this.text_factory_peq_q11_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q11_val);
+- 180: this.text_factory_peq_q12_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q12_val);
+- 181: this.text_factory_peq_q13_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_q13_val);
+- 182: this.text_factory_peq_type1_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type1_val);
+- 183: this.text_factory_peq_type2_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type2_val);
+- 184: this.text_factory_peq_type3_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type3_val);
+- 185: this.text_factory_peq_type4_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type4_val);
+- 186: this.text_factory_peq_type5_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type5_val);
+- 187: this.text_factory_peq_type6_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type6_val);
+- 188: this.text_factory_peq_type7_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type7_val);
+- 189: this.text_factory_peq_type8_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type8_val);
+- 190: this.text_factory_peq_type9_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type9_val);
+- 191: this.text_factory_peq_type10_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type10_val);
+- 192: this.text_factory_peq_type11_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type11_val);
+- 193: this.text_factory_peq_type12_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type12_val);
+- 194: this.text_factory_peq_type13_val = (TextView) this.peqActivity.findViewById(R.id.textview_factory_peq_type13_val);
+- 197: public void onCreate() {
+- 198: updateUi();
+- 201: public void updateUi() {
+- 209: this.enableindex = this.mTvFApiAudio.getPEQEnable(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 0);
+- 210: this.mFreq1Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 0);
+- 211: this.mFreq2Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 1);
+- 212: this.mFreq3Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 2);
+- 213: this.mFreq4Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 3);
+- 214: this.mFreq5Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 4);
+- 215: this.mFreq6Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 5);
+- 216: this.mFreq7Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 6);
+- 217: this.mFreq8Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 7);
+- 218: this.mFreq9Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 8);
+- 219: this.mFreq10Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 9);
+- 220: this.mFreq11Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 10);
+- 221: this.mFreq12Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 11);
+- 222: this.mFreq13Val = this.mTvFApiAudio.getPeqFreq(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 12);
+- 223: this.mGain1Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 0);
+- 224: this.mGain2Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 1);
+- 225: this.mGain3Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 2);
+- 226: this.mGain4Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 3);
+- 227: this.mGain5Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 4);
+- 228: this.mGain6Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 5);
+- 229: this.mGain7Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 6);
+- 230: this.mGain8Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 7);
+- 231: this.mGain9Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 8);
+- 232: this.mGain10Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 9);
+- 233: this.mGain11Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 10);
+- 234: this.mGain12Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 11);
+- 235: this.mGain13Val = this.mTvFApiAudio.getPeqGain(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 12);
+- 236: this.mQ1Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 0);
+- 237: this.mQ2Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 1);
+- 238: this.mQ3Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 2);
+- 239: this.mQ4Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 3);
+- 240: this.mQ5Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 4);
+- 241: this.mQ6Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 5);
+- 242: this.mQ7Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 6);
+- 243: this.mQ8Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 7);
+- 244: this.mQ9Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 8);
+- 245: this.mQ10Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 9);
+- 246: this.mQ11Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 10);
+- 247: this.mQ12Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 11);
+- 248: this.mQ13Val = this.mTvFApiAudio.getPeqQ(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 12);
+- 249: this.mType1Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 0);
+- 250: this.mType2Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 1);
+- 251: this.mType3Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 2);
+- 252: this.mType4Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 3);
+- 253: this.mType5Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 4);
+- 254: this.mType6Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 5);
+- 255: this.mType7Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 6);
+- 256: this.mType8Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 7);
+- 257: this.mType9Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 8);
+- 258: this.mType10Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 9);
+- 259: this.mType11Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 10);
+- 260: this.mType12Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 11);
+- 261: this.mType13Val = this.mTvFApiAudio.getPeqType(MtkTvFApiAudioTypes.EnumSoundMode.values()[this.soundmodeindex], (short) 12);
+- 262: this.text_factory_peq_soundmode_val.setText(this.mSoundModeStrArray[this.soundmodeindex]);
+- 263: this.text_factory_peq_enable_val.setText(this.enable[this.enableindex]);
+- 264: this.text_factory_peq_freq1_val.setText(Integer.toString(this.mFreq1Val));
+- 265: this.text_factory_peq_freq2_val.setText(Integer.toString(this.mFreq2Val));
+- 266: this.text_factory_peq_freq3_val.setText(Integer.toString(this.mFreq3Val));
+- 267: this.text_factory_peq_freq4_val.setText(Integer.toString(this.mFreq4Val));
+- 268: this.text_factory_peq_freq5_val.setText(Integer.toString(this.mFreq5Val));
+- 269: this.text_factory_peq_freq6_val.setText(Integer.toString(this.mFreq6Val));
+- 270: this.text_factory_peq_freq7_val.setText(Integer.toString(this.mFreq7Val));
+- 271: this.text_factory_peq_freq8_val.setText(Integer.toString(this.mFreq8Val));
+- 272: this.text_factory_peq_freq9_val.setText(Integer.toString(this.mFreq9Val));
+- 273: this.text_factory_peq_freq10_val.setText(Integer.toString(this.mFreq10Val));
+- 274: this.text_factory_peq_freq11_val.setText(Integer.toString(this.mFreq11Val));
+- 275: this.text_factory_peq_freq12_val.setText(Integer.toString(this.mFreq12Val));
+- 276: this.text_factory_peq_freq13_val.setText(Integer.toString(this.mFreq13Val));
+- 277: this.text_factory_peq_gain1_val.setText(Integer.toString(this.mGain1Val));
+- 278: this.text_factory_peq_gain2_val.setText(Integer.toString(this.mGain2Val));
+- 279: this.text_factory_peq_gain3_val.setText(Integer.toString(this.mGain3Val));
+- 280: this.text_factory_peq_gain4_val.setText(Integer.toString(this.mGain4Val));
+- 281: this.text_factory_peq_gain5_val.setText(Integer.toString(this.mGain5Val));
+- 282: this.text_factory_peq_gain6_val.setText(Integer.toString(this.mGain6Val));
+- 283: this.text_factory_peq_gain7_val.setText(Integer.toString(this.mGain7Val));
+- 284: this.text_factory_peq_gain8_val.setText(Integer.toString(this.mGain8Val));
+- 285: this.text_factory_peq_gain9_val.setText(Integer.toString(this.mGain9Val));
+- 286: this.text_factory_peq_gain10_val.setText(Integer.toString(this.mGain10Val));
+- 287: this.text_factory_peq_gain11_val.setText(Integer.toString(this.mGain11Val));
+- 288: this.text_factory_peq_gain12_val.setText(Integer.toString(this.mGain12Val));
+- 289: this.text_factory_peq_gain13_val.setText(Integer.toString(this.mGain13Val));
+- 290: this.text_factory_peq_q1_val.setText(Integer.toString(this.mQ1Val));
+- 291: this.text_factory_peq_q2_val.setText(Integer.toString(this.mQ2Val));
+- 292: this.text_factory_peq_q3_val.setText(Integer.toString(this.mQ3Val));
+- 293: this.text_factory_peq_q4_val.setText(Integer.toString(this.mQ4Val));
+- 294: this.text_factory_peq_q5_val.setText(Integer.toString(this.mQ5Val));
+- 295: this.text_factory_peq_q6_val.setText(Integer.toString(this.mQ6Val));
+- 296: this.text_factory_peq_q7_val.setText(Integer.toString(this.mQ7Val));
+- 297: this.text_factory_peq_q8_val.setText(Integer.toString(this.mQ8Val));
+- 298: this.text_factory_peq_q9_val.setText(Integer.toString(this.mQ9Val));
+- 299: this.text_factory_peq_q10_val.setText(Integer.toString(this.mQ10Val));
+- 300: this.text_factory_peq_q11_val.setText(Integer.toString(this.mQ11Val));
+- 301: this.text_factory_peq_q12_val.setText(Integer.toString(this.mQ12Val));
+- 302: this.text_factory_peq_q13_val.setText(Integer.toString(this.mQ13Val));
+
+### PanelInfoViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/PanelInfoViewHolder.java; строк: 43
+
+**Обнаруженные методы (строка):**
+- PanelInfoViewHolder() : 22
+- findView() : 26
+- onCreate() : 33
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- PanelInfoViewHolder
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 4: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 27: this.text_panel_info_type_val = (TextView) this.mPanelInfoActivity.findViewById(R.id.textview_panel_info_type_val);
+- 28: this.text_panel_info_version_val = (TextView) this.mPanelInfoActivity.findViewById(R.id.textview_panel_info_version_val);
+- 29: this.text_panel_info_width_val = (TextView) this.mPanelInfoActivity.findViewById(R.id.textview_panel_info_width_val);
+- 30: this.text_panel_info_height_val = (TextView) this.mPanelInfoActivity.findViewById(R.id.textview_panel_info_height_val);
+- 33: public void onCreate() {
+- 38: this.text_panel_info_type_val.setText(this.mPanelInfoTypeVal);
+- 39: this.text_panel_info_version_val.setText(this.mPanelInfoVersionVal);
+- 40: this.text_panel_info_width_val.setText(this.mPanelInfoWidthVal);
+- 41: this.text_panel_info_height_val.setText(this.mPanelInfoHeightVal);
+
+### PictureModeAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/PictureModeAdjustViewHolder.java; строк: 398
+
+**Обнаруженные методы (строка):**
+- timeDiffMs() : 47
+- PictureModeAdjustViewHolder() : 62
+- findView() : 67
+- onCreate() : 84
+- onKeyDown() : 114
+- getCurrentInputSourceTypeEx() : 316
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- PictureModeAdjustViewHolder
+- g_video__picture_mode
+- picmodeindex =
+- getCurrentInputSourceType result =
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 9: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 10: import com.mediatek.twoworlds.factory.MtkTvFApiInputSource;
+- 11: import com.mediatek.twoworlds.factory.common.MtkTvFApiDisplayTypes;
+- 12: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 50: time.setToNow();
+- 64: this.mPicModeStrArray = designMenuActivity.getResources().getStringArray(R.array.str_arr_pic_mode_vals);
+- 68: this.text_factory_picmode_picmode_val = (TextView) this.picModeActivity.findViewById(R.id.textview_factory_picmode_picmode_val);
+- 69: this.text_factory_picmode_brightness_val = (TextView) this.picModeActivity.findViewById(R.id.textview_factory_picmode_brightness_val);
+- 70: this.text_factory_picmode_contrast_val = (TextView) this.picModeActivity.findViewById(R.id.textview_factory_picmode_contrast_val);
+- 71: this.text_factory_picmode_saturation_val = (TextView) this.picModeActivity.findViewById(R.id.textview_factory_picmode_saturation_val);
+- 72: this.text_factory_picmode_hue_val = (TextView) this.picModeActivity.findViewById(R.id.textview_factory_picmode_hue_val);
+- 73: this.text_factory_picmode_sharpness_val = (TextView) this.picModeActivity.findViewById(R.id.textview_factory_picmode_sharpness_val);
+- 74: this.text_factory_picmode_backlight_val = (TextView) this.picModeActivity.findViewById(R.id.textview_factory_picmode_backlight_val);
+- 75: this.progress_factory_picmode_brightness = (ProgressBar) this.picModeActivity.findViewById(R.id.progressbar_facroty_picmode_brightness);
+- 76: this.progress_factory_picmode_contrast = (ProgressBar) this.picModeActivity.findViewById(R.id.progressbar_facroty_picmode_contrast);
+- 77: this.progress_factory_picmode_saturation = (ProgressBar) this.picModeActivity.findViewById(R.id.progressbar_facroty_picmode_saturation);
+- 78: this.progress_factory_picmode_hue = (ProgressBar) this.picModeActivity.findViewById(R.id.progressbar_facroty_picmode_hue);
+- 79: this.progress_factory_picmode_sharpness = (ProgressBar) this.picModeActivity.findViewById(R.id.progressbar_facroty_picmode_sharpness);
+- 80: this.progress_factory_picmode_backlight = (ProgressBar) this.picModeActivity.findViewById(R.id.progressbar_facroty_picmode_backlight);
+- 81: this.mLinearlayout_factory_picmode_sharpness = (LinearLayout) this.picModeActivity.findViewById(R.id.linearlayout_factory_picmode_sharpness);
+- 84: public boolean onCreate() {
+- 88: this.mLinearlayout_factory_picmode_sharpness.setEnabled(false);
+- 91: this.brightnessval = mTvFApiDisplay.getPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.BRIGHTNESS);
+- 92: this.contrastval = mTvFApiDisplay.getPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.CONTRAST);
+- 93: this.saturationval = mTvFApiDisplay.getPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.SATURATION);
+- 94: this.hueval = mTvFApiDisplay.getPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.HUE);
+- 95: this.sharpnessval = mTvFApiDisplay.getPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS);
+- 96: this.backlightval = mTvFApiDisplay.getPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.BACKLIGHT);
+- 97: this.text_factory_picmode_picmode_val.setText(this.mPicModeStrArray[this.picmodeindex]);
+- 98: this.text_factory_picmode_brightness_val.setText(Integer.toString(this.brightnessval));
+- 99: this.text_factory_picmode_contrast_val.setText(Integer.toString(this.contrastval));
+- 100: this.text_factory_picmode_saturation_val.setText(Integer.toString(this.saturationval));
+- 101: this.text_factory_picmode_hue_val.setText(Integer.toString(this.hueval));
+- 102: this.text_factory_picmode_sharpness_val.setText(Integer.toString(this.sharpnessval));
+- 103: this.text_factory_picmode_backlight_val.setText(Integer.toString(this.backlightval));
+- 104: this.progress_factory_picmode_brightness.setProgress(this.brightnessval);
+- 105: this.progress_factory_picmode_contrast.setProgress(this.contrastval);
+- 106: this.progress_factory_picmode_saturation.setProgress(this.saturationval);
+- 107: this.progress_factory_picmode_hue.setProgress(this.hueval + 50);
+- 108: this.progress_factory_picmode_sharpness.setProgress(this.sharpnessval);
+- 109: this.progress_factory_picmode_backlight.setProgress(this.backlightval);
+- 126: case R.id.linearlayout_factory_picmode_backlight /* 2131100029 */:
+- 133: this.text_factory_picmode_backlight_val.setText(Integer.toString(this.backlightval));
+- 134: this.progress_factory_picmode_backlight.setProgress(this.backlightval);
+- 135: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.BACKLIGHT, this.backlightval);
+- 137: case R.id.linearlayout_factory_picmode_brightness /* 2131100030 */:
+- 144: this.text_factory_picmode_brightness_val.setText(Integer.toString(this.brightnessval));
+- 145: this.progress_factory_picmode_brightness.setProgress(this.brightnessval);
+- 146: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.BRIGHTNESS, this.brightnessval);
+- 148: case R.id.linearlayout_factory_picmode_contrast /* 2131100031 */:
+- 155: this.text_factory_picmode_contrast_val.setText(Integer.toString(this.contrastval));
+- 156: this.progress_factory_picmode_contrast.setProgress(this.contrastval);
+- 157: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.CONTRAST, this.contrastval);
+- 159: case R.id.linearlayout_factory_picmode_hue /* 2131100032 */:
+- 168: this.text_factory_picmode_hue_val.setText(Integer.toString(this.hueval));
+- 169: this.progress_factory_picmode_hue.setProgress(this.hueval + i2);
+- 170: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.HUE, this.hueval);
+- 172: case R.id.linearlayout_factory_picmode_picmode /* 2131100033 */:
+- 189: this.text_factory_picmode_picmode_val.setText(this.mPicModeStrArray[this.picmodeindex]);
+- 190: mTvConfig.setConfigValue("g_video__picture_mode", this.picmodeindex);
+- 191: onCreate();
+- 194: case R.id.linearlayout_factory_picmode_saturation /* 2131100034 */:
+- 201: this.text_factory_picmode_saturation_val.setText(Integer.toString(this.saturationval));
+- 202: this.progress_factory_picmode_saturation.setProgress(this.saturationval);
+- 203: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.SATURATION, this.saturationval);
+- 205: case R.id.linearlayout_factory_picmode_sharpness /* 2131100035 */:
+- 212: this.text_factory_picmode_sharpness_val.setText(Integer.toString(this.sharpnessval));
+- 213: this.progress_factory_picmode_sharpness.setProgress(this.sharpnessval);
+- 214: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS, this.sharpnessval);
+- 220: case R.id.linearlayout_factory_picmode_backlight /* 2131100029 */:
+- 227: this.text_factory_picmode_backlight_val.setText(Integer.toString(this.backlightval));
+- 228: this.progress_factory_picmode_backlight.setProgress(this.backlightval);
+- 229: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.BACKLIGHT, this.backlightval);
+- 231: case R.id.linearlayout_factory_picmode_brightness /* 2131100030 */:
+- 238: this.text_factory_picmode_brightness_val.setText(Integer.toString(this.brightnessval));
+- 239: this.progress_factory_picmode_brightness.setProgress(this.brightnessval);
+- 240: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.BRIGHTNESS, this.brightnessval);
+- 242: case R.id.linearlayout_factory_picmode_contrast /* 2131100031 */:
+- 249: this.text_factory_picmode_contrast_val.setText(Integer.toString(this.contrastval));
+- 250: this.progress_factory_picmode_contrast.setProgress(this.contrastval);
+- 251: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.CONTRAST, this.contrastval);
+- 253: case R.id.linearlayout_factory_picmode_hue /* 2131100032 */:
+- 260: this.text_factory_picmode_hue_val.setText(Integer.toString(this.hueval));
+- 261: this.progress_factory_picmode_hue.setProgress(this.hueval + 50);
+- 262: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.HUE, this.hueval);
+- 264: case R.id.linearlayout_factory_picmode_picmode /* 2131100033 */:
+- 281: this.text_factory_picmode_picmode_val.setText(this.mPicModeStrArray[this.picmodeindex]);
+- 282: mTvConfig.setConfigValue("g_video__picture_mode", this.picmodeindex);
+- 283: onCreate();
+- 286: case R.id.linearlayout_factory_picmode_saturation /* 2131100034 */:
+- 293: this.text_factory_picmode_saturation_val.setText(Integer.toString(this.saturationval));
+- 294: this.progress_factory_picmode_saturation.setProgress(this.saturationval);
+- 295: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.SATURATION, this.saturationval);
+- 297: case R.id.linearlayout_factory_picmode_sharpness /* 2131100035 */:
+- 304: this.text_factory_picmode_sharpness_val.setText(Integer.toString(this.sharpnessval));
+- 305: this.progress_factory_picmode_sharpness.setProgress(this.sharpnessval);
+- 306: mTvFApiDisplay.setPictureModeDefaultCfg(MtkTvFApiDisplayTypes.EnumVideoPictureMode.getEnum(this.picmodeindex), this.mInputSrcType, MtkTvFApiDisplayTypes.NonLinearPqType.SHARPNESS, this.sharpnessval);
+- 320: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_VGA.ordinal();
+- 323: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_ATV.ordinal();
+- 334: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_CVBS.ordinal();
+- 355: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_YPBPR.ordinal();
+- 359: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_HDMI1.ordinal();
+- 362: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_HDMI2.ordinal();
+- 365: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_HDMI3.ordinal();
+- 368: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_HDMI4.ordinal();
+- 373: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_DTV.ordinal();
+- 380: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_DVI.ordinal();
+- 384: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_MMP.ordinal();
+- 389: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_NONE.ordinal();
+- 392: iOrdinal = MtkTvFApiDisplayTypes.EnumInputSourceTypeEnhanced.E_MMP_IMG.ordinal();
+
+### SSCAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/SSCAdjustViewHolder.java; строк: 381
+
+**Обнаруженные методы (строка):**
+- SSCAdjustViewHolder() : 46
+- findView() : 51
+- onCreate() : 63
+- onKeyDown() : 109
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- SSCAdjustViewHolder
+- Off
+- mMiuCount =
+- mTvFApiMiuSysSscInfo = null
+- miuenableindex =
+- , miupercentage =
+- , miumodulation =
+- lvdsenableindex =
+- , lvdspercengtage =
+- , lvdsmodulation =
+- panelswingval =
+- ret =
+- setSwingLevel fail
+- setLVDSenable fail
+- setLVDSmodulation fail
+- setLVDSpercentage fail
+- setMiuSsc fail
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 9: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 10: import com.mediatek.twoworlds.factory.MtkTvFApiDisplayBase;
+- 11: import com.mediatek.twoworlds.factory.MtkTvFApiSystem;
+- 12: import com.mediatek.twoworlds.factory.model.MtkTvFApiMiuSysSscInfo;
+- 52: this.mLinear_ssc_settings = (LinearLayout) this.sscActivity.findViewById(R.id.linearlayout_factory_ssc_settings);
+- 53: this.text_factory_ssc_miuindex_val = (TextView) this.sscActivity.findViewById(R.id.textview_factory_ssc_miuindex_val);
+- 54: this.text_factory_ssc_miuenable_val = (TextView) this.sscActivity.findViewById(R.id.textview_factory_ssc_miuenable_val);
+- 55: this.text_factory_ssc_miumodulation_val = (TextView) this.sscActivity.findViewById(R.id.textview_factory_ssc_miumodulation_val);
+- 56: this.text_factory_ssc_miupercentage_val = (TextView) this.sscActivity.findViewById(R.id.textview_factory_ssc_miupercentage_val);
+- 57: this.text_factory_ssc_lvdsenable_val = (TextView) this.sscActivity.findViewById(R.id.textview_factory_ssc_lvdsenable_val);
+- 58: this.text_factory_ssc_lvdsmodulation_val = (TextView) this.sscActivity.findViewById(R.id.textview_factory_ssc_lvdsmodulation_val);
+- 59: this.text_factory_ssc_lvdspercentage_val = (TextView) this.sscActivity.findViewById(R.id.textview_factory_ssc_lvdspercentage_val);
+- 60: this.text_factory_otheroption_panelswing_val = (TextView) this.sscActivity.findViewById(R.id.textview_factory_otheroption_panelswing_val);
+- 63: public boolean onCreate() {
+- 68: this.mLinear_ssc_settings.getChildAt(i).setEnabled(false);
+- 72: MtkTvFApiMiuSysSscInfo miuSsc = this.mTvFApiSystem.getMiuSsc((byte) this.miuindex);
+- 88: this.text_factory_ssc_miuindex_val.setText(Integer.toString(this.miuindex));
+- 89: this.text_factory_ssc_miuenable_val.setText(this.miuenable[this.miuenableindex]);
+- 90: this.text_factory_ssc_miumodulation_val.setText(Integer.toString(this.miumodulation));
+- 91: this.text_factory_ssc_miupercentage_val.setText("" + this.dis);
+- 102: this.text_factory_ssc_lvdsenable_val.setText(this.miuenable[this.lvdsenableindex]);
+- 103: this.text_factory_ssc_lvdspercentage_val.setText("" + this.lvdsPerDouble);
+- 104: this.text_factory_ssc_lvdsmodulation_val.setText("" + this.lvdsModDouble);
+- 105: this.text_factory_otheroption_panelswing_val.setText(Integer.toString(this.panelswingval));
+- 120: case R.id.linearlayout_factory_otheroption_panelswing /* 2131099934 */:
+- 121: if (this.panelswingval > MtkTvFApiDisplayBase.PANEL_ATTR_SWING_LEVEL_MIN.intValue()) {
+- 123: } else if (this.panelswingval <= MtkTvFApiDisplayBase.PANEL_ATTR_SWING_LEVEL_MIN.intValue()) {
+- 124: this.panelswingval = MtkTvFApiDisplayBase.PANEL_ATTR_SWING_LEVEL_MAX.intValue();
+- 126: this.text_factory_otheroption_panelswing_val.setText(Integer.toString(this.panelswingval));
+- 127: int swingLevel = this.mTvFApiDisplay.setSwingLevel((short) this.panelswingval);
+- 132: this.mTvFApiDisplay.saveDisplayIni();
+- 134: case R.id.linearlayout_factory_ssc_lvdsenable /* 2131100038 */:
+- 138: int lVDSenable = this.mTvFApiDisplay.setLVDSenable(false);
+- 145: int lVDSenable2 = this.mTvFApiDisplay.setLVDSenable(true);
+- 151: this.mTvFApiDisplay.updateLvdsSscParameter();
+- 152: this.mTvFApiDisplay.saveDisplayIni();
+- 153: this.text_factory_ssc_lvdsenable_val.setText(this.lvdsenable[this.lvdsenableindex]);
+- 155: case R.id.linearlayout_factory_ssc_lvdsmodulation /* 2131100039 */:
+- 156: if (this.lvdsmodulation != MtkTvFApiDisplayBase.PANEL_ATTR_LVDS_SSC_MIN.intValue()) {
+- 159: this.lvdsModDouble = MtkTvFApiDisplayBase.PANEL_ATTR_LVDS_SSC_MAX.intValue();
+- 162: this.text_factory_ssc_lvdsmodulation_val.setText("" + this.lvdsModDouble);
+- 163: int lVDSmodulation = this.mTvFApiDisplay.setLVDSmodulation(this.lvdsmodulation);
+- 168: this.mTvFApiDisplay.updateLvdsSscParameter();
+- 169: this.mTvFApiDisplay.saveDisplayIni();
+- 171: case R.id.linearlayout_factory_ssc_lvdspercentage /* 2131100040 */:
+- 172: if (this.lvdspercengtage != MtkTvFApiDisplayBase.PANEL_ATTR_LVDS_SSC_MIN.intValue()) {
+- 175: this.lvdspercengtage = MtkTvFApiDisplayBase.PANEL_ATTR_LVDS_SSC_MAX.intValue();
+- 178: this.text_factory_ssc_lvdspercentage_val.setText("" + this.lvdsPerDouble);
+- 179: int lVDSpercentage = this.mTvFApiDisplay.setLVDSpercentage(this.lvdspercengtage);
+- 184: this.mTvFApiDisplay.updateLvdsSscParameter();
+- 185: this.mTvFApiDisplay.saveDisplayIni();
+- 187: case R.id.linearlayout_factory_ssc_miuenable /* 2131100041 */:
+- 194: this.text_factory_ssc_miuenable_val.setText(this.miuenable[this.miuenableindex]);
+- 195: int miuSsc = this.mTvFApiSystem.setMiuSsc((byte) this.miuindex, (short) this.miumodulation, (short) this.miupercentage, this.miuenableindex != 0);
+- 201: case R.id.linearlayout_factory_ssc_miuindex /* 2131100042 */:
+- 208: this.text_factory_ssc_miuindex_val.setText(Integer.toString(this.miuindex));
+- 209: int miuSsc2 = this.mTvFApiSystem.setMiuSsc((byte) this.miuindex, (short) this.miumodulation, (short) this.miupercentage, this.miuenableindex != 0);
+- 214: onCreate();
+- 216: case R.id.linearlayout_factory_ssc_miumodulation /* 2131100043 */:
+- 223: this.text_factory_ssc_miumodulation_val.setText(Integer.toString(this.miumodulation));
+- 224: int miuSsc3 = this.mTvFApiSystem.setMiuSsc((byte) this.miuindex, (short) this.miumodulation, (short) this.miupercentage, this.miuenableindex != 0);
+- 230: case R.id.linearlayout_factory_ssc_miupercentage /* 2131100044 */:
+- 238: this.text_factory_ssc_miupercentage_val.setText("" + this.dis);
+- 239: int miuSsc4 = this.mTvFApiSystem.setMiuSsc((byte) this.miuindex, (short) this.miumodulation, (short) this.miupercentage, this.miuenableindex != 0);
+- 249: case R.id.linearlayout_factory_otheroption_panelswing /* 2131099934 */:
+- 250: if (this.panelswingval < MtkTvFApiDisplayBase.PANEL_ATTR_SWING_LEVEL_MAX.intValue()) {
+- 252: } else if (this.panelswingval >= MtkTvFApiDisplayBase.PANEL_ATTR_SWING_LEVEL_MAX.intValue()) {
+- 253: this.panelswingval = MtkTvFApiDisplayBase.PANEL_ATTR_SWING_LEVEL_MIN.intValue();
+- 255: this.text_factory_otheroption_panelswing_val.setText(Integer.toString(this.panelswingval));
+- 256: int swingLevel2 = this.mTvFApiDisplay.setSwingLevel((short) this.panelswingval);
+- 261: this.mTvFApiDisplay.saveDisplayIni();
+- 263: case R.id.linearlayout_factory_ssc_lvdsenable /* 2131100038 */:
+- 267: int lVDSenable3 = this.mTvFApiDisplay.setLVDSenable(false);
+- 274: int lVDSenable4 = this.mTvFApiDisplay.setLVDSenable(true);
+- 280: this.mTvFApiDisplay.updateLvdsSscParameter();
+- 281: this.mTvFApiDisplay.saveDisplayIni();
+- 282: this.text_factory_ssc_lvdsenable_val.setText(this.lvdsenable[this.lvdsenableindex]);
+- 284: case R.id.linearlayout_factory_ssc_lvdsmodulation /* 2131100039 */:
+- 285: if (this.lvdsmodulation < MtkTvFApiDisplayBase.PANEL_ATTR_LVDS_SSC_MAX.intValue()) {
+- 288: this.lvdsmodulation = MtkTvFApiDisplayBase.PANEL_ATTR_LVDS_SSC_MIN.intValue();
+- 291: this.text_factory_ssc_lvdsmodulation_val.setText("" + this.lvdsModDouble);
+- 292: int lVDSmodulation2 = this.mTvFApiDisplay.setLVDSmodulation(this.lvdsmodulation);
+- 297: this.mTvFApiDisplay.updateLvdsSscParameter();
+- 298: this.mTvFApiDisplay.saveDisplayIni();
+- 300: case R.id.linearlayout_factory_ssc_lvdspercentage /* 2131100040 */:
+- 301: if (this.lvdspercengtage < MtkTvFApiDisplayBase.PANEL_ATTR_LVDS_SSC_MAX.intValue()) {
+- 304: this.lvdspercengtage = MtkTvFApiDisplayBase.PANEL_ATTR_LVDS_SSC_MIN.intValue();
+- 307: this.text_factory_ssc_lvdspercentage_val.setText("" + this.lvdsPerDouble);
+- 308: int lVDSpercentage2 = this.mTvFApiDisplay.setLVDSpercentage(this.lvdspercengtage);
+- 313: this.mTvFApiDisplay.updateLvdsSscParameter();
+- 314: this.mTvFApiDisplay.saveDisplayIni();
+- 316: case R.id.linearlayout_factory_ssc_miuenable /* 2131100041 */:
+- 323: this.text_factory_ssc_miuenable_val.setText(this.miuenable[this.miuenableindex]);
+- 324: int miuSsc5 = this.mTvFApiSystem.setMiuSsc((byte) this.miuindex, (short) this.miumodulation, (short) this.miupercentage, this.miuenableindex != 0);
+- 330: case R.id.linearlayout_factory_ssc_miuindex /* 2131100042 */:
+- 337: this.text_factory_ssc_miuindex_val.setText(Integer.toString(this.miuindex));
+- 338: int miuSsc6 = this.mTvFApiSystem.setMiuSsc((byte) this.miuindex, (short) this.miumodulation, (short) this.miupercentage, this.miuenableindex != 0);
+- 343: onCreate();
+- 345: case R.id.linearlayout_factory_ssc_miumodulation /* 2131100043 */:
+- 352: this.text_factory_ssc_miumodulation_val.setText(Integer.toString(this.miumodulation));
+- 353: int miuSsc7 = this.mTvFApiSystem.setMiuSsc((byte) this.miuindex, (short) this.miumodulation, (short) this.miupercentage, this.miuenableindex != 0);
+- 359: case R.id.linearlayout_factory_ssc_miupercentage /* 2131100044 */:
+- 367: this.text_factory_ssc_miupercentage_val.setText("" + this.dis);
+- 368: int miuSsc8 = this.mTvFApiSystem.setMiuSsc((byte) this.miuindex, (short) this.miumodulation, (short) this.miupercentage, this.miuenableindex != 0);
+
+### UrsaInfoViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/UrsaInfoViewHolder.java; строк: 31
+
+**Обнаруженные методы (строка):**
+- UrsaInfoViewHolder() : 16
+- findView() : 20
+- onCreate() : 24
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- UrsaInfoViewHolder
+- 0F0F
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 4: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 5: import com.mediatek.twoworlds.factory.model.MtkTvFApiDispExtFrcDeviceInfo;
+- 21: this.text_ursa_info_version_val = (TextView) this.mUrsaInfoActivity.findViewById(R.id.textview_ursa_info_version_val);
+- 24: public void onCreate() {
+- 25: MtkTvFApiDispExtFrcDeviceInfo mtkTvFApiDispExtFrcDeviceInfo = new MtkTvFApiDispExtFrcDeviceInfo();
+- 29: this.text_ursa_info_version_val.setText(this.mUrsaInfoVersionVal);
+
+### VD
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/VD.java; строк: 457
+
+**Обнаруженные методы (строка):**
+- onCreate() : 52
+- findView() : 90
+- onKeyDown() : 112
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 6: import com.mediatek.twoworlds.factory.MtkTvFApiInputSource;
+- 7: import com.mediatek.twoworlds.factory.common.MtkTvFApiInputSourceTypes;
+- 52: protected void onCreate(Bundle bundle) {
+- 53: super.onCreate(bundle);
+- 54: setContentView(R.layout.vd);
+- 56: this.afecd4val = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_DEBUGGROUP1);
+- 57: this.afecd8val = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_DEBUGGROUP2);
+- 58: this.afecd5i2val = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLMAX);
+- 59: this.afecd9ival = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_RFLOWHSYNCPATCH);
+- 60: this.afeca0ival = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLK1);
+- 61: this.afeca1ival = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLK2);
+- 62: this.afec66ival = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FIXHVSLICELEVEL);
+- 63: this.afec6eival = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_VSLICELEVEL);
+- 64: this.afec6elowival = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSLICELEVEL);
+- 65: this.afec43val = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FIXGAIN);
+- 66: this.afec44val = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FINEGAIN);
+- 67: this.afeccbval = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_STANDARDDETECTIONFLAG);
+- 68: this.afeccfival = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_INPUTTYPE);
+- 69: this.afecd5i3val = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_JILINPATCH);
+- 70: this.aefcd7highval = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_COLORKILLHIGHBOUND);
+- 71: this.afecd7ival = Customize.getFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_COLORKILLLOWBOUND);
+- 72: this.text_factory_nonstandard_afecd4_val.setText(Integer.toHexString(this.afecd4val));
+- 73: this.text_factory_nonstandard_aefcd8_val.setText(Integer.toHexString(this.afecd8val));
+- 74: this.text_factory_nonstandard_aefcd5i2_val.setText(Integer.toHexString(this.afecd5i2val));
+- 75: this.text_factory_nonstandard_aefcd9_val.setText(Integer.toHexString(this.afecd9ival));
+- 76: this.text_factory_nonstandard_aefca0_val.setText(Integer.toHexString(this.afeca0ival));
+- 77: this.text_factory_nonstandard_aefca1_val.setText(Integer.toHexString(this.afeca1ival));
+- 78: this.text_factory_nonstandard_aefc66_val.setText(Integer.toHexString(this.afec66ival));
+- 79: this.text_factory_nonstandard_aefc6e_val.setText(Integer.toHexString(this.afec6eival));
+- 80: this.text_factory_nonstandard_aefc6elow_val.setText(Integer.toHexString(this.afec6elowival));
+- 81: this.text_factory_nonstandard_aefc43_val.setText(Integer.toHexString(this.afec43val));
+- 82: this.text_factory_nonstandard_aefc44_val.setText(Integer.toHexString(this.afec44val));
+- 83: this.text_factory_nonstandard_aefccb_val.setText(Integer.toHexString(this.afeccbval));
+- 84: this.text_factory_nonstandard_afeccf_val.setText(Integer.toHexString(this.afeccfival));
+- 85: this.text_factory_nonstandard_aefcd5i3_val.setText(Integer.toHexString(this.afecd5i3val));
+- 86: this.text_factory_nonstandard_aefcd7high_val.setText(Integer.toHexString(this.aefcd7highval));
+- 87: this.text_factory_nonstandard_aefcd7_val.setText(Integer.toHexString(this.afecd7ival));
+- 91: this.text_factory_nonstandard_afecd4_val = (TextView) findViewById(R.id.textview_factory_nonstandard_afecd4_val);
+- 92: this.text_factory_nonstandard_aefcd8_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefcd8_val);
+- 93: this.text_factory_nonstandard_aefcd5i2_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefcd5i2_val);
+- 94: this.text_factory_nonstandard_aefcd9_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefcd9_val);
+- 95: this.text_factory_nonstandard_aefcd7_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefcd7_val);
+- 96: this.text_factory_nonstandard_aefca0_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefca0_val);
+- 97: this.text_factory_nonstandard_aefca1_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefca1_val);
+- 98: this.text_factory_nonstandard_aefc66_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefc66_val);
+- 99: this.text_factory_nonstandard_aefc6e_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefc6e_val);
+- 100: this.text_factory_nonstandard_aefc6elow_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefc6elow_val);
+- 101: this.text_factory_nonstandard_aefc43_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefc43_val);
+- 102: this.text_factory_nonstandard_aefc44_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefc44_val);
+- 103: this.text_factory_nonstandard_aefccb_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefccb_val);
+- 104: this.text_factory_nonstandard_afeccf_val = (TextView) findViewById(R.id.textview_factory_nonstandard_afeccf_val);
+- 105: this.text_factory_nonstandard_aefcd5i3_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefcd5i3_val);
+- 106: this.text_factory_nonstandard_audiohidev_val = (TextView) findViewById(R.id.textview_factory_nonstandard_audiohidev_val);
+- 107: this.text_factory_nonstandard_audionr_val = (TextView) findViewById(R.id.textview_factory_nonstandard_audionr_val);
+- 108: this.text_factory_nonstandard_aefcd7high_val = (TextView) findViewById(R.id.textview_factory_nonstandard_aefcd7high_val);
+- 126: case R.id.linearlayout_factory_nonstandard_aefc43 /* 2131099861 */:
+- 133: this.text_factory_nonstandard_aefc43_val.setText(Integer.toHexString(this.afec43val));
+- 134: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FIXGAIN, this.afec43val);
+- 136: case R.id.linearlayout_factory_nonstandard_aefc44 /* 2131099862 */:
+- 143: this.text_factory_nonstandard_aefc44_val.setText(Integer.toHexString(this.afec44val));
+- 144: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FINEGAIN, this.afec44val);
+- 146: case R.id.linearlayout_factory_nonstandard_aefc66 /* 2131099863 */:
+- 153: this.text_factory_nonstandard_aefc66_val.setText(Integer.toHexString(this.afec66ival));
+- 154: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FIXHVSLICELEVEL, this.afec66ival);
+- 156: case R.id.linearlayout_factory_nonstandard_aefc6e /* 2131099864 */:
+- 163: this.text_factory_nonstandard_aefc6e_val.setText(Integer.toHexString(this.afec6eival));
+- 164: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_VSLICELEVEL, this.afec6eival);
+- 166: case R.id.linearlayout_factory_nonstandard_aefc6elow /* 2131099865 */:
+- 173: this.text_factory_nonstandard_aefc6elow_val.setText(Integer.toHexString(this.afec6elowival));
+- 174: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSLICELEVEL, this.afec6elowival);
+- 176: case R.id.linearlayout_factory_nonstandard_aefca0 /* 2131099866 */:
+- 183: this.text_factory_nonstandard_aefca0_val.setText(Integer.toHexString(this.afeca0ival));
+- 184: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLK1, this.afeca0ival);
+- 186: case R.id.linearlayout_factory_nonstandard_aefca1 /* 2131099867 */:
+- 193: this.text_factory_nonstandard_aefca1_val.setText(Integer.toHexString(this.afeca1ival));
+- 194: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLK2, this.afeca1ival);
+- 196: case R.id.linearlayout_factory_nonstandard_aefccb /* 2131099868 */:
+- 203: this.text_factory_nonstandard_aefccb_val.setText(Integer.toHexString(this.afeccbval));
+- 204: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_STANDARDDETECTIONFLAG, this.afeccbval);
+- 206: case R.id.linearlayout_factory_nonstandard_aefcd5i2 /* 2131099869 */:
+- 213: this.text_factory_nonstandard_aefcd5i2_val.setText(Integer.toHexString(this.afecd5i2val));
+- 214: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLMAX, this.afecd5i2val);
+- 216: case R.id.linearlayout_factory_nonstandard_aefcd5i3 /* 2131099870 */:
+- 223: this.text_factory_nonstandard_aefcd5i2_val.setText(Integer.toHexString(this.afecd5i3val));
+- 224: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_JILINPATCH, this.afecd5i3val);
+- 226: case R.id.linearlayout_factory_nonstandard_aefcd7 /* 2131099871 */:
+- 233: this.text_factory_nonstandard_aefcd7_val.setText(Integer.toHexString(this.afecd7ival));
+- 234: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_COLORKILLLOWBOUND, this.afecd7ival);
+- 236: case R.id.linearlayout_factory_nonstandard_aefcd7high /* 2131099872 */:
+- 243: this.text_factory_nonstandard_aefcd7high_val.setText(Integer.toHexString(this.aefcd7highval));
+- 244: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_COLORKILLHIGHBOUND, this.aefcd7highval);
+- 246: case R.id.linearlayout_factory_nonstandard_aefcd8 /* 2131099873 */:
+- 253: this.text_factory_nonstandard_aefcd8_val.setText(Integer.toHexString(this.afecd8val));
+- 254: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_DEBUGGROUP2, this.afecd8val);
+- 256: case R.id.linearlayout_factory_nonstandard_aefcd9 /* 2131099874 */:
+- 263: this.text_factory_nonstandard_aefcd9_val.setText(Integer.toHexString(this.afecd9ival));
+- 264: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_RFLOWHSYNCPATCH, this.afecd9ival);
+- 266: case R.id.linearlayout_factory_nonstandard_afeccf /* 2131099875 */:
+- 273: this.text_factory_nonstandard_afeccf_val.setText(Integer.toHexString(this.afeccfival));
+- 274: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_INPUTTYPE, this.afeccfival);
+- 276: case R.id.linearlayout_factory_nonstandard_afecd4 /* 2131099876 */:
+- 283: this.text_factory_nonstandard_afecd4_val.setText(Integer.toHexString(this.afecd4val));
+- 284: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_DEBUGGROUP1, this.afecd4val);
+- 290: case R.id.linearlayout_factory_nonstandard_aefc43 /* 2131099861 */:
+- 297: this.text_factory_nonstandard_aefc43_val.setText(Integer.toHexString(this.afec43val));
+- 298: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FIXGAIN, this.afec43val);
+- 300: case R.id.linearlayout_factory_nonstandard_aefc44 /* 2131099862 */:
+- 307: this.text_factory_nonstandard_aefc44_val.setText(Integer.toHexString(this.afec44val));
+- 308: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FINEGAIN, this.afec44val);
+- 310: case R.id.linearlayout_factory_nonstandard_aefc66 /* 2131099863 */:
+- 317: this.text_factory_nonstandard_aefc66_val.setText(Integer.toHexString(this.afec66ival));
+- 318: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_FIXHVSLICELEVEL, this.afec66ival);
+- 320: case R.id.linearlayout_factory_nonstandard_aefc6e /* 2131099864 */:
+- 327: this.text_factory_nonstandard_aefc6e_val.setText(Integer.toHexString(this.afec6eival));
+- 328: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_VSLICELEVEL, this.afec6eival);
+- 330: case R.id.linearlayout_factory_nonstandard_aefc6elow /* 2131099865 */:
+- 337: this.text_factory_nonstandard_aefc6elow_val.setText(Integer.toHexString(this.afec6elowival));
+- 338: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSLICELEVEL, this.afec6elowival);
+- 340: case R.id.linearlayout_factory_nonstandard_aefca0 /* 2131099866 */:
+- 347: this.text_factory_nonstandard_aefca0_val.setText(Integer.toHexString(this.afeca0ival));
+- 348: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLK1, this.afeca0ival);
+- 350: case R.id.linearlayout_factory_nonstandard_aefca1 /* 2131099867 */:
+- 357: this.text_factory_nonstandard_aefca1_val.setText(Integer.toHexString(this.afeca1ival));
+- 358: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLK2, this.afeca1ival);
+- 360: case R.id.linearlayout_factory_nonstandard_aefccb /* 2131099868 */:
+- 367: this.text_factory_nonstandard_aefccb_val.setText(Integer.toHexString(this.afeccbval));
+- 368: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_STANDARDDETECTIONFLAG, this.afeccbval);
+- 370: case R.id.linearlayout_factory_nonstandard_aefcd5i2 /* 2131099869 */:
+- 377: this.text_factory_nonstandard_aefcd5i2_val.setText(Integer.toHexString(this.afecd5i2val));
+- 378: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_HSYNCPLLSPEEDDPLMAX, this.afecd5i2val);
+- 380: case R.id.linearlayout_factory_nonstandard_aefcd5i3 /* 2131099870 */:
+- 387: this.text_factory_nonstandard_aefcd5i3_val.setText(Integer.toHexString(this.afecd5i3val));
+- 388: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_JILINPATCH, this.afecd5i3val);
+- 390: case R.id.linearlayout_factory_nonstandard_aefcd7 /* 2131099871 */:
+- 397: this.text_factory_nonstandard_aefcd7_val.setText(Integer.toHexString(this.afecd7ival));
+- 398: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_COLORKILLLOWBOUND, this.afecd7ival);
+- 400: case R.id.linearlayout_factory_nonstandard_aefcd7high /* 2131099872 */:
+- 407: this.text_factory_nonstandard_aefcd7high_val.setText(Integer.toHexString(this.aefcd7highval));
+- 408: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_COLORKILLHIGHBOUND, this.aefcd7highval);
+- 410: case R.id.linearlayout_factory_nonstandard_aefcd8 /* 2131099873 */:
+- 417: this.text_factory_nonstandard_aefcd8_val.setText(Integer.toHexString(this.afecd8val));
+- 418: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_DEBUGGROUP2, this.afecd8val);
+- 420: case R.id.linearlayout_factory_nonstandard_aefcd9 /* 2131099874 */:
+- 427: this.text_factory_nonstandard_aefcd9_val.setText(Integer.toHexString(this.afecd9ival));
+- 428: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_RFLOWHSYNCPATCH, this.afecd9ival);
+- 430: case R.id.linearlayout_factory_nonstandard_afeccf /* 2131099875 */:
+- 437: this.text_factory_nonstandard_afeccf_val.setText(Integer.toHexString(this.afeccfival));
+- 438: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_INPUTTYPE, this.afeccfival);
+- 440: case R.id.linearlayout_factory_nonstandard_afecd4 /* 2131099876 */:
+- 447: this.text_factory_nonstandard_afecd4_val.setText(Integer.toHexString(this.afecd4val));
+- 448: Customize.setFactoryVdPara(MtkTvFApiInputSourceTypes.EnumTunerAtvVdType.E_MI_TUNER_VD_FACTORY_DEBUGGROUP1, this.afecd4val);
+
+### VIF
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/VIF.java; строк: 198
+
+**Обнаруженные методы (строка):**
+- onCreate() : 37
+- findView() : 55
+- onKeyDown() : 64
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- OFF
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 6: import com.mediatek.twoworlds.factory.MtkTvFApiInputSource;
+- 7: import com.mediatek.twoworlds.factory.common.MtkTvFApiInputSourceTypes;
+- 37: protected void onCreate(Bundle bundle) {
+- 38: super.onCreate(bundle);
+- 39: setContentView(R.layout.vif);
+- 41: MtkTvFApiInputSourceTypes.StructVifParams structVifParams = new MtkTvFApiInputSourceTypes.StructVifParams();
+- 48: this.text_factory_nonstandard_vifasiasignaloption_val.setText(this.mVifAsiaVal == 0 ? ASIA_SIGNAL_OPTION_OFF : ASIA_SIGNAL_OPTION_ON);
+- 49: this.text_factory_nonstandard_vifclampgain_val.setText(Integer.toString(this.mVifClampVal));
+- 50: this.text_factory_nonstandard_chinadescrambler_delay_val.setText(Integer.toString(this.mChinaAdeDeLayVal));
+- 51: this.text_factory_nonstandard_vifcrthr_val.setText(Double.toString(this.mVifCrThreshold));
+- 52: this.text_factory_nonstandard_vifagcref_val.setText(Integer.toString(this.mVifAgcVal));
+- 56: this.text_factory_nonstandard_vifasiasignaloption_val = (TextView) findViewById(R.id.textview_factory_nonstandard_vifasiasignaloption_val);
+- 57: this.text_factory_nonstandard_vifclampgain_val = (TextView) findViewById(R.id.textview_factory_nonstandard_vifclampgain_val);
+- 58: this.text_factory_nonstandard_chinadescrambler_delay_val = (TextView) findViewById(R.id.textview_factory_nonstandard_chinadescrambler_delay_val);
+- 59: this.text_factory_nonstandard_vifcrthr_val = (TextView) findViewById(R.id.textview_factory_nonstandard_vifcrthr_val);
+- 60: this.text_factory_nonstandard_vifagcref_val = (TextView) findViewById(R.id.textview_factory_nonstandard_vifagcref_val);
+- 79: case R.id.linearlayout_factory_nonstandard_chinadescrambler_delay /* 2131099886 */:
+- 85: this.text_factory_nonstandard_chinadescrambler_delay_val.setText(Integer.toString(this.mChinaAdeDeLayVal));
+- 86: this.mTvFApiInputSource.setInputSourceIniChinaDescramblerBoxDelay(this.mChinaAdeDeLayVal);
+- 89: case R.id.linearlayout_factory_nonstandard_vifagcref /* 2131099891 */:
+- 95: this.text_factory_nonstandard_vifagcref_val.setText(Integer.toString(this.mVifAgcVal));
+- 96: this.mTvFApiInputSource.setInputSourceIniAgcRef(this.mVifAgcVal);
+- 99: case R.id.linearlayout_factory_nonstandard_vifasiasignaloption /* 2131099892 */:
+- 109: textView.setText(str);
+- 110: this.mTvFApiInputSource.setInputSourceIniAsiaSignalOption(this.mVifAsiaVal > 0);
+- 113: case R.id.linearlayout_factory_nonstandard_vifclampgain /* 2131099893 */:
+- 119: this.text_factory_nonstandard_vifclampgain_val.setText(Integer.toString(this.mVifClampVal));
+- 120: this.mTvFApiInputSource.setInputSourceIniClampgainGainOvNegative(this.mVifClampVal);
+- 123: case R.id.linearlayout_factory_nonstandard_vifcrthr /* 2131099894 */:
+- 129: this.text_factory_nonstandard_vifcrthr_val.setText(Double.toString(this.mVifCrThreshold));
+- 130: this.mTvFApiInputSource.setInputSourceIniCrThreshold(this.mVifCrThreshold);
+- 137: case R.id.linearlayout_factory_nonstandard_chinadescrambler_delay /* 2131099886 */:
+- 143: this.text_factory_nonstandard_chinadescrambler_delay_val.setText(Integer.toString(this.mChinaAdeDeLayVal));
+- 144: this.mTvFApiInputSource.setInputSourceIniChinaDescramblerBoxDelay(this.mChinaAdeDeLayVal);
+- 147: case R.id.linearlayout_factory_nonstandard_vifagcref /* 2131099891 */:
+- 153: this.text_factory_nonstandard_vifagcref_val.setText(Integer.toString(this.mVifAgcVal));
+- 154: this.mTvFApiInputSource.setInputSourceIniAgcRef(this.mVifAgcVal);
+- 157: case R.id.linearlayout_factory_nonstandard_vifasiasignaloption /* 2131099892 */:
+- 167: textView2.setText(str);
+- 168: this.mTvFApiInputSource.setInputSourceIniAsiaSignalOption(this.mVifAsiaVal > 0);
+- 171: case R.id.linearlayout_factory_nonstandard_vifclampgain /* 2131099893 */:
+- 177: this.text_factory_nonstandard_vifclampgain_val.setText(Integer.toString(this.mVifClampVal));
+- 178: this.mTvFApiInputSource.setInputSourceIniClampgainGainOvNegative(this.mVifClampVal);
+- 181: case R.id.linearlayout_factory_nonstandard_vifcrthr /* 2131099894 */:
+- 187: this.text_factory_nonstandard_vifcrthr_val.setText(Double.toString(this.mVifCrThreshold));
+- 188: this.mTvFApiInputSource.setInputSourceIniCrThreshold(this.mVifCrThreshold);
+
+### MicViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/designmenu/mictest/MicViewHolder.java; строк: 219
+
+**Обнаруженные методы (строка):**
+- toShortArray() : 28
+- getMicStatus() : 35
+- run() : 42
+- Thread() : 51
+- run() : 53
+- run() : 58
+- run() : 71
+- triggerRecord() : 98
+- run() : 116
+- MicViewHolder() : 125
+- findView() : 129
+- onCreate() : 142
+- onKeyDown() : 191
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- MicViewHolder
+- mMicActivity null
+- Please stop recording first.
+- %.1f
+- micFactory or mRecordingTextView null
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 44: MicViewHolder.this.mResultTextViewArr[0].setText(MicViewHolder.this.mMicActivity.getString(R.string.str_textview_factory_mic_status_result_testing));
+- 47: MicViewHolder.this.mResultTextViewArr[1].setText(MicViewHolder.this.mMicActivity.getString(R.string.str_textview_factory_mic_status_result_testing));
+- 60: MicViewHolder.this.mResultTextViewArr[0].setText(MicViewHolder.this.mMicActivity.getString(R.string.str_textview_factory_mic_status_result_init));
+- 63: MicViewHolder.this.mResultTextViewArr[1].setText(MicViewHolder.this.mMicActivity.getString(R.string.str_textview_factory_mic_status_result_init));
+- 76: MicViewHolder.this.mFreqTextViewArr[0].setText(String.format("%.1f", Double.valueOf(micStatus.mic1Freq)));
+- 79: MicViewHolder.this.mDBTextViewArr[0].setText(String.format("%.1f", Double.valueOf(micStatus.mic1DB)));
+- 85: MicViewHolder.this.mFreqTextViewArr[1].setText(String.format("%.1f", Double.valueOf(micStatus.mic2Freq)));
+- 88: MicViewHolder.this.mDBTextViewArr[1].setText(String.format("%.1f", Double.valueOf(micStatus.mic2DB)));
+- 110: string = this.mMicActivity.getString(R.string.str_factory_mic_stop);
+- 112: string = this.mMicActivity.getString(R.string.str_factory_mic_start);
+- 117: MicViewHolder.this.mRecordingTextView.setText(string);
+- 132: this.mResultTextViewArr[0] = (TextView) designMenuActivity.findViewById(R.id.textview_factory_mic0_result_val);
+- 133: this.mResultTextViewArr[1] = (TextView) this.mMicActivity.findViewById(R.id.textview_factory_mic1_result_val);
+- 134: this.mFreqTextViewArr[0] = (TextView) this.mMicActivity.findViewById(R.id.textview_factory_mic0_hz_val);
+- 135: this.mFreqTextViewArr[1] = (TextView) this.mMicActivity.findViewById(R.id.textview_factory_mic1_hz_val);
+- 136: this.mDBTextViewArr[0] = (TextView) this.mMicActivity.findViewById(R.id.textview_factory_mic0_db_val);
+- 137: this.mDBTextViewArr[1] = (TextView) this.mMicActivity.findViewById(R.id.textview_factory_mic1_db_val);
+- 138: this.mRecordingTextView = (TextView) this.mMicActivity.findViewById(R.id.textview_factory_mic_record);
+- 142: public boolean onCreate() {
+- 206: case R.id.linearlayout_factory_mic_record /* 2131099844 */:
+- 209: case R.id.linearlayout_factory_mic_status /* 2131099845 */:
+
+### ADCAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/factorymenu/ADCAdjustViewHolder.java; строк: 379
+
+**Обнаруженные методы (строка):**
+- ADCAdjustViewHolder() : 52
+- findView() : 61
+- TvInputSourceManagerCallback() : 74
+- sourceSwitchingComplete() : 78
+- run() : 82
+- sourceSwitchingLoss() : 90
+- run() : 94
+- checkSource() : 100
+- onCreate() : 113
+- onDestroy() : 140
+- onKeyDown() : 145
+- enableUi() : 341
+- showdialog() : 348
+- doInBackground() : 358
+- onPostExecute() : 371
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- ADCAdjustViewHolder
+- YPbPr
+- main
+- ADCAdjustViewHolder mCurrentInput =
+- sourceSwitchingComplete()
+- Update ui, currSrcName =
+- sourceSwitchingLoss()
+- mSourceIndex =
+- autoAdjustGainOffset(), AdcType =
+- doInBackground
+- onPostExecute
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 10: import com.mediatek.twoworlds.factory.MtkTvFApiInputSource;
+- 11: import com.mediatek.twoworlds.factory.common.MtkTvFApiInputSourceTypes;
+- 12: import com.mediatek.twoworlds.factory.model.MtkTvFApiAdcGainOffset_t;
+- 13: import com.mediatek.twoworlds.factory.model.MtkTvFApiAdcPhase_t;
+- 14: import com.mediatek.twoworlds.tv.MtkTvInputSource;
+- 17: import mediatek.util.TvInputSourceManager;
+- 52: public ADCAdjustViewHolder(FactoryMenuActivity factoryMenuActivity, TvInputSourceManager tvInputSourceManager) {
+- 62: this.text_factory_adc_source_val = (TextView) this.adcActivity.findViewById(R.id.textview_factory_adc_source_val);
+- 63: this.text_factory_adc_rgain_val = (TextView) this.adcActivity.findViewById(R.id.textview_factory_adc_rgain_val);
+- 64: this.text_factory_adc_ggain_val = (TextView) this.adcActivity.findViewById(R.id.textview_factory_adc_ggain_val);
+- 65: this.text_factory_adc_bgain_val = (TextView) this.adcActivity.findViewById(R.id.textview_factory_adc_bgain_val);
+- 66: this.text_factory_adc_roffset_val = (TextView) this.adcActivity.findViewById(R.id.textview_factory_adc_roffset_val);
+- 67: this.text_factory_adc_goffset_val = (TextView) this.adcActivity.findViewById(R.id.textview_factory_adc_goffset_val);
+- 68: this.text_factory_adc_boffset_val = (TextView) this.adcActivity.findViewById(R.id.textview_factory_adc_boffset_val);
+- 69: this.text_factory_adc_phase_val = (TextView) this.adcActivity.findViewById(R.id.textview_factory_adc_phase_val);
+- 70: this.layout_settings = (LinearLayout) this.adcActivity.findViewById(R.id.linearlayout_factory_adc_settings);
+- 77: @Override // mediatek.util.TvInputSourceManager.NotifyCb
+- 80: ADCAdjustViewHolder.this.adcActivity.runOnUiThread(new Runnable() { // from class: mediatek.tvsetting.factory.ui.factorymenu.ADCAdjustViewHolder.TvInputSourceManagerCallback.1
+- 84: ADCAdjustViewHolder.this.onCreate();
+- 89: @Override // mediatek.util.TvInputSourceManager.NotifyCb
+- 92: ADCAdjustViewHolder.this.adcActivity.runOnUiThread(new Runnable() { // from class: mediatek.tvsetting.factory.ui.factorymenu.ADCAdjustViewHolder.TvInputSourceManagerCallback.2
+- 101: if (this.mCurrentInput.equals(TvInputSourceManager.COMPONENT)) {
+- 102: this.mNewSrcName = TvInputSourceManager.COMPONENT;
+- 105: this.mNewSrcName = TvInputSourceManager.VGA;
+- 109: this.mTvInputSourceManager.setInputSource(this.mTvInputSourceManagerCallback, this.mNewSrcName);
+- 113: public boolean onCreate() {
+- 114: this.mTvInputSourceManager.setTvViewVisible();
+- 115: MtkTvFApiAdcGainOffset_t mtkTvFApiAdcGainOffset_t = new MtkTvFApiAdcGainOffset_t();
+- 116: this.mTvFApiInputSource.getAdcGainOffset(mtkTvFApiAdcGainOffset_t, MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex]);
+- 117: MtkTvFApiAdcPhase_t mtkTvFApiAdcPhase_t = new MtkTvFApiAdcPhase_t();
+- 118: this.mTvFApiInputSource.getAdcPhase(mtkTvFApiAdcPhase_t, MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex]);
+- 128: this.text_factory_adc_rgain_val.setText(Integer.toString(this.mRgain));
+- 129: this.text_factory_adc_ggain_val.setText(Integer.toString(this.mGgain));
+- 130: this.text_factory_adc_bgain_val.setText(Integer.toString(this.mBgain));
+- 131: this.text_factory_adc_roffset_val.setText(Integer.toString(this.mRoffset));
+- 132: this.text_factory_adc_goffset_val.setText(Integer.toString(this.mGoffset));
+- 133: this.text_factory_adc_boffset_val.setText(Integer.toString(this.mBoffset));
+- 134: this.text_factory_adc_phase_val.setText(Integer.toString(this.mRphase));
+- 135: this.text_factory_adc_source_val.setText(this.mADCSourceItems[this.mSourceIndex]);
+- 141: this.mTvInputSourceManager.setTvViewInvisible();
+- 160: case R.id.linearlayout_factory_adc_bgain /* 2131099802 */:
+- 161: if (this.mBgain != MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MIN.getValue()) {
+- 164: this.mBgain = MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MAX.getValue();
+- 166: this.text_factory_adc_bgain_val.setText(Integer.toString(this.mBgain));
+- 167: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 169: case R.id.linearlayout_factory_adc_boffset /* 2131099803 */:
+- 170: if (this.mBoffset != MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MIN.getValue()) {
+- 173: this.mBoffset = MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MAX.getValue();
+- 175: this.text_factory_adc_boffset_val.setText(Integer.toString(this.mBoffset));
+- 176: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 178: case R.id.linearlayout_factory_adc_ggain /* 2131099804 */:
+- 179: if (this.mGgain != MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MIN.getValue()) {
+- 182: this.mGgain = MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MAX.getValue();
+- 184: this.text_factory_adc_ggain_val.setText(Integer.toString(this.mGgain));
+- 185: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 187: case R.id.linearlayout_factory_adc_goffset /* 2131099805 */:
+- 188: if (this.mGoffset != MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MIN.getValue()) {
+- 191: this.mGoffset = MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MAX.getValue();
+- 193: this.text_factory_adc_goffset_val.setText(Integer.toString(this.mGoffset));
+- 194: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 196: case R.id.linearlayout_factory_adc_phase /* 2131099806 */:
+- 197: if (this.mRphase != MtkTvFApiInputSourceTypes.EnumAdcPhaseRange.E_FAPI_INPSRC_ADC_PHASE_MIN.getValue()) {
+- 200: this.mRphase = MtkTvFApiInputSourceTypes.EnumAdcPhaseRange.E_FAPI_INPSRC_ADC_PHASE_MAX.getValue();
+- 202: this.text_factory_adc_phase_val.setText(Integer.toString(this.mRphase));
+- 203: this.mTvFApiInputSource.setAdcPhase(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRphase, this.mGphase, this.mBphase);
+- 205: case R.id.linearlayout_factory_adc_rgain /* 2131099807 */:
+- 206: if (this.mRgain != MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MIN.getValue()) {
+- 209: this.mRgain = MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MAX.getValue();
+- 211: this.text_factory_adc_rgain_val.setText(Integer.toString(this.mRgain));
+- 212: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 214: case R.id.linearlayout_factory_adc_roffset /* 2131099808 */:
+- 215: if (this.mRoffset != MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MIN.getValue()) {
+- 218: this.mRoffset = MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MAX.getValue();
+- 220: this.text_factory_adc_roffset_val.setText(Integer.toString(this.mRoffset));
+- 221: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 223: case R.id.linearlayout_factory_adc_source /* 2131099810 */:
+- 231: this.text_factory_adc_source_val.setText(this.mADCSourceItems[this.mSourceIndex]);
+- 233: if (this.mADCSourceItems[this.mSourceIndex].equals(TvInputSourceManager.VGA)) {
+- 234: this.mNewSrcName = TvInputSourceManager.VGA;
+- 236: this.mNewSrcName = TvInputSourceManager.COMPONENT;
+- 238: this.mTvInputSourceManager.setInputSource(this.mTvInputSourceManagerCallback, this.mNewSrcName);
+- 244: case R.id.linearlayout_factory_adc_bgain /* 2131099802 */:
+- 245: if (this.mBgain < MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MAX.getValue()) {
+- 250: this.text_factory_adc_bgain_val.setText(Integer.toString(this.mBgain));
+- 251: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 253: case R.id.linearlayout_factory_adc_boffset /* 2131099803 */:
+- 254: if (this.mBoffset < MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MAX.getValue()) {
+- 259: this.text_factory_adc_boffset_val.setText(Integer.toString(this.mBoffset));
+- 260: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 262: case R.id.linearlayout_factory_adc_ggain /* 2131099804 */:
+- 263: if (this.mGgain < MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MAX.getValue()) {
+- 268: this.text_factory_adc_ggain_val.setText(Integer.toString(this.mGgain));
+- 269: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 271: case R.id.linearlayout_factory_adc_goffset /* 2131099805 */:
+- 272: if (this.mGoffset < MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MAX.getValue()) {
+- 277: this.text_factory_adc_goffset_val.setText(Integer.toString(this.mGoffset));
+- 278: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 280: case R.id.linearlayout_factory_adc_phase /* 2131099806 */:
+- 281: if (this.mRphase < MtkTvFApiInputSourceTypes.EnumAdcPhaseRange.E_FAPI_INPSRC_ADC_PHASE_MAX.getValue()) {
+- 286: this.text_factory_adc_phase_val.setText(Integer.toString(this.mRphase));
+- 287: this.mTvFApiInputSource.setAdcPhase(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRphase, this.mGphase, this.mBphase);
+- 289: case R.id.linearlayout_factory_adc_rgain /* 2131099807 */:
+- 290: if (this.mRgain < MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_GAIN_MAX.getValue()) {
+- 295: this.text_factory_adc_rgain_val.setText(Integer.toString(this.mRgain));
+- 296: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 298: case R.id.linearlayout_factory_adc_roffset /* 2131099808 */:
+- 299: if (this.mRoffset < MtkTvFApiInputSourceTypes.EnumAdcGainOffsetRange.E_FAPI_INPSRC_ADC_ADJUST_OFFSET_MAX.getValue()) {
+- 304: this.text_factory_adc_roffset_val.setText(Integer.toString(this.mRoffset));
+- 305: this.mTvFApiInputSource.setAdcGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex], this.mRgain, this.mGgain, this.mBgain, this.mRoffset, this.mGoffset, this.mBoffset);
+- 307: case R.id.linearlayout_factory_adc_source /* 2131099810 */:
+- 315: this.text_factory_adc_source_val.setText(this.mADCSourceItems[this.mSourceIndex]);
+- 317: if (this.mADCSourceItems[this.mSourceIndex].equals(TvInputSourceManager.VGA)) {
+- 318: this.mNewSrcName = TvInputSourceManager.VGA;
+- 320: this.mNewSrcName = TvInputSourceManager.COMPONENT;
+- 322: this.mTvInputSourceManager.setInputSource(this.mTvInputSourceManagerCallback, this.mNewSrcName);
+- 328: if (id == R.id.linearlayout_factory_adc_autoadjust) {
+- 329: Log.d(TAG, "autoAdjustGainOffset(), AdcType = " + MtkTvFApiInputSourceTypes.EnumAdcType.values()[this.mSourceIndex]);
+- 343: this.layout_settings.getChildAt(i).setEnabled(z);
+- 361: ADCAdjustViewHolder.this.mTvFApiInputSource.autoAdjustGainOffset(MtkTvFApiInputSourceTypes.EnumAdcType.values()[ADCAdjustViewHolder.this.mSourceIndex]);
+- 374: ADCAdjustViewHolder.this.onCreate();
+
+### FactoryCameraActivity
+
+Файл: mediatek/tvsetting/factory/ui/factorymenu/FactoryCameraActivity.java; строк: 259
+
+**Обнаруженные методы (строка):**
+- handleMessage() : 41
+- onCreate() : 55
+- onDestroy() : 62
+- onKeyDown() : 86
+- init() : 103
+- onSurfaceTextureAvailable() : 107
+- onSurfaceTextureSizeChanged() : 114
+- onSurfaceTextureDestroyed() : 118
+- onSurfaceTextureUpdated() : 137
+- openCamera() : 143
+- onImageAvailable() : 161
+- onOpened() : 167
+- onDisconnected() : 174
+- onError() : 184
+- createCaptureSession() : 201
+- onConfigured() : 208
+- onConfigureFailed() : 215
+- startTakePhoto() : 233
+- onCaptureCompleted() : 244
+- onCaptureFailed() : 250
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- FactoryCameraActivity
+- no camera
+- onDestroy
+- camera
+- onSurfaceTextureAvailable
+- onSurfaceTextureDestroyed
+- android.permission.CAMERA
+- cameraIdList:
+- onImageAvailable
+- onOpened
+- onDisconnected
+- onError
+- onConfigured
+- onConfigureFailed
+- onCaptureCompleted
+- onCaptureFailed
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 55: protected void onCreate(Bundle bundle) {
+- 56: super.onCreate(bundle);
+- 57: setContentView(R.layout.factory_camera_activity);
+- 105: ((TextureView) findViewById(R.id.view)).setSurfaceTextureListener(new TextureView.SurfaceTextureListener() { // from class: mediatek.tvsetting.factory.ui.factorymenu.FactoryCameraActivity.2
+- 159: imageReaderNewInstance.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() { // from class: mediatek.tvsetting.factory.ui.factorymenu.FactoryCameraActivity.3
+
+### FactoryMenuActivity
+
+Файл: mediatek/tvsetting/factory/ui/factorymenu/FactoryMenuActivity.java; строк: 218
+
+**Обнаруженные методы (строка):**
+- onClick() : 41
+- onCreate() : 128
+- onResume() : 146
+- onPause() : 152
+- registerListeners() : 157
+- onKeyDown() : 169
+- returnRoot() : 198
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- FactoryMenuActivity
+- com.hysd.screen
+- com.hysd.xymscreen.MainActivity
+- start autofocus apk calibration activity
+- start autofocus apk calibration activity:
+- com.mediatek.wwtv.tvcenter.nav.inputpanel.InputsPanelActivity
+- start activity:
+- otherOptionViewHolder...
+- com.trd.factory
+- com.trd.factory.fan.FanActivity
+- onCreate()
+- onResume()
+- onPause()
+- mstarCurrentPage...
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 6: import android.media.tv.TvView;
+- 13: import com.mediatek.twoworlds.tv.MtkTvTslBase;
+- 16: import mediatek.util.TvInputSourceManager;
+- 41: public void onClick(View view) {
+- 43: case R.id.linearlayout_factory_adc /* 2131099800 */:
+- 45: FactoryMenuActivity.this.factoryViewFlipper.setDisplayedChild(1);
+- 49: FactoryMenuActivity.this.adcViewHolder.onCreate();
+- 52: case R.id.linearlayout_factory_info /* 2131099836 */:
+- 54: FactoryMenuActivity.this.factoryViewFlipper.setDisplayedChild(5);
+- 58: FactoryMenuActivity.this.infoHolder.onCreate();
+- 60: case R.id.linearlayout_factory_keystone_function_calibration /* 2131099838 */:
+- 64: intent.setComponent(componentName);
+- 65: intent.addFlags(MtkTvTslBase.TSL_MASK_CUSTOM_DEFINED_4);
+- 73: case R.id.linearlayout_factory_livetv /* 2131099839 */:
+- 77: intent2.setComponent(componentName2);
+- 78: intent2.addFlags(MtkTvTslBase.TSL_MASK_CUSTOM_DEFINED_4);
+- 85: case R.id.linearlayout_factory_otheroption /* 2131099895 */:
+- 87: FactoryMenuActivity.this.factoryViewFlipper.setDisplayedChild(4);
+- 90: FactoryMenuActivity.this.otherOptionViewHolder.onCreate();
+- 93: case R.id.linearlayout_factory_overscan /* 2131099967 */:
+- 95: FactoryMenuActivity.this.factoryViewFlipper.setDisplayedChild(3);
+- 99: FactoryMenuActivity.this.overScanViewHolder.onCreate();
+- 102: case R.id.linearlayout_factory_temperature_control /* 2131100046 */:
+- 106: intent3.setComponent(componentName3);
+- 107: intent3.addFlags(MtkTvTslBase.TSL_MASK_CUSTOM_DEFINED_4);
+- 114: case R.id.linearlayout_factory_whitebalance /* 2131100069 */:
+- 116: FactoryMenuActivity.this.factoryViewFlipper.setDisplayedChild(2);
+- 120: FactoryMenuActivity.this.wbViewHolder.onCreate();
+- 128: protected void onCreate(Bundle bundle) {
+- 129: Log.d(TAG, "onCreate()");
+- 130: super.onCreate(bundle);
+- 131: setContentView(R.layout.mstarmenu);
+- 132: TvView tvView = (TvView) findViewById(R.id.tv_view);
+- 134: this.mTvInputSourceManager = new TvInputSourceManager(this, tvView);
+- 135: this.factoryViewFlipper = (ViewFlipper) findViewById(R.id.mstarfactory_view_flipper);
+- 139: this.holder.keystoneFunctionCalibration.setVisibility(0);
+- 140: this.holder.temperatureControl.setVisibility(0);
+- 141: this.holder.liveTv.setVisibility(0);
+- 146: protected void onResume() {
+- 147: Log.d(TAG, "onResume()");
+- 148: super.onResume();
+- 152: protected void onPause() {
+- 153: Log.d(TAG, "onPause()");
+- 154: super.onPause();
+- 158: this.holder.adcAdjustLinerLayout.setOnClickListener(this.listener);
+- 159: this.holder.wbLinerLayout.setOnClickListener(this.listener);
+- 160: this.holder.overScanLinerLayout.setOnClickListener(this.listener);
+- 161: this.holder.otherLinerLayout.setOnClickListener(this.listener);
+- 162: this.holder.infoLinerLayout.setOnClickListener(this.listener);
+- 163: this.holder.keystoneFunctionCalibration.setOnClickListener(this.listener);
+- 164: this.holder.temperatureControl.setOnClickListener(this.listener);
+- 165: this.holder.liveTv.setOnClickListener(this.listener);
+- 212: this.factoryViewFlipper.setDisplayedChild(0);
+- 213: LinearLayout linearLayout = (LinearLayout) ((LinearLayout) findViewById(R.id.linearlayout_mstarfactory_menu)).getChildAt(i);
+- 214: linearLayout.setFocusable(true);
+- 216: linearLayout.setFocusableInTouchMode(true);
+
+### FactoryMenuViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/factorymenu/FactoryMenuViewHolder.java; строк: 32
+
+**Обнаруженные методы (строка):**
+- FactoryMenuViewHolder() : 18
+- findView() : 22
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 23: this.adcAdjustLinerLayout = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_adc);
+- 24: this.wbLinerLayout = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_whitebalance);
+- 25: this.overScanLinerLayout = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_overscan);
+- 26: this.otherLinerLayout = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_otheroption);
+- 27: this.infoLinerLayout = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_info);
+- 28: this.keystoneFunctionCalibration = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_keystone_function_calibration);
+- 29: this.temperatureControl = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_temperature_control);
+- 30: this.liveTv = (LinearLayout) this.mstarActivity.findViewById(R.id.linearlayout_factory_livetv);
+
+### OverScanAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/factorymenu/OverScanAdjustViewHolder.java; строк: 412
+
+**Обнаруженные методы (строка):**
+- OverScanAdjustViewHolder() : 79
+- findView() : 103
+- TvInputSourceManagerCallback() : 120
+- sourceSwitchingComplete() : 124
+- run() : 128
+- sourceSwitchingLoss() : 163
+- run() : 167
+- checkSource() : 174
+- onCreate() : 186
+- onDestroy() : 191
+- onKeyDown() : 196
+- updateUi() : 320
+- updateIni() : 360
+- EnableUI() : 382
+- remove() : 390
+- checksourcename() : 400
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- OverScanAdjustViewHolder
+- mTvInputList =
+- main
+- OverScanAdjustViewHolder mCurrentInput =
+- mSourceCount =
+- mSupportSourceStrArray[
+- ] =
+- mSourceIndex =
+- sourceSwitchingComplete()
+- Update ui, currSrcName =
+- mInputSrcType =
+- sourceSwitchingLoss()
+- currSrcName =
+- mTiming.getWidth() =
+- , mTiming.getHeight() =
+- mTvScreenModeOverscan =
+- mRight =
+- , mLeft =
+- , mTop =
+- , mBottom =
+- Failed to get settings
+- mTvScreenModeOverscan is null!
+- getFrameRate =
+- EnumInputSourceType.values()[mInputType] =
+- arr[
+- ATV
+- DTV
+- checkSource(), currsrcname = TV
+- ATV and DTV are separate.
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 3: import android.media.tv.TvInputInfo;
+- 9: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 10: import com.mediatek.twoworlds.factory.MtkTvFApiInputSource;
+- 11: import com.mediatek.twoworlds.factory.common.MtkTvFApiDisplayTypes;
+- 12: import com.mediatek.twoworlds.factory.model.MtkTvFApiVideoTiming;
+- 13: import com.mediatek.twoworlds.tv.MtkTvAVModeBase;
+- 14: import com.mediatek.twoworlds.tv.MtkTvBroadcast;
+- 15: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 16: import com.mediatek.twoworlds.tv.MtkTvInputSource;
+- 17: import com.mediatek.twoworlds.tv.MtkTvUtilBase;
+- 18: import com.mediatek.twoworlds.tv.model.MtkTvScreenModeOverscan;
+- 19: import com.mediatek.twoworlds.tv.model.MtkTvSrcVideoResolution;
+- 27: import mediatek.util.TvInputSourceManager;
+- 79: public OverScanAdjustViewHolder(FactoryMenuActivity factoryMenuActivity, TvInputSourceManager tvInputSourceManager) {
+- 89: this.mSupportSourceStrArray = remove(strArrBuildInputNameList, TvInputSourceManager.VGA);
+- 104: this.layout_right = (LinearLayout) this.overScanActivity.findViewById(R.id.linearlayout_factory_overscan_right);
+- 105: this.layout_left = (LinearLayout) this.overScanActivity.findViewById(R.id.linearlayout_factory_overscan_left);
+- 106: this.layout_top = (LinearLayout) this.overScanActivity.findViewById(R.id.linearlayout_factory_overscan_top);
+- 107: this.layout_bottom = (LinearLayout) this.overScanActivity.findViewById(R.id.linearlayout_factory_overscan_bottom);
+- 108: this.text_factory_overscan_source_val = (TextView) this.overScanActivity.findViewById(R.id.textview_factory_overscan_source_val);
+- 109: this.text_factory_overscan_right_val = (TextView) this.overScanActivity.findViewById(R.id.textview_factory_overscan_right_val);
+- 110: this.text_factory_overscan_left_val = (TextView) this.overScanActivity.findViewById(R.id.textview_factory_overscan_left_val);
+- 111: this.text_factory_overscan_top_val = (TextView) this.overScanActivity.findViewById(R.id.textview_factory_overscan_top_val);
+- 112: this.text_factory_overscan_bottom_val = (TextView) this.overScanActivity.findViewById(R.id.textview_factory_overscan_bottom_val);
+- 113: this.progress_factory_overscan_right = (ProgressBar) this.overScanActivity.findViewById(R.id.progressbar_facroty_overscan_right);
+- 114: this.progress_factory_overscan_left = (ProgressBar) this.overScanActivity.findViewById(R.id.progressbar_facroty_overscan_left);
+- 115: this.progress_factory_overscan_top = (ProgressBar) this.overScanActivity.findViewById(R.id.progressbar_facroty_overscan_top);
+- 116: this.progress_factory_overscan_bottom = (ProgressBar) this.overScanActivity.findViewById(R.id.progressbar_facroty_overscan_bottom);
+- 123: @Override // mediatek.util.TvInputSourceManager.NotifyCb
+- 126: OverScanAdjustViewHolder.this.overScanActivity.runOnUiThread(new Runnable() { // from class: mediatek.tvsetting.factory.ui.factorymenu.OverScanAdjustViewHolder.TvInputSourceManagerCallback.1
+- 130: OverScanAdjustViewHolder.this.text_factory_overscan_source_val.setText(OverScanAdjustViewHolder.this.mSupportSourceStrArray[OverScanAdjustViewHolder.this.mSourceIndex]);
+- 131: if (OverScanAdjustViewHolder.this.mTvFApiInputSource.getCurrentInputSourceType() != MtkTvFApiDisplayTypes.EnumInputSourceType.E_ATV.ordinal()) {
+- 132: if (OverScanAdjustViewHolder.this.mTvFApiInputSource.getCurrentInputSourceType() != MtkTvFApiDisplayTypes.EnumInputSourceType.E_DTV.ordinal()) {
+- 133: if (OverScanAdjustViewHolder.this.mTvFApiInputSource.getCurrentInputSourceType() != MtkTvFApiDisplayTypes.EnumInputSourceType.E_CVBS.ordinal()) {
+- 134: if (OverScanAdjustViewHolder.this.mTvFApiInputSource.getCurrentInputSourceType() != MtkTvFApiDisplayTypes.EnumInputSourceType.E_YPBPR.ordinal()) {
+- 135: if (OverScanAdjustViewHolder.this.mTvFApiInputSource.getCurrentInputSourceType() != MtkTvFApiDisplayTypes.EnumInputSourceType.E_HDMI.ordinal()) {
+- 136: if (OverScanAdjustViewHolder.this.mTvFApiInputSource.getCurrentInputSourceType() == MtkTvFApiDisplayTypes.EnumInputSourceType.E_VGA.ordinal()) {
+- 137: OverScanAdjustViewHolder.this.mInputSrcType = MtkTvFApiDisplayTypes.EnumInputSourceType.E_VGA;
+- 139: OverScanAdjustViewHolder.this.mInputSrcType = MtkTvFApiDisplayTypes.EnumInputSourceType.E_OTHERS;
+- 142: OverScanAdjustViewHolder.this.mInputSrcType = MtkTvFApiDisplayTypes.EnumInputSourceType.E_HDMI;
+- 145: OverScanAdjustViewHolder.this.mInputSrcType = MtkTvFApiDisplayTypes.EnumInputSourceType.E_YPBPR;
+- 148: OverScanAdjustViewHolder.this.mInputSrcType = MtkTvFApiDisplayTypes.EnumInputSourceType.E_CVBS;
+- 151: OverScanAdjustViewHolder.this.mInputSrcType = MtkTvFApiDisplayTypes.EnumInputSourceType.E_DTV;
+- 154: OverScanAdjustViewHolder.this.mInputSrcType = MtkTvFApiDisplayTypes.EnumInputSourceType.E_ATV;
+- 157: OverScanAdjustViewHolder.this.updateUi();
+- 162: @Override // mediatek.util.TvInputSourceManager.NotifyCb
+- 165: OverScanAdjustViewHolder.this.overScanActivity.runOnUiThread(new Runnable() { // from class: mediatek.tvsetting.factory.ui.factorymenu.OverScanAdjustViewHolder.TvInputSourceManagerCallback.2
+- 177: if (currentInputSourceName.equals(TvInputSourceManager.VGA)) {
+- 178: this.mTvInputSourceManager.setInputSource(this.mTvInputSourceManagerCallback, checksourcename(this.mSupportSourceStrArray[this.mSourceIndex]));
+- 180: this.mTvInputSourceManager.setInputSource(this.mTvInputSourceManagerCallback, checksourcename(currentInputSourceName));
+- 182: updateUi();
+- 186: public boolean onCreate() {
+- 187: this.mTvInputSourceManager.setTvViewVisible();
+- 192: this.mTvInputSourceManager.setTvViewInvisible();
+- 213: case R.id.linearlayout_factory_overscan_bottom /* 2131099968 */:
+- 218: this.text_factory_overscan_bottom_val.setText(Integer.toString(this.mBottom));
+- 219: this.progress_factory_overscan_bottom.setProgress(this.mBottom);
+- 220: updateIni();
+- 222: case R.id.linearlayout_factory_overscan_left /* 2131099969 */:
+- 227: this.text_factory_overscan_left_val.setText(Integer.toString(this.mLeft));
+- 228: this.progress_factory_overscan_left.setProgress(this.mLeft);
+- 229: updateIni();
+- 231: case R.id.linearlayout_factory_overscan_right /* 2131099970 */:
+- 236: this.text_factory_overscan_right_val.setText(Integer.toString(this.mRight));
+- 237: this.progress_factory_overscan_right.setProgress(this.mRight);
+- 238: updateIni();
+- 240: case R.id.linearlayout_factory_overscan_source /* 2131099971 */:
+- 247: this.text_factory_overscan_source_val.setText(this.mSupportSourceStrArray[this.mSourceIndex]);
+- 249: this.mTvInputSourceManager.setInputSource(this.mTvInputSourceManagerCallback, this.mSupportSourceStrArray[this.mSourceIndex]);
+- 251: case R.id.linearlayout_factory_overscan_top /* 2131099972 */:
+- 256: this.text_factory_overscan_top_val.setText(Integer.toString(this.mTop));
+- 257: this.progress_factory_overscan_top.setProgress(this.mTop);
+- 258: updateIni();
+- 264: case R.id.linearlayout_factory_overscan_bottom /* 2131099968 */:
+- 269: this.text_factory_overscan_bottom_val.setText(Integer.toString(this.mBottom));
+- 270: this.progress_factory_overscan_bottom.setProgress(this.mBottom);
+- 271: updateIni();
+- 273: case R.id.linearlayout_factory_overscan_left /* 2131099969 */:
+- 278: this.text_factory_overscan_left_val.setText(Integer.toString(this.mLeft));
+- 279: this.progress_factory_overscan_left.setProgress(this.mLeft);
+- 280: updateIni();
+- 282: case R.id.linearlayout_factory_overscan_right /* 2131099970 */:
+- 287: this.text_factory_overscan_right_val.setText(Integer.toString(this.mRight));
+- 288: this.progress_factory_overscan_right.setProgress(this.mRight);
+- 289: updateIni();
+- 291: case R.id.linearlayout_factory_overscan_source /* 2131099971 */:
+- 299: this.text_factory_overscan_source_val.setText(this.mSupportSourceStrArray[this.mSourceIndex]);
+- 301: this.mTvInputSourceManager.setInputSource(this.mTvInputSourceManagerCallback, this.mSupportSourceStrArray[this.mSourceIndex]);
+- 303: case R.id.linearlayout_factory_overscan_top /* 2131099972 */:
+- 308: this.text_factory_overscan_top_val.setText(Integer.toString(this.mTop));
+- 309: this.progress_factory_overscan_top.setProgress(this.mTop);
+- 310: updateIni();
+- 320: public void updateUi() {
+- 321: this.text_factory_overscan_source_val.setText(this.mSupportSourceStrArray[this.mSourceIndex]);
+- 328: this.mTvScreenModeOverscan = new MtkTvScreenModeOverscan();
+- 331: MtkTvScreenModeOverscan mtkTvScreenModeOverscan = this.mTvScreenModeOverscan;
+- 340: this.text_factory_overscan_right_val.setText(Integer.toString(this.mRight));
+- 341: this.text_factory_overscan_left_val.setText(Integer.toString(this.mLeft));
+- 342: this.text_factory_overscan_top_val.setText(Integer.toString(this.mTop));
+- 343: this.text_factory_overscan_bottom_val.setText(Integer.toString(this.mBottom));
+- 344: this.progress_factory_overscan_right.setProgress(this.mRight);
+- 345: this.progress_factory_overscan_left.setProgress(this.mLeft);
+- 346: this.progress_factory_overscan_top.setProgress(this.mTop);
+- 347: this.progress_factory_overscan_bottom.setProgress(this.mBottom);
+- 363: MtkTvFApiVideoTiming mtkTvFApiVideoTiming = new MtkTvFApiVideoTiming();
+- 372: this.mTvAVMode.setCrntOverscan(this.mTop, this.mBottom, this.mLeft, this.mRight);
+- 374: Customize.setOverScan(MtkTvFApiDisplayTypes.EnumInputSourceType.values()[this.mInputType], MtkTvFApiDisplayTypes.EnumOverScanScreenMode.values()[this.mScreenMode], this.mLeft, this.mRight, this.mTop, this.mBottom);
+- 375: this.mTvAVMode.updateOverscanIni();
+- 377: Log.d(TAG, "EnumInputSourceType.values()[mInputType] = " + MtkTvFApiDisplayTypes.EnumInputSourceType.values()[this.mInputType]);
+- 383: this.text_factory_overscan_source_val.setText(this.mSupportSourceStrArray[this.mSourceIndex]);
+- 384: this.layout_right.setEnabled(z);
+- 385: this.layout_left.setEnabled(z);
+- 386: this.layout_top.setEnabled(z);
+- 387: this.layout_bottom.setEnabled(z);
+
+### WBAdjustViewHolder
+
+Файл: mediatek/tvsetting/factory/ui/factorymenu/WBAdjustViewHolder.java; строк: 989
+
+**Обнаруженные методы (строка):**
+- handleMessage() : 147
+- WBAdjustViewHolder() : 152
+- findView() : 159
+- TvInputSourceManagerCallback() : 222
+- sourceSwitchingComplete() : 226
+- run() : 230
+- sourceSwitchingLoss() : 242
+- run() : 246
+- checkSource() : 252
+- onCreate() : 259
+- updateUI() : 272
+- getSupportSourcelist() : 413
+- onDestroy() : 430
+- onKeyDown() : 436
+- setGopTestPatternAttr() : 956
+- DisableSourceLinear() : 969
+- checksourcename() : 977
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- com.example.localbroadcast
+- WBAdjustViewHolder
+- User
+- Cool
+- Standard
+- Warm
+- Adjust Video
+- Adjust UI
+- Non
+- Color
+- Grey
+- sourceSwitchingComplete()
+- Update ui, currSrcName =
+- sourceSwitchingLoss()
+- currSrcName =
+- g_video__clr_temp
+- g_video__picture_mode
+- mCurrentSourceIndex =
+- pattern
+- mHue =
+- , mSaturation =
+- , mContrast =
+- , mBrightness =
+- , mPicRgain =
+- , mPicGgain =
+- , mPicBgain =
+- mTvInputList =
+- main
+- WBAdjustViewHolder mCurrentInput =
+- mSourceCount =
+- mSupportSourceStrArray[
+- ] =
+- sourceindex =
+- mPicModeIndex =
+- KEYCODE_DPAD_LEFT, mCurrentSourceIndex =
+- ,mSourceCount =
+- mPicBgain =
+- mBrightness =
+- mContrast =
+- mPicGgain =
+- mPicRgain =
+- mSaturation =
+- KEYCODE_DPAD_RIGHT, mCurrentSourceIndex =
+- setGopTestPatternAttr mHue =
+- ATV
+- DTV
+- checkSource(), currsrcname = TV
+- ATV and DTV are separate.
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 5: import android.media.tv.TvInputInfo;
+- 16: import com.mediatek.twoworlds.factory.MtkTvFApiDisplay;
+- 17: import com.mediatek.twoworlds.factory.MtkTvFApiDisplayBase;
+- 18: import com.mediatek.twoworlds.factory.MtkTvFApiDisplayTest;
+- 19: import com.mediatek.twoworlds.factory.MtkTvFApiInputSource;
+- 20: import com.mediatek.twoworlds.factory.common.MtkTvFApiDisplayTestTypes;
+- 21: import com.mediatek.twoworlds.factory.common.MtkTvFApiDisplayTypes;
+- 22: import com.mediatek.twoworlds.factory.model.MtkTvFApiDispHsyModelRange;
+- 23: import com.mediatek.twoworlds.tv.MtkTvBroadcast;
+- 24: import com.mediatek.twoworlds.tv.MtkTvConfig;
+- 25: import com.mediatek.twoworlds.tv.MtkTvInputSource;
+- 26: import com.mediatek.twoworlds.tv.common.MtkTvConfigTypeBase;
+- 32: import mediatek.util.TvInputSourceManager;
+- 152: public WBAdjustViewHolder(FactoryMenuActivity factoryMenuActivity, TvInputSourceManager tvInputSourceManager) {
+- 156: this.mPicModeStrArray = factoryMenuActivity.getResources().getStringArray(R.array.str_arr_pic_mode_vals);
+- 160: this.mImageView = (ImageView) this.wbActivity.findViewById(R.id.ui_imageView);
+- 161: this.linear_factory_wbadjust = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust);
+- 162: this.linear_factory_wbadjust_source = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_source);
+- 163: this.linear_factory_wbadjust_picmode = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_picmode);
+- 164: this.linear_factory_wbadjust_colortemp = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_colortemp);
+- 165: this.linear_factory_wbadjust_video_ui_adjust = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_video_ui_adjust);
+- 166: this.linear_factory_wbadjust_rgain = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_rgain);
+- 167: this.linear_factory_wbadjust_ggain = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_ggain);
+- 168: this.linear_factory_wbadjust_bgain = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_bgain);
+- 169: this.linear_factory_wbadjust_roffset = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_roffset);
+- 170: this.linear_factory_wbadjust_goffset = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_goffset);
+- 171: this.linear_factory_wbadjust_boffset = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbadjust_boffset);
+- 172: this.linear_factory_wbuipictureadjust_pattern = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_pattern);
+- 173: this.linear_factory_wbuipictureadjust_rgain = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_rgain);
+- 174: this.linear_factory_wbuipictureadjust_ggain = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_ggain);
+- 175: this.linear_factory_wbuipictureadjust_bgain = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_bgain);
+- 176: this.linear_design_wbuipictureadjust_contrast = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_contrast);
+- 177: this.linear_design_wbuipictureadjust_brightness = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_brightness);
+- 178: this.linear_factory_wbuipictureadjust_hue = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_hue);
+- 179: this.linear_factory_wbuipictureadjust_saturation = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_saturation);
+- 180: this.linear_factory_wbuipictureadjust_reset = (LinearLayout) this.wbActivity.findViewById(R.id.linearlayout_factory_wbuipictureadjust_reset);
+- 181: this.text_factory_wbadjust_title = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_title);
+- 182: this.text_factory_wbadjust_source_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_source_val);
+- 183: this.text_factory_wbadjust_rgain_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_val);
+- 184: this.text_factory_wbadjust_ggain_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_ggain_val);
+- 185: this.text_factory_wbadjust_bgain_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_bgain_val);
+- 186: this.text_factory_wbadjust_roffset_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_roffset_val);
+- 187: this.text_factory_wbadjust_goffset_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_goffset_val);
+- 188: this.text_factory_wbadjust_boffset_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_boffset_val);
+- 189: this.text_factory_wbadjust_colortemp_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_colortemp_val);
+- 190: this.text_factory_wbadjust_picmode_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_picmode_val);
+- 191: this.text_factory_wbadjust_video_ui_adjust_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbadjust_video_ui_adjust_val);
+- 192: this.text_factory_wbuipictureadjust_pattern_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbuipictureadjust_pattern_val);
+- 193: this.text_factory_wbuipictureadjust_rgain_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbuipictureadjust_rgain_val);
+- 194: this.text_factory_wbuipictureadjust_ggain_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbuipictureadjust_ggain_val);
+- 195: this.text_factory_wbuipictureadjust_bgain_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbuipictureadjust_bgain_val);
+- 196: this.text_factory_wbuipictureadjust_contrast_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbuipictureadjust_contrast_val);
+- 197: this.text_factory_wbuipictureadjust_brightness_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbuipictureadjust_brightness_val);
+- 198: this.text_factory_wbuipictureadjust_hue_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbuipictureadjust_hue_val);
+- 199: this.text_factory_wbuipictureadjust_saturation_val = (TextView) this.wbActivity.findViewById(R.id.textview_factory_wbuipictureadjust_saturation_val);
+- 200: this.progress_factory_wbuipictureadjust_rgain = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbuipictureadjust_rgain);
+- 201: this.progress_factory_wbuipictureadjust_ggain = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbuipictureadjust_ggain);
+- 202: this.progress_factory_wbuipictureadjust_bgain = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbuipictureadjust_bgain);
+- 203: this.progress_factory_wbuipictureadjust_contrast = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbuipictureadjust_contrast);
+- 204: this.progress_factory_wbuipictureadjust_brightness = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbuipictureadjust_brightness);
+- 205: this.progress_factory_wbuipictureadjust_hue = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbuipictureadjust_hue);
+- 206: this.progress_factory_wbuipictureadjust_saturation = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbuipictureadjust_saturation);
+- 207: this.progress_factory_wbadjust_rgain = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbadjust_rgain);
+- 208: this.progress_factory_wbadjust_ggain = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbadjust_ggain);
+- 209: this.progress_factory_wbadjust_bgain = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbadjust_bgain);
+- 210: this.progress_factory_wbadjust_roffset = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbadjust_roffset);
+- 211: this.progress_factory_wbadjust_goffset = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbadjust_goffset);
+- 212: this.progress_factory_wbadjust_boffset = (ProgressBar) this.wbActivity.findViewById(R.id.progressbar_facroty_wbadjust_boffset);
+- 213: this.progress_factory_wbadjust_rgain.setMax(MtkTvFApiDisplayBase.WB_ADJUST_GAIN_R_MAX - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_R_MIN);
+- 214: this.progress_factory_wbadjust_ggain.setMax(MtkTvFApiDisplayBase.WB_ADJUST_GAIN_G_MAX - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_G_MIN);
+- 215: this.progress_factory_wbadjust_bgain.setMax(MtkTvFApiDisplayBase.WB_ADJUST_GAIN_B_MAX - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_B_MIN);
+- 216: this.progress_factory_wbadjust_roffset.setMax(MtkTvFApiDisplayBase.WB_ADJUST_GAIN_R_MAX - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_R_MIN);
+- 217: this.progress_factory_wbadjust_goffset.setMax(MtkTvFApiDisplayBase.WB_ADJUST_GAIN_G_MAX - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_G_MIN);
+- 218: this.progress_factory_wbadjust_boffset.setMax(MtkTvFApiDisplayBase.WB_ADJUST_GAIN_B_MAX - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_B_MIN);
+- 225: @Override // mediatek.util.TvInputSourceManager.NotifyCb
+- 228: WBAdjustViewHolder.this.wbActivity.runOnUiThread(new Runnable() { // from class: mediatek.tvsetting.factory.ui.factorymenu.WBAdjustViewHolder.TvInputSourceManagerCallback.1
+- 233: WBAdjustViewHolder.this.mTvBroadCast.channelSelect(WBAdjustViewHolder.this.mTvConfig.getConfigValue(MtkTvConfigTypeBase.CFG_NAV_AIR_CRNT_CH), false);
+- 235: WBAdjustViewHolder.this.mTvFApiDisplay.saveWbGainOffsetEx2();
+- 236: WBAdjustViewHolder.this.updateUI();
+- 241: @Override // mediatek.util.TvInputSourceManager.NotifyCb
+- 244: WBAdjustViewHolder.this.wbActivity.runOnUiThread(new Runnable() { // from class: mediatek.tvsetting.factory.ui.factorymenu.WBAdjustViewHolder.TvInputSourceManagerCallback.2
+- 255: this.mTvInputSourceManager.setInputSource(this.mTvInputSourceManagerCallback, checksourcename(currentInputSourceName));
+- 259: public boolean onCreate() {
+- 260: this.mTvInputSourceManager.setTvViewVisible();
+- 267: updateUI();
+- 272: public void updateUI() {
+- 277: this.text_factory_wbadjust_source_val.setText(this.mSupportSourceStrArray[this.mCurrentSourceIndex]);
+- 278: this.text_factory_wbadjust_colortemp_val.setText(this.mColortempStrArray[this.mColortempIndex]);
+- 279: this.text_factory_wbadjust_picmode_val.setText(this.mPicModeStrArray[this.mPicModeIndex]);
+- 280: this.text_factory_wbadjust_video_ui_adjust_val.setText(this.mVideoUiAdjustStrArray[this.mVideoUiAdjust]);
+- 283: this.text_factory_wbadjust_title.setVisibility(0);
+- 284: this.linear_factory_wbadjust_source.setVisibility(0);
+- 285: this.linear_factory_wbadjust_picmode.setVisibility(0);
+- 286: this.linear_factory_wbadjust_colortemp.setVisibility(0);
+- 287: this.linear_factory_wbadjust_video_ui_adjust.setVisibility(0);
+- 288: this.linear_factory_wbadjust_rgain.setVisibility(0);
+- 289: this.linear_factory_wbadjust_ggain.setVisibility(0);
+- 290: this.linear_factory_wbadjust_bgain.setVisibility(0);
+- 291: this.linear_factory_wbadjust_roffset.setVisibility(0);
+- 292: this.linear_factory_wbadjust_goffset.setVisibility(0);
+- 293: this.linear_factory_wbadjust_boffset.setVisibility(0);
+- 294: this.linear_factory_wbuipictureadjust_pattern.setVisibility(8);
+- 295: this.linear_factory_wbuipictureadjust_rgain.setVisibility(8);
+- 296: this.linear_factory_wbuipictureadjust_ggain.setVisibility(8);
+- 297: this.linear_factory_wbuipictureadjust_bgain.setVisibility(8);
+- 298: this.linear_design_wbuipictureadjust_contrast.setVisibility(8);
+- 299: this.linear_design_wbuipictureadjust_brightness.setVisibility(8);
+- 300: this.linear_factory_wbuipictureadjust_hue.setVisibility(8);
+- 301: this.linear_factory_wbuipictureadjust_saturation.setVisibility(8);
+- 302: this.linear_factory_wbuipictureadjust_reset.setVisibility(8);
+- 303: this.linear_factory_wbuipictureadjust_pattern.setEnabled(false);
+- 304: this.linear_factory_wbuipictureadjust_rgain.setEnabled(false);
+- 305: this.linear_factory_wbuipictureadjust_ggain.setEnabled(false);
+- 306: this.linear_factory_wbuipictureadjust_bgain.setEnabled(false);
+- 307: this.linear_design_wbuipictureadjust_contrast.setEnabled(false);
+- 308: this.linear_design_wbuipictureadjust_brightness.setEnabled(false);
+- 309: this.linear_factory_wbuipictureadjust_hue.setEnabled(false);
+- 310: this.linear_factory_wbuipictureadjust_saturation.setEnabled(false);
+- 311: this.linear_factory_wbuipictureadjust_reset.setEnabled(false);
+- 312: MtkTvFApiDisplayTypes.ColorTempData wbGainOffsetEx2 = this.mTvFApiDisplay.getWbGainOffsetEx2(MtkTvFApiDisplayTypes.EnumColorTemperature.values()[this.mColortempIndex], this.mInputSrcType);
+- 322: this.text_factory_wbadjust_rgain_val.setText(Integer.toString(this.mRgain));
+- 323: this.text_factory_wbadjust_ggain_val.setText(Integer.toString(this.mGgain));
+- 324: this.text_factory_wbadjust_bgain_val.setText(Integer.toString(this.mBgain));
+- 325: this.text_factory_wbadjust_roffset_val.setText(Integer.toString(this.mRoffset));
+- 326: this.text_factory_wbadjust_goffset_val.setText(Integer.toString(this.mGoffset));
+- 327: this.text_factory_wbadjust_boffset_val.setText(Integer.toString(this.mBoffset));
+- 328: this.progress_factory_wbadjust_rgain.setProgress(this.mRgain - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_R_MIN);
+- 329: this.progress_factory_wbadjust_ggain.setProgress(this.mGgain - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_G_MIN);
+- 330: this.progress_factory_wbadjust_bgain.setProgress(this.mBgain - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_B_MIN);
+- 331: this.progress_factory_wbadjust_roffset.setProgress(this.mRoffset - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_R_MIN);
+- 332: this.progress_factory_wbadjust_goffset.setProgress(this.mGoffset - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_G_MIN);
+- 333: this.progress_factory_wbadjust_boffset.setProgress(this.mBoffset - MtkTvFApiDisplayBase.WB_ADJUST_GAIN_B_MIN);
+- 338: intent.setAction(HIDDEN_MAINMENU);
+- 341: intent.putExtra("pattern", i2);
+- 346: this.text_factory_wbadjust_title.setVisibility(8);
+- 347: this.linear_factory_wbadjust_source.setVisibility(8);
+- 348: this.linear_factory_wbadjust_picmode.setVisibility(8);
+- 349: this.linear_factory_wbadjust_colortemp.setVisibility(8);
+- 350: this.linear_factory_wbadjust_video_ui_adjust.setVisibility(8);
+- 351: this.text_factory_wbuipictureadjust_pattern_val.setText(this.mPatternpArray[this.mPattern]);
+- 353: intent.putExtra("pattern", i2);
+- 355: this.text_factory_wbadjust_title.setVisibility(0);
+- 356: this.linear_factory_wbadjust_source.setVisibility(0);
+- 357: this.linear_factory_wbadjust_picmode.setVisibility(0);
+- 358: this.linear_factory_wbadjust_colortemp.setVisibility(0);
+- 359: this.linear_factory_wbadjust_video_ui_adjust.setVisibility(0);
+- 360: this.text_factory_wbuipictureadjust_pattern_val.setText((CharSequence) null);
+- 362: this.linear_factory_wbadjust_rgain.setVisibility(8);
+- 363: this.linear_factory_wbadjust_ggain.setVisibility(8);
+- 364: this.linear_factory_wbadjust_bgain.setVisibility(8);
+- 365: this.linear_factory_wbadjust_roffset.setVisibility(8);
+- 366: this.linear_factory_wbadjust_goffset.setVisibility(8);
+- 367: this.linear_factory_wbadjust_boffset.setVisibility(8);
+- 368: this.linear_factory_wbuipictureadjust_pattern.setVisibility(0);
+- 369: this.linear_factory_wbuipictureadjust_rgain.setVisibility(0);
+
+### TestImagePatternsActivity
+
+Файл: mediatek/tvsetting/factory/ui/factorymenu/testpatternforpanel/TestImagePatternsActivity.java; строк: 248
+
+**Обнаруженные методы (строка):**
+- run() : 44
+- onCreate() : 50
+- resetImageList() : 71
+- onResume() : 96
+- onPause() : 101
+- onDestroy() : 106
+- displayImage() : 115
+- adjustAlpha() : 164
+- onKeyDown() : 171
+- onKeyUp() : 190
+- showPanel() : 237
+- scheduleHidePanel() : 244
+
+**Текстовые подписи / идентификаторы (кандидаты):**
+- TestImagePatternsActivity
+- tv-factory-menu
+- pattern-color-alpha
+- 100%
+- original size: w =
+- , h =
+- , aspRat =
+- size after adjusted: w =
+- createScaledBitmap ++ , mIndex =
+- createScaledBitmap --
+- Error while image decoding, please report to developer.
+
+**UI callbacks и API вызовы (строка: исходная инструкция):**
+- 45: TestImagePatternsActivity.this.mPanel.setVisibility(8);
+- 50: protected void onCreate(Bundle bundle) {
+- 51: super.onCreate(bundle);
+- 57: getWindow().getDecorView().setSystemUiVisibility(1);
+- 58: setContentView(R.layout.image_show);
+- 59: this.mImageView = (ImageView) findViewById(R.id.imageView);
+- 60: this.mPanel = (LinearLayout) findViewById(R.id.button_panel);
+- 61: this.mBtnPrev = (ImageView) findViewById(R.id.previous);
+- 62: this.mBtnNext = (ImageView) findViewById(R.id.next);
+- 63: TextView textView = (TextView) findViewById(R.id.brightness);
+- 65: textView.setText("100%");
+- 66: this.mBrightnessPanel = (LinearLayout) findViewById(R.id.brightness_panel);
+- 96: protected void onResume() {
+- 97: super.onResume();
+- 101: protected void onPause() {
+- 102: super.onPause();
+- 109: editorEdit.putInt("pattern-color-alpha", this.mAlpha);
+- 123: this.mBrightnessPanel.setVisibility(0);
+- 124: this.mImageView.setImageResource(this.mImageList.get(this.mIndex).getResId());
+- 128: this.mBrightnessPanel.setVisibility(8);
+- 129: this.mImageView.setImageResource(this.mImageList.get(this.mIndex).getResId());
+- 133: this.mBrightnessPanel.setVisibility(8);
+- 152: this.mImageView.setImageBitmap(bitmapCreateScaledBitmap);
+- 166: this.mImageView.setAlpha(f);
+- 167: this.mBrightness.setText(String.valueOf((int) (((double) (f * 100.0f)) + 0.5d)) + "%");
+- 177: this.mBtnPrev.setImageResource(R.drawable.icon_previous_focus);
+- 180: this.mBtnNext.setImageResource(R.drawable.icon_next_focus);
+- 214: this.mBtnPrev.setImageResource(R.drawable.icon_previous);
+- 225: this.mBtnNext.setImageResource(R.drawable.icon_next);
+- 239: this.mPanel.setVisibility(0);
+
+## Что это исследование не позволяет делать
+
+- Не объявлять factory-only WB, PEQ, MEMC calibration, Dolby vendor переключатели потребительскими функциями без OEM capability.
+- Не менять с Factory UI заводские PQ tables, ключи, EEPROM, настройки мотора, HDMI/CEC и тестовые паттерны в ходе анализа.
+- Следующий шаг: сопоставить обработчики KuSettings и stock Android TV, затем выполнить реальный read-only обход видимых экранов.
+
+## Структурированные приложения
+- FACTORY_CLASSES_8054.csv
+- FACTORY_BACKEND_CALLS_8054.csv
+- FACTORY_RESOURCE_LABELS_8054.csv
+- FACTORY_DOLBY_VISION_8054.csv
+- FACTORY_HDR_8054.csv
+- FOCUS_SCREEN_METHODS_8054.json
+

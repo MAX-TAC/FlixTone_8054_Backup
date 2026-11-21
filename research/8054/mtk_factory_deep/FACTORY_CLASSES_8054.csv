@@ -1,0 +1,53 @@
+area,source
+Other,mediatek/tvsetting/factory/ui/ApiService.java
+Other,mediatek/tvsetting/factory/ui/FactoryIntent.java
+Other,mediatek/tvsetting/factory/ui/ProjectorManager.java
+Audio/Dolby/DTS/EQ,mediatek/tvsetting/factory/ui/designmenu/AUDIO_nonStan.java
+Audio/Dolby/DTS/EQ,mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectActivity.java
+Audio/Dolby/DTS/EQ,mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectDapViewHolder.java
+Audio/Dolby/DTS/EQ,mediatek/tvsetting/factory/ui/designmenu/AdvancedEffectViewHolder.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/designmenu/DemodInfo.java
+Other,mediatek/tvsetting/factory/ui/designmenu/DesignMenuActivity.java
+Other,mediatek/tvsetting/factory/ui/designmenu/DesignMenuViewHolder.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/designmenu/ExecuteShellActivity.java
+Other,mediatek/tvsetting/factory/ui/designmenu/FactoryCloseCaptionSetupActivity.java
+Audio/Dolby/DTS/EQ,mediatek/tvsetting/factory/ui/designmenu/FactoryDTSActivity.java
+Audio/Dolby/DTS/EQ,mediatek/tvsetting/factory/ui/designmenu/FactoryDolbyActivity.java
+Other,mediatek/tvsetting/factory/ui/designmenu/FactoryInstallFvpIntermediateKeyActivity.java
+Other,mediatek/tvsetting/factory/ui/designmenu/FactoryInstallQdaActivity.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/designmenu/FactoryKeyUpgradeActivity.java
+MEMC,mediatek/tvsetting/factory/ui/designmenu/FactoryMemcActivity.java
+PQ/HDR/Dolby Vision,mediatek/tvsetting/factory/ui/designmenu/FactoryPqUpdateActivity.java
+Other,mediatek/tvsetting/factory/ui/designmenu/FactoryProgramPresetActivity.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/designmenu/FactoryUpgradeUrsaFwActivity.java
+Audio/Dolby/DTS/EQ,mediatek/tvsetting/factory/ui/designmenu/FileArrayAdapter.java
+Other,mediatek/tvsetting/factory/ui/designmenu/FileChooser.java
+Other,mediatek/tvsetting/factory/ui/designmenu/IPEnableMappingViewHolder.java
+Other,mediatek/tvsetting/factory/ui/designmenu/IPEnableName.java
+Other,mediatek/tvsetting/factory/ui/designmenu/InfoTextView.java
+Other,mediatek/tvsetting/factory/ui/designmenu/Item.java
+PQ/HDR/Dolby Vision,mediatek/tvsetting/factory/ui/designmenu/NonLinearAdjustViewHolder.java
+Other,mediatek/tvsetting/factory/ui/designmenu/NonStandardAdjustViewHolder.java
+Other,mediatek/tvsetting/factory/ui/designmenu/OtherOptionAdjustViewHolder.java
+Audio/Dolby/DTS/EQ,mediatek/tvsetting/factory/ui/designmenu/PEQAdjustViewHolder.java
+PQ/HDR/Dolby Vision,mediatek/tvsetting/factory/ui/designmenu/PanelInfoViewHolder.java
+PQ/HDR/Dolby Vision,mediatek/tvsetting/factory/ui/designmenu/PictureModeAdjustViewHolder.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/designmenu/SSCAdjustViewHolder.java
+Other,mediatek/tvsetting/factory/ui/designmenu/TestPatternViewHolder.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/designmenu/UrsaInfoViewHolder.java
+Other,mediatek/tvsetting/factory/ui/designmenu/VD.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/designmenu/VIF.java
+Other,mediatek/tvsetting/factory/ui/designmenu/mictest/MicFactory.java
+Other,mediatek/tvsetting/factory/ui/designmenu/mictest/MicViewHolder.java
+Other,mediatek/tvsetting/factory/ui/designmenu/mictest/SimpleFFT.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/factorymenu/ADCAdjustViewHolder.java
+Other,mediatek/tvsetting/factory/ui/factorymenu/BaseActivity.java
+Factory IO/calibration,mediatek/tvsetting/factory/ui/factorymenu/FactoryCameraActivity.java
+Other,mediatek/tvsetting/factory/ui/factorymenu/FactoryMenuActivity.java
+Other,mediatek/tvsetting/factory/ui/factorymenu/FactoryMenuViewHolder.java
+Other,mediatek/tvsetting/factory/ui/factorymenu/InfoViewHolder.java
+Other,mediatek/tvsetting/factory/ui/factorymenu/OtherOptionForFactory.java
+PQ/HDR/Dolby Vision,mediatek/tvsetting/factory/ui/factorymenu/OverScanAdjustViewHolder.java
+PQ/HDR/Dolby Vision,mediatek/tvsetting/factory/ui/factorymenu/WBAdjustViewHolder.java
+Other,mediatek/tvsetting/factory/ui/factorymenu/testpatternforpanel/PatternData.java
+Other,mediatek/tvsetting/factory/ui/factorymenu/testpatternforpanel/TestImagePatternsActivity.java
