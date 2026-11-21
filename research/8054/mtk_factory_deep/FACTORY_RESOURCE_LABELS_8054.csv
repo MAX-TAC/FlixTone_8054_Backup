@@ -1,17 +1,180 @@
 xml,type,name,display_value
 values/arrays.xml,string-array,str_arr_dap_enable_vals,OFF ON
+values/arrays.xml,array-item,str_arr_dap_enable_vals[0],OFF
+values/arrays.xml,array-item,str_arr_dap_enable_vals[1],ON
 values/arrays.xml,string-array,str_arr_dtv_route_type,NONE DVBT DVBC DVBS ATSC ISDB DVBT2 DVBS2 DTMB
+values/arrays.xml,array-item,str_arr_dtv_route_type[0],NONE
+values/arrays.xml,array-item,str_arr_dtv_route_type[1],DVBT
+values/arrays.xml,array-item,str_arr_dtv_route_type[2],DVBC
+values/arrays.xml,array-item,str_arr_dtv_route_type[3],DVBS
+values/arrays.xml,array-item,str_arr_dtv_route_type[4],ATSC
+values/arrays.xml,array-item,str_arr_dtv_route_type[5],ISDB
+values/arrays.xml,array-item,str_arr_dtv_route_type[6],DVBT2
+values/arrays.xml,array-item,str_arr_dtv_route_type[7],DVBS2
+values/arrays.xml,array-item,str_arr_dtv_route_type[8],DTMB
 values/arrays.xml,string-array,str_arr_mfc,Off Low Mid High Bypass
+values/arrays.xml,array-item,str_arr_mfc[0],Off
+values/arrays.xml,array-item,str_arr_mfc[1],Low
+values/arrays.xml,array-item,str_arr_mfc[2],Mid
+values/arrays.xml,array-item,str_arr_mfc[3],High
+values/arrays.xml,array-item,str_arr_mfc[4],Bypass
 values/arrays.xml,string-array,str_arr_mute_color_blue_onoff,Off On
+values/arrays.xml,array-item,str_arr_mute_color_blue_onoff[0],Off
+values/arrays.xml,array-item,str_arr_mute_color_blue_onoff[1],On
 values/arrays.xml,string-array,str_arr_mvop_pattern_type,XC_MVOP_PATTERN_NORMAL XC_MVOP_PATTERN_COLORBAR
+values/arrays.xml,array-item,str_arr_mvop_pattern_type[0],XC_MVOP_PATTERN_NORMAL
+values/arrays.xml,array-item,str_arr_mvop_pattern_type[1],XC_MVOP_PATTERN_COLORBAR
 values/arrays.xml,string-array,str_arr_nonlinear_volume_inputsrc_vals,DTV ATV HDMI CVBS MM
+values/arrays.xml,array-item,str_arr_nonlinear_volume_inputsrc_vals[0],DTV
+values/arrays.xml,array-item,str_arr_nonlinear_volume_inputsrc_vals[1],ATV
+values/arrays.xml,array-item,str_arr_nonlinear_volume_inputsrc_vals[2],HDMI
+values/arrays.xml,array-item,str_arr_nonlinear_volume_inputsrc_vals[3],CVBS
+values/arrays.xml,array-item,str_arr_nonlinear_volume_inputsrc_vals[4],MM
 values/arrays.xml,string-array,str_arr_nonlinear_volume_outputsrc_vals,ALL LR SPDIF HDMI_TX MAIN_SPEAKER HEADPHONE LINEOUT HDMI_ARC
+values/arrays.xml,array-item,str_arr_nonlinear_volume_outputsrc_vals[0],ALL
+values/arrays.xml,array-item,str_arr_nonlinear_volume_outputsrc_vals[1],LR
+values/arrays.xml,array-item,str_arr_nonlinear_volume_outputsrc_vals[2],SPDIF
+values/arrays.xml,array-item,str_arr_nonlinear_volume_outputsrc_vals[3],HDMI_TX
+values/arrays.xml,array-item,str_arr_nonlinear_volume_outputsrc_vals[4],MAIN_SPEAKER
+values/arrays.xml,array-item,str_arr_nonlinear_volume_outputsrc_vals[5],HEADPHONE
+values/arrays.xml,array-item,str_arr_nonlinear_volume_outputsrc_vals[6],LINEOUT
+values/arrays.xml,array-item,str_arr_nonlinear_volume_outputsrc_vals[7],HDMI_ARC
 values/arrays.xml,string-array,str_arr_pic_mode_vals,User Cinema Sport Vivid Hi Bright Dovi Bright Dovi Dark Standard Natural Movie Game Energy Saving AI PQ Dolby Vision Vivid Dolby Vision_Game User(HDR10) Sport(HDR10) Vivid(HDR10) Standard(HDR10) Movie
+values/arrays.xml,array-item,str_arr_pic_mode_vals[0],User
+values/arrays.xml,array-item,str_arr_pic_mode_vals[1],Cinema
+values/arrays.xml,array-item,str_arr_pic_mode_vals[2],Sport
+values/arrays.xml,array-item,str_arr_pic_mode_vals[3],Vivid
+values/arrays.xml,array-item,str_arr_pic_mode_vals[4],Hi Bright
+values/arrays.xml,array-item,str_arr_pic_mode_vals[5],Dovi Bright
+values/arrays.xml,array-item,str_arr_pic_mode_vals[6],Dovi Dark
+values/arrays.xml,array-item,str_arr_pic_mode_vals[7],Standard
+values/arrays.xml,array-item,str_arr_pic_mode_vals[8],Natural
+values/arrays.xml,array-item,str_arr_pic_mode_vals[9],Movie
+values/arrays.xml,array-item,str_arr_pic_mode_vals[10],Game
+values/arrays.xml,array-item,str_arr_pic_mode_vals[11],Energy Saving
+values/arrays.xml,array-item,str_arr_pic_mode_vals[12],AI PQ
+values/arrays.xml,array-item,str_arr_pic_mode_vals[13],Dolby Vision Vivid
+values/arrays.xml,array-item,str_arr_pic_mode_vals[14],Dolby Vision_Game
+values/arrays.xml,array-item,str_arr_pic_mode_vals[15],User(HDR10)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[16],Sport(HDR10)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[17],Vivid(HDR10)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[18],Standard(HDR10)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[19],Movie(HDR10)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[20],Game(HDR10)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[21],Energy Saving(HDR10)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[22],HDR10_8
+values/arrays.xml,array-item,str_arr_pic_mode_vals[23],HDR10_9
+values/arrays.xml,array-item,str_arr_pic_mode_vals[24],HDR10_10
+values/arrays.xml,array-item,str_arr_pic_mode_vals[25],HDR10_11
+values/arrays.xml,array-item,str_arr_pic_mode_vals[26],HDR10_12
+values/arrays.xml,array-item,str_arr_pic_mode_vals[27],HDR10_13
+values/arrays.xml,array-item,str_arr_pic_mode_vals[28],HDR10_14
+values/arrays.xml,array-item,str_arr_pic_mode_vals[29],HDR10_15
+values/arrays.xml,array-item,str_arr_pic_mode_vals[30],HDR10_16
+values/arrays.xml,array-item,str_arr_pic_mode_vals[31],HDR10_17
+values/arrays.xml,array-item,str_arr_pic_mode_vals[32],HDR10_18
+values/arrays.xml,array-item,str_arr_pic_mode_vals[33],HDR10_19
+values/arrays.xml,array-item,str_arr_pic_mode_vals[34],HDR10_20
+values/arrays.xml,array-item,str_arr_pic_mode_vals[35],User(HDR10Plus)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[36],Sport(HDR10Plus)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[37],Vivid(HDR10Plus)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[38],Standard(HDR10Plus)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[39],Movie(HDR10Plus)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[40],Game(HDR10Plus)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[41],Energy Saving(HDR10Plus)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[42],HDR10Plus_8
+values/arrays.xml,array-item,str_arr_pic_mode_vals[43],HDR10Plus_9
+values/arrays.xml,array-item,str_arr_pic_mode_vals[44],HDR10Plus_10
+values/arrays.xml,array-item,str_arr_pic_mode_vals[45],HDR10Plus_11
+values/arrays.xml,array-item,str_arr_pic_mode_vals[46],HDR10Plus_12
+values/arrays.xml,array-item,str_arr_pic_mode_vals[47],HDR10Plus_13
+values/arrays.xml,array-item,str_arr_pic_mode_vals[48],HDR10Plus_14
+values/arrays.xml,array-item,str_arr_pic_mode_vals[49],HDR10Plus_15
+values/arrays.xml,array-item,str_arr_pic_mode_vals[50],HDR10Plus_16
+values/arrays.xml,array-item,str_arr_pic_mode_vals[51],HDR10Plus_17
+values/arrays.xml,array-item,str_arr_pic_mode_vals[52],HDR10Plus_18
+values/arrays.xml,array-item,str_arr_pic_mode_vals[53],HDR10Plus_19
+values/arrays.xml,array-item,str_arr_pic_mode_vals[54],HDR10Plus_20
+values/arrays.xml,array-item,str_arr_pic_mode_vals[55],User(HLG)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[56],Sport(HLG)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[57],Vivid(HLG)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[58],Standard(HLG)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[59],Movie(HLG)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[60],Game(HLG)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[61],Energy Saving(HLG)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[62],HLG_8
+values/arrays.xml,array-item,str_arr_pic_mode_vals[63],HLG_9
+values/arrays.xml,array-item,str_arr_pic_mode_vals[64],HLG_10
+values/arrays.xml,array-item,str_arr_pic_mode_vals[65],HLG_11
+values/arrays.xml,array-item,str_arr_pic_mode_vals[66],HLG_12
+values/arrays.xml,array-item,str_arr_pic_mode_vals[67],HLG_13
+values/arrays.xml,array-item,str_arr_pic_mode_vals[68],HLG_14
+values/arrays.xml,array-item,str_arr_pic_mode_vals[69],HLG_15
+values/arrays.xml,array-item,str_arr_pic_mode_vals[70],HLG_16
+values/arrays.xml,array-item,str_arr_pic_mode_vals[71],HLG_17
+values/arrays.xml,array-item,str_arr_pic_mode_vals[72],HLG_18
+values/arrays.xml,array-item,str_arr_pic_mode_vals[73],HLG_19
+values/arrays.xml,array-item,str_arr_pic_mode_vals[74],HLG_20
+values/arrays.xml,array-item,str_arr_pic_mode_vals[75],Filmmaker(SDR)
+values/arrays.xml,array-item,str_arr_pic_mode_vals[76],Filmmaker(HDR)
 values/arrays.xml,string-array,str_arr_sound_dap_mode_vals,Off Auto Movie Music Game News Night Voip Standard Stadium User
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[0],Off
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[1],Auto
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[2],Movie
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[3],Music
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[4],Game
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[5],News
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[6],Night
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[7],Voip
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[8],Standard
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[9],Stadium
+values/arrays.xml,array-item,str_arr_sound_dap_mode_vals[10],User
 values/arrays.xml,string-array,str_dvbc_info_array,u16Version: %1$s u16SymbolRate: %1$s eQamMode: %1$s u32IFFreq: %1$s bSpecInv: %1$s bSerialTS: %1$s u8SarValue: %1$s u32ChkScanTimeStart: %1$s eLockStatus: %1$s u16Strength: %1$s u16Quality: %1$s u32In
+values/arrays.xml,array-item,str_dvbc_info_array[0],u16Version: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[1],u16SymbolRate: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[2],eQamMode: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[3],u32IFFreq: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[4],bSpecInv: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[5],bSerialTS: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[6],u8SarValue: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[7],u32ChkScanTimeStart: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[8],eLockStatus: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[9],u16Strength: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[10],u16Quality: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[11],u32Intp: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[12],u32FcFs: %1$s
+values/arrays.xml,array-item,str_dvbc_info_array[13],u16SymbolRateHal: %1$s
 values/arrays.xml,string-array,str_dvbt_info_array,u16Version: %1$s u16DemodState: %1$s SfoValue: %1$s TotalCfo: %1$s u16ChannelLength: %1$s u8Fft: %1$s u8Constel: %1$s u8Gi: %1$s u8HpCr: %1$s u8LpCr: %1$s u8Hiearchy: %1$s u8Fd: %1$s u8ChLen: %1$s u8S
+values/arrays.xml,array-item,str_dvbt_info_array[0],u16Version: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[1],u16DemodState: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[2],SfoValue: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[3],TotalCfo: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[4],u16ChannelLength: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[5],u8Fft: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[6],u8Constel: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[7],u8Gi: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[8],u8HpCr: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[9],u8LpCr: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[10],u8Hiearchy: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[11],u8Fd: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[12],u8ChLen: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[13],u8SnrSel: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[14],u8PertoneNum: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[15],u8DigAci: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[16],u8FlagCi: %1$s
+values/arrays.xml,array-item,str_dvbt_info_array[17],u8TdCoef: %1$s
 values/arrays.xml,string-array,str_factory_advanced_effect_dap_enable_val,ON OFF
+values/arrays.xml,array-item,str_factory_advanced_effect_dap_enable_val[0],ON
+values/arrays.xml,array-item,str_factory_advanced_effect_dap_enable_val[1],OFF
 values/arrays.xml,string-array,xvycc_array,R X R Y G X G Y B X B Y W X W Y
+values/arrays.xml,array-item,xvycc_array[0],R X
+values/arrays.xml,array-item,xvycc_array[1],R Y
+values/arrays.xml,array-item,xvycc_array[2],G X
+values/arrays.xml,array-item,xvycc_array[3],G Y
+values/arrays.xml,array-item,xvycc_array[4],B X
+values/arrays.xml,array-item,xvycc_array[5],B Y
+values/arrays.xml,array-item,xvycc_array[6],W X
+values/arrays.xml,array-item,xvycc_array[7],W Y
 values/drawables.xml,item,notification_template_icon_bg,#3333b5e5
 values/drawables.xml,item,notification_template_icon_low_bg,#0cffffff
 values/strings.xml,string,app_name,Factory Menu
@@ -723,10 +886,39 @@ values-th/strings.xml,string,status_bar_notification_info_overflow,999+
 values-tr/strings.xml,string,status_bar_notification_info_overflow,999+
 values-vi/strings.xml,string,status_bar_notification_info_overflow,999+
 values-zh-rCN/arrays.xml,string-array,str_arr_dap_enable_vals,OFF ON
+values-zh-rCN/arrays.xml,array-item,str_arr_dap_enable_vals[0],OFF
+values-zh-rCN/arrays.xml,array-item,str_arr_dap_enable_vals[1],ON
 values-zh-rCN/arrays.xml,string-array,str_arr_dtv_route_type,NONE DVBT DVBC DVBS ATSC ISDB DVBT2 DVBS2 DTMB
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[0],NONE
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[1],DVBT
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[2],DVBC
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[3],DVBS
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[4],ATSC
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[5],ISDB
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[6],DVBT2
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[7],DVBS2
+values-zh-rCN/arrays.xml,array-item,str_arr_dtv_route_type[8],DTMB
 values-zh-rCN/arrays.xml,string-array,str_arr_mfc,关 弱 中 强 Bypass
+values-zh-rCN/arrays.xml,array-item,str_arr_mfc[0],关
+values-zh-rCN/arrays.xml,array-item,str_arr_mfc[1],弱
+values-zh-rCN/arrays.xml,array-item,str_arr_mfc[2],中
+values-zh-rCN/arrays.xml,array-item,str_arr_mfc[3],强
+values-zh-rCN/arrays.xml,array-item,str_arr_mfc[4],Bypass
 values-zh-rCN/arrays.xml,string-array,str_arr_mvop_pattern_type,XC_MVOP_PATTERN_NORMAL XC_MVOP_PATTERN_COLORBAR
+values-zh-rCN/arrays.xml,array-item,str_arr_mvop_pattern_type[0],XC_MVOP_PATTERN_NORMAL
+values-zh-rCN/arrays.xml,array-item,str_arr_mvop_pattern_type[1],XC_MVOP_PATTERN_COLORBAR
 values-zh-rCN/arrays.xml,string-array,str_arr_sound_dap_mode_vals,Off Auto Movie Music Game News Night Voip Standard Stadium User
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[0],Off
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[1],Auto
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[2],Movie
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[3],Music
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[4],Game
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[5],News
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[6],Night
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[7],Voip
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[8],Standard
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[9],Stadium
+values-zh-rCN/arrays.xml,array-item,str_arr_sound_dap_mode_vals[10],User
 values-zh-rCN/strings.xml,string,status_bar_notification_info_overflow,999+
 values-zh-rCN/strings.xml,string,str_adc_EnableADCType,ADC使能类型
 values-zh-rCN/strings.xml,string,str_adc_EnableADCType_range,范围: 0 ~ 255

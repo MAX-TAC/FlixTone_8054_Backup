@@ -8,7 +8,7 @@
 - Собственных Java классов Factory UI: 52
 - Детально обследованы основные UI компоненты: 32
 - Найдено кандидатов UI/API вызовов: 2346
-- XML resource labels: 958
+- XML resource labels: 1150
 - Dolby Vision/DOVI references: 3
 - HDR/HLG references: 0
 
