@@ -56,6 +56,15 @@ Evidence: FactoryMenuActivity.onClick 41–120 и registerListeners 157–165.
 
 ## 3. Изображение, HDR, Dolby Vision и режимы PQ
 
+**Дополнительная полная проверка ресурса str_arr_pic_mode_vals: 77 отдельных индексированных записей (0..76).** В исходном values/arrays.xml подтверждены следующие диапазоны:
+- 0–14: User, Cinema, Sport, Vivid, Hi Bright, Dovi Bright, Dovi Dark, Standard, Natural, Movie, Game, Energy Saving, AI PQ, Dolby Vision Vivid, Dolby Vision_Game;
+- 15–34: HDR10, включая User(HDR10), Sport(HDR10), Vivid(HDR10), Standard(HDR10), Movie(HDR10), Game(HDR10), Energy Saving(HDR10), затем generic HDR10_8..HDR10_20;
+- 35–54: HDR10Plus, аналогичные User/Sport/Vivid/Standard/Movie/Game/Energy Saving + HDR10Plus_8..HDR10Plus_20;
+- 55–74: HLG, аналогичные User/Sport/Vivid/Standard/Movie/Game/Energy Saving + HLG_8..HLG_20;
+- 75–76: Filmmaker(SDR), Filmmaker(HDR).
+
+Строки HDR10_8 / HLG_12 похожи на generic placeholders общей MediaTek UI таблицы. **Нельзя приравнивать 77 resource entries к 77 реализованным hardware режимам**; нужны реальные EnumVideoPictureMode, текущий вход и HDR state, OEM capability filtering, middleware response. [Все элементы и их ordinal](FACTORY_RESOURCE_LABELS_8054.csv).
+
 **Ресурсы Factory реально содержат следующие названия профилей:**
 - User, Cinema, Sport, Vivid, Hi Bright;
 - Dovi Bright, Dovi Dark;
