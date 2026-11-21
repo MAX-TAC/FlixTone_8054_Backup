@@ -35,6 +35,10 @@
 - Обновление должно проверять аппаратный ID и владельцу предоставлять выбор с объяснением изменения boot state/риска wipe.
 - Нельзя автоматически объявлять OTA возможной из-за наличия `update_engine`.
 
+### Обновление исследования USB TXT от 21.11.2026
+
+На **точном MBOOT 8054** вновь проверен литерал `Script format default file name is /usb_auto_update.txt`; отдельно есть `mtkupgrade usb -script` и `scriptstar [script_file_name]`. Это делает разработку **USB-инсталлятора с текстовым сценарием** предметной задачей, но **не** подтверждает запуск `usb_auto_update.txt` автоматически при старте (bootflow видит `usb start;mtkupgrade usb`, который может выбирать PKG), тем более разрешённую разблокировку с locked state без consent. [Точный офлайн тест](https://github.com/MAX-TAC/FlixTone_8054_Backup/actions/runs/44944317009); [детали](USB_INSTALL_AND_UNLOCK_RESEARCH_20261121.md).
+
 ### Канал C: USB bootloader recovery/upgrade
 
 - Exact MBOOT содержит `mtkupgrade usb`, auto-upgrade и `-script`; детали [USB analysis](USB_INSTALL_AND_UNLOCK_RESEARCH_20261121.md).
