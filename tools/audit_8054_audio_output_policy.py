@@ -116,3 +116,25 @@ for part in PARTS:
                 print("ALLOWLIST",pkg,permission.split(".")[-1],permission in grants,
                       "DENIED",permission in denied)
 print("NOTE: privapp allowlist ≠ runtime grant. Actual permission grant and audio route require on-device dumpsys.")
+
+print("\n## Exact installed android framework versus TvSettingsPlus signing certificate")
+system_tree=ROOT/"system_a_tree"
+framework=system_tree/"framework/framework-res.apk"
+tvsettings=ROOT/"system_ext_a_tree/priv-app/TvSettingsPlus/TvSettingsPlus.apk"
+digest_re=re.compile(r"Signer #1 certificate SHA-256 digest:\s*([a-f0-9]+)",re.I)
+digests={}
+for tag,p in (("android_framework_res",framework),("TvSettingsPlus",tvsettings)):
+    if not p.is_file():
+        print("APK_CERT_MISSING",tag)
+        continue
+    try:
+        proc=subprocess.run(["apksigner","verify","--print-certs",str(p)],capture_output=True,text=True,timeout=45)
+        match=digest_re.search(proc.stdout)
+        if proc.returncode==0 and match:
+            digests[tag]=match.group(1).lower()
+            print("APK_CERT_SHA256",tag,digests[tag])
+        else: print("APK_CERT_UNVERIFIED",tag,proc.returncode)
+    except Exception as exc:print("APK_CERT_ERROR",tag,type(exc).__name__)
+if len(digests)==2:
+    print("FRAMEWORK_TVSETTINGS_CERT_EQUAL",digests["android_framework_res"]==digests["TvSettingsPlus"])
+print("NOTE: cert equality is strong evidence that a future properly signed APK could qualify for signature permissions, but it does NOT prove actual grant or MediaTek Audio HAL route acceptance.")
