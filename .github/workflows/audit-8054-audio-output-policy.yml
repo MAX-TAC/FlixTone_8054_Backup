@@ -1,0 +1,40 @@
+name: Exact 8054 stock Audio Policy and TvSettings permissions read-only audit
+on:
+  push:
+    paths:
+      - 'tools/audit_8054_audio_output_policy.py'
+      - '.github/workflows/audit-8054-audio-output-policy.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install file-only inspection utilities
+        run: |
+          set -euo pipefail
+          python3 -m py_compile tools/audit_8054_audio_output_policy.py
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq erofs-utils aapt
+      - name: Obtain verified owner backup
+        run: |
+          set -euo pipefail
+          gh release download FlixTone_8054_Backup --repo MAX-TAC/FlixTone_8054_Backup \
+            --pattern FlixTone_8054_Backup.zip --dir /tmp
+          test "$(stat -c %s /tmp/FlixTone_8054_Backup.zip)" -eq 2011878129
+          sha256sum /tmp/FlixTone_8054_Backup.zip | grep -i '^4f53f2224c98b4c832a19a591b9dd7f925bde28528b5674a09732c0f0e41d362 '
+      - name: Extract verified exact 8054 EROFS images in runner /tmp
+        run: |
+          set -euo pipefail
+          python3 tools/inspect_8054_draft_safely.py /tmp/FlixTone_8054_Backup.zip >/tmp/8054-verified.txt
+          python3 tools/deep_audit_8054_stock.py > /tmp/8054-erofs-inspected.txt
+          test -f /tmp/flix8054_erofs/system_ext_a_tree/priv-app/TvSettingsPlus/TvSettingsPlus.apk
+      - name: Report AudioPolicy and exact stock APK declared permissions (no device writes)
+        run: |
+          set -euo pipefail
+          python3 tools/audit_8054_audio_output_policy.py | tee /tmp/8054-audio-policy-result.txt
