@@ -119,7 +119,7 @@ print("NOTE: privapp allowlist ≠ runtime grant. Actual permission grant and au
 
 print("\n## Exact installed android framework versus TvSettingsPlus signing certificate")
 system_tree=ROOT/"system_a_tree"
-framework=system_tree/"framework/framework-res.apk"
+framework=system_tree/"system/framework/framework-res.apk"
 tvsettings=ROOT/"system_ext_a_tree/priv-app/TvSettingsPlus/TvSettingsPlus.apk"
 digest_re=re.compile(r"Signer #1 certificate SHA-256 digest:\s*([a-f0-9]+)",re.I)
 digests={}
